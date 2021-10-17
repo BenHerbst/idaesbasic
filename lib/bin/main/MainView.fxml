@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -12,21 +12,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ainm.FXMLController">
    <left>
       <TreeView prefHeight="306.0" prefWidth="210.0" BorderPane.alignment="CENTER" />
    </left>
    <bottom>
-      <ToolBar prefHeight="22.0" prefWidth="600.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+      <ToolBar prefHeight="22.0" prefWidth="600.0" BorderPane.alignment="CENTER">
         <items>
             <Button mnemonicParsing="false" text="Update" />
           <Button mnemonicParsing="false" text="News" />
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Properties" />
             <Button layoutX="122.0" layoutY="10.0" mnemonicParsing="false" text="Messanges" />
             <Button layoutX="193.0" layoutY="10.0" mnemonicParsing="false" text="24°" />
-            <Button layoutX="272.0" layoutY="10.0" mnemonicParsing="false" text="17/10/2021" />
-            <Button layoutX="310.0" layoutY="10.0" mnemonicParsing="false" text="12:30" />
+            <Button fx:id="date_button" layoutX="272.0" layoutY="10.0" mnemonicParsing="false" text="17/10/2021" />
+            <Button fx:id="time_button" layoutX="310.0" layoutY="10.0" mnemonicParsing="false" text="12:30" />
         </items>
+         <stylesheets>
+            <URL value="@styles/airbar/button.css" />
+            <URL value="@styles/airbar/background.css" />
+         </stylesheets>
       </ToolBar>
    </bottom>
    <center>
@@ -34,11 +38,7 @@
         <tabs>
           <Tab text="Untitled Tab 1">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" prefHeight="311.0" prefWidth="289.0" text="Test panel" underline="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
           </Tab>
           <Tab text="Untitled Tab 2">
@@ -54,32 +54,63 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
+                  <MenuItem mnemonicParsing="false" text="Open" />
+                  <Menu mnemonicParsing="false" text="New">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="New Todolist" />
+                        <MenuItem mnemonicParsing="false" text="New Kanban" />
+                        <MenuItem mnemonicParsing="false" text="New Calendar" />
+                        <MenuItem mnemonicParsing="false" text="New Whiteboard" />
+                    </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" text="Save as" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
+                  <MenuItem mnemonicParsing="false" text="Select all" />
+                  <MenuItem mnemonicParsing="false" text="Clean" />
+                  <MenuItem mnemonicParsing="false" text="Convert" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Navigation">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Close all tabs" />
+                  <MenuItem mnemonicParsing="false" text="New tab" />
+                  <MenuItem mnemonicParsing="false" text="Close tab" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Projects">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <MenuItem mnemonicParsing="false" text="Start new project" />
+                  <MenuItem mnemonicParsing="false" text="Add project" />
+                  <MenuItem mnemonicParsing="false" text="Close current project" />
+                  <MenuItem mnemonicParsing="false" text="Delete project" />
+                  <Menu mnemonicParsing="false" text="Project list">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Window">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <MenuItem mnemonicParsing="false" text="New window" />
+                  <MenuItem mnemonicParsing="false" text="Close current window" />
+                  <MenuItem mnemonicParsing="false" text="Open file explorer" />
+                  <MenuItem mnemonicParsing="false" text="Open browser" />
+                  <MenuItem mnemonicParsing="false" text="Open texteditor" />
                </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Github" />
+                  <MenuItem mnemonicParsing="false" text="Settings" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
         </menus>
