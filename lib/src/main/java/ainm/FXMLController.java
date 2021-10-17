@@ -18,6 +18,7 @@ public class FXMLController {
 
     @FXML
     private void initialize() {
+    	//Set date from date button
     	date_button.setText(LocalDate.now().toString());
     	Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
