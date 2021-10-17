@@ -11,6 +11,8 @@ public class Main extends Application {
     public void start(Stage stage) {
         Scene scene = new Scene(new StackPane(), 640, 480);
         stage.setScene(scene);
+        stage.setTitle("Ainm - 0.01 / Todolist");
+        stage.setMaximized(true);
         stage.show();
     }
 
