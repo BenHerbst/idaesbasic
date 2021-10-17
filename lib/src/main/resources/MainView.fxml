@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ainm.FXMLController">
    <left>
       <TreeView prefHeight="306.0" prefWidth="210.0" BorderPane.alignment="CENTER" />
    </left>
@@ -24,8 +24,8 @@
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Properties" />
             <Button layoutX="122.0" layoutY="10.0" mnemonicParsing="false" text="Messanges" />
             <Button layoutX="193.0" layoutY="10.0" mnemonicParsing="false" text="24°" />
-            <Button layoutX="272.0" layoutY="10.0" mnemonicParsing="false" text="17/10/2021" />
-            <Button layoutX="310.0" layoutY="10.0" mnemonicParsing="false" text="12:30" />
+            <Button fx:id="date_button" layoutX="272.0" layoutY="10.0" mnemonicParsing="false" text="17/10/2021" />
+            <Button fx:id="time_button" layoutX="310.0" layoutY="10.0" mnemonicParsing="false" text="12:30" />
         </items>
       </ToolBar>
    </bottom>
