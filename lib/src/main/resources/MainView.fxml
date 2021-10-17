@@ -54,32 +54,63 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
+                  <MenuItem mnemonicParsing="false" text="Open" />
+                  <Menu mnemonicParsing="false" text="New">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="New Todolist" />
+                        <MenuItem mnemonicParsing="false" text="New Kanban" />
+                        <MenuItem mnemonicParsing="false" text="New Calendar" />
+                        <MenuItem mnemonicParsing="false" text="New Whiteboard" />
+                    </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" text="Save as" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
+                  <MenuItem mnemonicParsing="false" text="Select all" />
+                  <MenuItem mnemonicParsing="false" text="Clean" />
+                  <MenuItem mnemonicParsing="false" text="Convert" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Navigation">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Close all tabs" />
+                  <MenuItem mnemonicParsing="false" text="New tab" />
+                  <MenuItem mnemonicParsing="false" text="Close tab" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Projects">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <MenuItem mnemonicParsing="false" text="Start new project" />
+                  <MenuItem mnemonicParsing="false" text="Add project" />
+                  <MenuItem mnemonicParsing="false" text="Close current project" />
+                  <MenuItem mnemonicParsing="false" text="Delete project" />
+                  <Menu mnemonicParsing="false" text="Project list">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Window">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <MenuItem mnemonicParsing="false" text="New window" />
+                  <MenuItem mnemonicParsing="false" text="Close current window" />
+                  <MenuItem mnemonicParsing="false" text="Open file explorer" />
+                  <MenuItem mnemonicParsing="false" text="Open browser" />
+                  <MenuItem mnemonicParsing="false" text="Open texteditor" />
                </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Github" />
+                  <MenuItem mnemonicParsing="false" text="Settings" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
         </menus>
