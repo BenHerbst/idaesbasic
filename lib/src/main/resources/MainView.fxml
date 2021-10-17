@@ -14,7 +14,11 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ainm.FXMLController">
    <left>
-      <TreeView prefHeight="306.0" prefWidth="210.0" BorderPane.alignment="CENTER" />
+      <TreeView prefHeight="306.0" prefWidth="210.0" BorderPane.alignment="CENTER">
+         <stylesheets>
+            <URL value="@styles/treeview/background.css" />
+            <URL value="@styles/treeview/tree_cell.css" />
+         </stylesheets></TreeView>
    </left>
    <bottom>
       <ToolBar prefHeight="22.0" prefWidth="600.0" BorderPane.alignment="CENTER">
@@ -47,6 +51,10 @@
             </content>
           </Tab>
         </tabs>
+         <stylesheets>
+            <URL value="@styles/tabpane/tab_pane.css" />
+            <URL value="@styles/tabpane/tab.css" />
+         </stylesheets>
       </TabPane>
    </center>
    <top>
@@ -114,6 +122,11 @@
             </items>
           </Menu>
         </menus>
+         <stylesheets>
+            <URL value="@styles/menubar/menubar.css" />
+            <URL value="@styles/menubar/contect_menu.css" />
+            <URL value="@styles/menubar/menu_item.css" />
+         </stylesheets>
       </MenuBar>
    </top>
 </BorderPane>

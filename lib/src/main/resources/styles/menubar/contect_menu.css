@@ -1,0 +1,5 @@
+.context-menu {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+    -fx-background-radius: 0 0 10 10;
+    -fx-background-color: #232323;
+}

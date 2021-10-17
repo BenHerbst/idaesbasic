@@ -1,0 +1,17 @@
+.tab {
+	-fx-background-color: transparent;
+	-fx-background-radius: 7;
+	-fx-padding: 7;
+}
+
+.tab:selected {
+	-fx-background-color: #232323;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+     -fx-border-width: 0;
+}
+
+.tab-label {
+	-fx-text-fill: #b5b5b5;
+}

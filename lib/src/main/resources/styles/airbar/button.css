@@ -1,10 +1,10 @@
 .button {  
     -fx-padding: 3 10 3 10;
-    -fx-background-color : #000000;
-    -fx-text-fill: #ffffff;
+    -fx-background-color: #070707;
+    -fx-text-fill: #b5b5b5;
     -fx-background-radius: 0;
 }
 
 .button:focused {
-	-fx-background-color: #3a3a3a;
+	-fx-background-color: #141414;
 }
