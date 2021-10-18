@@ -38,7 +38,7 @@
       </ToolBar>
    </bottom>
    <center>
-      <TabPane prefHeight="33.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane prefHeight="33.0" prefWidth="600.0" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="Untitled Tab 1">
             <content>

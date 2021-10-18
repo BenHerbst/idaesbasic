@@ -2,6 +2,7 @@
 	-fx-background-color: transparent;
 	-fx-background-radius: 7;
 	-fx-padding: 7;
+	-fx-pref-width: 200;
 }
 
 .tab:selected {
@@ -14,4 +15,11 @@
 
 .tab-label {
 	-fx-text-fill: #b5b5b5;
+}
+
+.tab-close-button{
+    -fx-background-color: #666666;
+}
+.tab-close-button:hover{
+    -fx-background-color: red;
 }
