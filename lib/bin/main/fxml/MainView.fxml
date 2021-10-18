@@ -38,7 +38,7 @@
       </ToolBar>
    </bottom>
    <center>
-      <TabPane prefHeight="33.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane prefHeight="33.0" prefWidth="600.0" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="Untitled Tab 1">
             <content>
@@ -106,7 +106,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Window">
                <items>
-                  <MenuItem mnemonicParsing="false" text="New window" />
+                  <MenuItem fx:id="menu_item_new_window" mnemonicParsing="false" onAction="#open_new_window" text="New window" />
                   <MenuItem mnemonicParsing="false" text="Close current window" />
                   <MenuItem mnemonicParsing="false" text="Open file explorer" />
                   <MenuItem mnemonicParsing="false" text="Open browser" />

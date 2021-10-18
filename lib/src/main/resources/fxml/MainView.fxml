@@ -38,14 +38,14 @@
       </ToolBar>
    </bottom>
    <center>
-      <TabPane prefHeight="33.0" prefWidth="600.0" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER">
+      <TabPane fx:id="tab_pane" prefHeight="33.0" prefWidth="600.0" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER">
         <tabs>
-          <Tab text="Untitled Tab 1">
+          <Tab text="New tab">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
           </Tab>
-          <Tab text="Untitled Tab 2">
+          <Tab text="New tab">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
@@ -60,7 +60,7 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu disable="true" mnemonicParsing="false" text="File">
             <items>
                   <MenuItem mnemonicParsing="false" text="Open" />
                   <Menu mnemonicParsing="false" text="New">
@@ -76,7 +76,7 @@
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu disable="true" mnemonicParsing="false" text="Edit">
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
                   <MenuItem mnemonicParsing="false" text="Select all" />
@@ -86,39 +86,36 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Navigation">
               <items>
-                <MenuItem mnemonicParsing="false" text="Close all tabs" />
-                  <MenuItem mnemonicParsing="false" text="New tab" />
-                  <MenuItem mnemonicParsing="false" text="Close tab" />
+                <MenuItem fx:id="menu_item_close_all_tabs" mnemonicParsing="false" onAction="#close_all_tabs" text="Close all tabs" />
+                  <MenuItem fx:id="menu_item_new_tab" mnemonicParsing="false" onAction="#add_tab" text="New tab" />
+                  <MenuItem fx:id="menu_item_close_tab" mnemonicParsing="false" onAction="#close_current_tab" text="Close tab" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Projects">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Start new project" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="Start new project" />
                   <MenuItem fx:id="menu_item_add_project" mnemonicParsing="false" onAction="#add_project" text="Add project" />
-                  <MenuItem mnemonicParsing="false" text="Close current project" />
-                  <MenuItem mnemonicParsing="false" text="Delete project" />
-                  <Menu mnemonicParsing="false" text="Project list">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
+                  <MenuItem fx:id="menu_item_close_project" mnemonicParsing="false" onAction="#close_current_project" text="Close current project" />
+                  <MenuItem fx:id="menu_item_delete_project" mnemonicParsing="false" onAction="#delete_current_project" text="Delete project" />
+                  <Menu fx:id="RegisteredProjectsListMenu" mnemonicParsing="false" text="Project list" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Window">
                <items>
-                  <MenuItem mnemonicParsing="false" text="New window" />
-                  <MenuItem mnemonicParsing="false" text="Close current window" />
-                  <MenuItem mnemonicParsing="false" text="Open file explorer" />
-                  <MenuItem mnemonicParsing="false" text="Open browser" />
-                  <MenuItem mnemonicParsing="false" text="Open texteditor" />
+                  <MenuItem fx:id="menu_item_new_window" mnemonicParsing="false" onAction="#open_new_window" text="New window" />
+                  <MenuItem fx:id="menu_item_close_current_window" mnemonicParsing="false" onAction="#close_current_window" text="Close current window" />
+                  <MenuItem fx:id="menu_item_open_file_explorer" mnemonicParsing="false" onAction="#open_file_explorer" text="Open file explorer" />
+                  <MenuItem fx:id="menu_item_open_browser" mnemonicParsing="false" onAction="#open_default_browser" text="Open browser" />
+                  <MenuItem fx:id="menu_item_open_mail" mnemonicParsing="false" onAction="#open_default_mail" text="Open mail" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="Open in standard app" />
                </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-                  <MenuItem mnemonicParsing="false" text="Github" />
-                  <MenuItem mnemonicParsing="false" text="Settings" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem disable="true" mnemonicParsing="false" text="About" />
+                  <MenuItem fx:id="menu_item_github" mnemonicParsing="false" onAction="#show_github_site" text="Github" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="Settings" />
+                  <MenuItem fx:id="menu_item_close_app" mnemonicParsing="false" onAction="#close_app" text="Close" />
             </items>
           </Menu>
         </menus>

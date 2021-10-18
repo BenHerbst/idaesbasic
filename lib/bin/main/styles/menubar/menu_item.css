@@ -1,5 +1,6 @@
 .menu-item {
     -fx-background: #232323;
+    -fx-pref-width: 150; 
 }
 .menu-item .label{
     -fx-font-size: 14.0 pt;
