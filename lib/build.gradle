@@ -39,4 +39,4 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-mainClassName = 'ainm.Main'
+mainClassName = 'org.ainm.Main'

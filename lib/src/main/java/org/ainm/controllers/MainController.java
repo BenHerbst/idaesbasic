@@ -1,20 +1,25 @@
-package ainm;
+package org.ainm.controllers;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TreeView;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class FXMLController {
+public class MainController {
 
     @FXML
     private Button date_button;
 
     @FXML
     private Button time_button;
+
+    @FXML
+    private TreeView file_explorer;
 
     @FXML
     private void initialize() {

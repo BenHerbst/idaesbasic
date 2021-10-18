@@ -1,4 +1,4 @@
-package ainm;
+package org.ainm;
 
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
     	try {
-    		Parent root = FXMLLoader.load(getClass().getResource("/MainView.fxml"));
+    		Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainView.fxml"));
         	Scene scene = new Scene(root, 640, 480);
         	stage.setScene(scene);
         	stage.setTitle("Ainm - 0.01 / Todolist");
