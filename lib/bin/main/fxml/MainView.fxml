@@ -12,12 +12,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ainm.FXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ainm.controllers.MainController">
    <left>
-      <TreeView prefHeight="306.0" prefWidth="210.0" BorderPane.alignment="CENTER">
+      <TreeView fx:id="file_explorer" prefHeight="306.0" prefWidth="210.0" BorderPane.alignment="CENTER">
          <stylesheets>
-            <URL value="@styles/treeview/background.css" />
-            <URL value="@styles/treeview/tree_cell.css" />
+            <URL value="@../styles/treeview/background.css" />
+            <URL value="@../styles/treeview/tree_cell.css" />
          </stylesheets></TreeView>
    </left>
    <bottom>
@@ -32,8 +32,8 @@
             <Button fx:id="time_button" layoutX="310.0" layoutY="10.0" mnemonicParsing="false" text="12:30" />
         </items>
          <stylesheets>
-            <URL value="@styles/airbar/button.css" />
-            <URL value="@styles/airbar/background.css" />
+            <URL value="@../styles/airbar/button.css" />
+            <URL value="@../styles/airbar/background.css" />
          </stylesheets>
       </ToolBar>
    </bottom>
@@ -52,8 +52,8 @@
           </Tab>
         </tabs>
          <stylesheets>
-            <URL value="@styles/tabpane/tab_pane.css" />
-            <URL value="@styles/tabpane/tab.css" />
+            <URL value="@../styles/tabpane/tab_pane.css" />
+            <URL value="@../styles/tabpane/tab.css" />
          </stylesheets>
       </TabPane>
    </center>
@@ -94,7 +94,7 @@
             <Menu mnemonicParsing="false" text="Projects">
                <items>
                   <MenuItem mnemonicParsing="false" text="Start new project" />
-                  <MenuItem mnemonicParsing="false" text="Add project" />
+                  <MenuItem fx:id="menu_item_add_project" mnemonicParsing="false" onAction="#add_project" text="Add project" />
                   <MenuItem mnemonicParsing="false" text="Close current project" />
                   <MenuItem mnemonicParsing="false" text="Delete project" />
                   <Menu mnemonicParsing="false" text="Project list">
@@ -123,9 +123,9 @@
           </Menu>
         </menus>
          <stylesheets>
-            <URL value="@styles/menubar/menubar.css" />
-            <URL value="@styles/menubar/contect_menu.css" />
-            <URL value="@styles/menubar/menu_item.css" />
+            <URL value="@../styles/menubar/menubar.css" />
+            <URL value="@../styles/menubar/contect_menu.css" />
+            <URL value="@../styles/menubar/menu_item.css" />
          </stylesheets>
       </MenuBar>
    </top>

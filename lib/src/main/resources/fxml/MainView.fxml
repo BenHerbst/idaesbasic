@@ -14,7 +14,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ainm.controllers.MainController">
    <left>
-      <TreeView prefHeight="306.0" prefWidth="210.0" BorderPane.alignment="CENTER">
+      <TreeView fx:id="file_explorer" prefHeight="306.0" prefWidth="210.0" BorderPane.alignment="CENTER">
          <stylesheets>
             <URL value="@../styles/treeview/background.css" />
             <URL value="@../styles/treeview/tree_cell.css" />
@@ -94,7 +94,7 @@
             <Menu mnemonicParsing="false" text="Projects">
                <items>
                   <MenuItem mnemonicParsing="false" text="Start new project" />
-                  <MenuItem mnemonicParsing="false" text="Add project" />
+                  <MenuItem fx:id="menu_item_add_project" mnemonicParsing="false" onAction="#add_project" text="Add project" />
                   <MenuItem mnemonicParsing="false" text="Close current project" />
                   <MenuItem mnemonicParsing="false" text="Delete project" />
                   <Menu mnemonicParsing="false" text="Project list">
