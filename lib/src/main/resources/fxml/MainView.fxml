@@ -60,20 +60,20 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu disable="true" mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Open" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="Open" />
                   <Menu mnemonicParsing="false" text="New">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="New Todolist" />
-                        <MenuItem mnemonicParsing="false" text="New Kanban" />
-                        <MenuItem mnemonicParsing="false" text="New Calendar" />
-                        <MenuItem mnemonicParsing="false" text="New Whiteboard" />
+                      <MenuItem fx:id="menu_item_new_todolist" mnemonicParsing="false" onAction="#new_todo_list" text="New Todolist" />
+                        <MenuItem disable="true" mnemonicParsing="false" text="New Kanban" />
+                        <MenuItem disable="true" mnemonicParsing="false" text="New Calendar" />
+                        <MenuItem disable="true" mnemonicParsing="false" text="New Whiteboard" />
                     </items>
                   </Menu>
-                  <MenuItem mnemonicParsing="false" text="Save as" />
-                  <MenuItem mnemonicParsing="false" text="Save" />
-              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="Save as" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="Save" />
+              <MenuItem fx:id="menu_item_close_file" mnemonicParsing="false" onAction="#close_file" text="Close" />
             </items>
           </Menu>
           <Menu disable="true" mnemonicParsing="false" text="Edit">

@@ -16,8 +16,8 @@ public class TodolistController {
 
     @FXML
     void add_todo_item(ActionEvent event) throws IOException {
-    	//Add a new todo to the todos list
-    	Node todo_item = FXMLLoader.load(getClass().getResource("/fxml/views/todo/todo_item.fxml"));
-    	todos_list.getChildren().add(todo_item);
+        // Add a new todo to the todos list
+        Node todo_item = FXMLLoader.load(getClass().getResource("/fxml/views/todo/todo_item.fxml"));
+        todos_list.getChildren().add(todo_item);
     }
 }
