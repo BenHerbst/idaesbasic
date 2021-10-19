@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -218,10 +219,12 @@ public class MainController {
     }
     
     @FXML
-    void add_tab(ActionEvent event) {
+    void add_tab(ActionEvent event) throws IOException {
     	//Open a new empty tab
     	Tab newTab = new Tab();
     	newTab.setText("New tab");
+    	Node todolistView = FXMLLoader.load(getClass().getResource("/fxml/views/todo/todo_view.fxml"));
+    	newTab.setContent(todolistView);
     	tab_pane.getTabs().add(newTab);
     	//Select the tab
     	SingleSelectionModel<Tab> selectionModel = tab_pane.getSelectionModel();

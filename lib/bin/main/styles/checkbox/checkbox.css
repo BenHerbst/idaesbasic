@@ -1,0 +1,19 @@
+.check-box {
+	-fx-text-fill: #b5b5b5;
+    selected-box-color: #070707;
+    box-color: #070707;
+    mark-color: #b5b5b5;
+}
+
+.check-box:selected > .box {
+    -fx-background-color: selected-box-color;
+}
+
+.check-box > .box {
+    -fx-background-color: box-color;
+}
+
+.check-box:selected > .box > .mark,
+.check-box:indeterminate  > .box > .mark {
+    -fx-background-color: mark-color;
+}
