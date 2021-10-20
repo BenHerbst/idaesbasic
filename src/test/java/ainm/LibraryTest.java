@@ -3,10 +3,10 @@
  */
 package ainm;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.ainm.Library;
+import org.junit.jupiter.api.Test;
 
 class LibraryTest {
     @Test void someLibraryMethodReturnsTrue() {

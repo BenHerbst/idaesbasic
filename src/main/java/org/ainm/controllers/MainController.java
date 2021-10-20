@@ -15,6 +15,8 @@ import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.ainm.controllers.todolist.TodolistController;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,7 +40,7 @@ import javafx.stage.Stage;
 
 public class MainController {
 
-    List<String> registered_projects = new ArrayList<String>();
+    List<String> registered_projects = new ArrayList<>();
     String current_project_path = "";
 
     @FXML
@@ -297,12 +299,17 @@ public class MainController {
     }
 
     void openFile(String filename) throws IOException {
-        String viewPath = "";
         if (filename.endsWith(".todo")) {
-            viewPath = "/fxml/views/todo/todo_view.fxml";
+            //Load todolist view
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/fxml/views/todo/todo_view.fxml"));
+            Node view = loader.load();
+            //Load todolist
+            TodolistController todolistController = loader.getController();
+            todolistController.loadFile(Paths.get(filename));
+            //Open todolist view
+            addViewToCurrentTab(view);
         }
-        Node view = FXMLLoader.load(getClass().getResource(viewPath));
-        addViewToCurrentTab(view);
     }
 
     void addViewToCurrentTab(Node view) {
