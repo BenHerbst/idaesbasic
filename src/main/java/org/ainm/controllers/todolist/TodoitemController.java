@@ -17,6 +17,10 @@ public class TodoitemController {
     }
 
     Boolean isDone() {
-        return checkBox.isChecked()
+        return checkBox.isSelected();
+    }
+
+    void setDone(Boolean value) {
+        checkBox.setSelected(value);
     }
 }

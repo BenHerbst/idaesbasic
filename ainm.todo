@@ -1,17 +1,20 @@
-Task 1
-Task 2
-Task 3
-Go to school
-Task 4
-New todo
-New todo
-New todo
-New todo
-New todo
-New todo
-New todo
-New todo
-New todo
-New todo
-New todo
-New todo
+[x] [x]Task 1
+[x] [x]Task 2
+[x] [ ]Task 3
+[ ] [ ]Go to school
+[x] [ ]Task 4
+[ ] [ ]New todo
+[x] [ ]New todo
+[x] [x]New todo
+[ ] [x]New todo
+[x] [x]New todo
+[x] [ ]New todo
+[ ] [ ]New todo
+[x] [ ]New todo
+[ ] [x]New todo
+[ ] [x]New todo
+[x] [x]New todo
+[x] [x]New todo
+[ ] [ ]New todo
+[x] New todo
+[x] New todo

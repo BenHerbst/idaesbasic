@@ -4,28 +4,42 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class TodolistController {
 
-    Path openedFile;
+    public Path openedFile;
 
     @FXML
     private VBox todos_list;
 
     @FXML
     void add_todo_item(ActionEvent event) throws IOException {
-        addTodo("New todo");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/dialogs/AddTodo.fxml"));
+        DialogPane addTodoDialog = loader.load();
+        CreateNewTodoController controller = loader.getController();
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setDialogPane(addTodoDialog);
+        dialog.setTitle("Add new todo");
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.get() == ButtonType.FINISH) {
+            addTodo(controller.getTodo(), false);
+        }
     }
 
-    void addTodo(String todo) throws IOException {
+    void addTodo(String todo, Boolean checked) throws IOException {
         // Load a new todo item
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/views/todo/todo_item.fxml"));
@@ -33,6 +47,7 @@ public class TodolistController {
         //Set todo text
         TodoitemController todoController = loader.getController();
         todoController.setTodo(todo);
+        todoController.setDone(checked);
         // Add todo to todolist
         todos_list.getChildren().add(todo_item);
     }
@@ -43,9 +58,8 @@ public class TodolistController {
         try (Stream<String> lines = Files.lines(file)) {
             lines.forEach((line) -> {
                 try {
-                    addTodo(line);
+                    addTodo(line.replace("[x] ", "").replace("[ ] ", ""), (line.startsWith("[x] ") ? true:false));
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             });
@@ -73,7 +87,7 @@ public class TodolistController {
         String saveData = "";
         for(Node todoItem:todos_list.getChildren()) {
             TodoitemController controller = (TodoitemController) getController(todoItem);
-            saveData += "[" + ((controller.isDone() ? "x":" ") + "]" + controller.getTodo() + "\n";
+            saveData += "[" + ((controller.isDone()) ? "x":" ") + "] " + controller.getTodo() + "\n";
         }
         //Save this string to the given file
         Files.writeString(file, saveData);

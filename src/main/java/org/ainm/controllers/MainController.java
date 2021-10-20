@@ -68,9 +68,9 @@ public class MainController {
             @Override
             public void run() {
                 // Updates file explorer
-//              if (current_project_path != "") {
-//                  Platform.runLater(() -> open_registered_project(current_project_path));
-//              }
+                // if (current_project_path != "") {
+                // Platform.runLater(() -> open_registered_project(current_project_path));
+                // }
                 // Updates the time button every 2 seconds
                 int minutes = LocalTime.now().getMinute();
                 int hours = LocalTime.now().getHour();
@@ -287,16 +287,17 @@ public class MainController {
                 // Create the file
                 String directoryPath = createFileDialogController.getDirectory();
                 String fileName = createFileDialogController.getFilename();
-		String fullPath = ((directoryPath.endsWith("/")) ? directoryPath : directoryPath + "/") + fileName + ".todo";
+                String fullPath = ((directoryPath.endsWith("/")) ? directoryPath : directoryPath + "/") + fileName
+                        + ".todo";
                 File file = new File(fullPath);
                 if (!file.exists()) {
                     file.createNewFile();
                 }
                 // Load the todolist view in current tab
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation("/fxml/views/todo/todo_view.fxml");
+                loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/fxml/views/todo/todo_view.fxml"));
                 Node todolistView = loader.load();
-		TodolistController controller = loader.getController();
+                TodolistController controller = loader.getController();
                 controller.openedFile = Paths.get(fullPath);
                 addViewToCurrentTab(todolistView);
             }
@@ -305,10 +306,10 @@ public class MainController {
 
     @FXML
     void saveFileAs() throws IOException {
-        //Open file explorer
+        // Open file explorer
         FileChooser chooser = new FileChooser();
         File file = chooser.showSaveDialog(null);
-        //Save current view to file
+        // Save current view to file
         Object controller = getController(get_current_tab().getContent());
         if (controller.getClass().equals(new TodolistController().getClass())) {
             ((TodolistController) controller).saveFileAs(Paths.get(file.getAbsolutePath()));
@@ -317,7 +318,7 @@ public class MainController {
 
     @FXML
     void saveCurrentFile() throws IOException {
-        //Save current view to file
+        // Save current view to file
         Object controller = getController(get_current_tab().getContent());
         if (controller.getClass().equals(new TodolistController().getClass())) {
             ((TodolistController) controller).saveCurrentFile();
@@ -326,14 +327,14 @@ public class MainController {
 
     void openFile(String filename) throws IOException {
         if (filename.endsWith(".todo")) {
-            //Load todolist view
+            // Load todolist view
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/fxml/views/todo/todo_view.fxml"));
             Node view = loader.load();
-            //Load todolist
+            // Load todolist
             TodolistController todolistController = loader.getController();
             todolistController.loadFile(Paths.get(filename));
-            //Open todolist view
+            // Open todolist view
             addViewToCurrentTab(view);
         }
     }
