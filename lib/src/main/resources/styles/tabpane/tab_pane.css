@@ -1,7 +1,0 @@
-.tab-pane {
-	-fx-background-color: #232323;
-}
-
-.tab-pane > .tab-header-area > *.tab-header-background {
-	-fx-background-color: #141414;	
-}
