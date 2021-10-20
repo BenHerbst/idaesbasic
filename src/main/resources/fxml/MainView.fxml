@@ -72,7 +72,7 @@
                     </items>
                   </Menu>
                   <MenuItem fx:id="menuItemSaveAs" mnemonicParsing="false" onAction="#saveFileAs" text="Save as" />
-                  <MenuItem disable="true" mnemonicParsing="false" text="Save" />
+                  <MenuItem fx:id="menuItemSaveCurrentFile" mnemonicParsing="false" onAction="#saveCurrentFile" text="Save" />
               <MenuItem fx:id="menu_item_close_file" mnemonicParsing="false" onAction="#close_file" text="Close" />
             </items>
           </Menu>

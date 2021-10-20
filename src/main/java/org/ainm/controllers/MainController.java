@@ -311,6 +311,15 @@ public class MainController {
         }
     }
 
+    @FXML
+    void saveCurrentFile() throws IOException {
+        //Save current view to file
+        Object controller = getController(get_current_tab().getContent());
+        if (controller.getClass().equals(new TodolistController().getClass())) {
+            ((TodolistController) controller).saveCurrentFile();
+        }
+    }
+
     void openFile(String filename) throws IOException {
         if (filename.endsWith(".todo")) {
             //Load todolist view
