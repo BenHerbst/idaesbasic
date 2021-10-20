@@ -15,4 +15,8 @@ public class TodoitemController {
     String getTodo() {
         return checkBox.getText();
     }
+
+    Boolean isDone() {
+        return checkBox.isChecked()
+    }
 }

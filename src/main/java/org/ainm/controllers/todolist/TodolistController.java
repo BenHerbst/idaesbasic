@@ -73,11 +73,12 @@ public class TodolistController {
         String saveData = "";
         for(Node todoItem:todos_list.getChildren()) {
             TodoitemController controller = (TodoitemController) getController(todoItem);
-            saveData += controller.getTodo() + "\n";
+            saveData += "[" + ((controller.isDone() ? "x":" ") + "]" + controller.getTodo() + "\n";
         }
         //Save this string to the given file
         Files.writeString(file, saveData);
     }
+
     public static Object getController(Node node) {
         Object controller = null;
         do {
