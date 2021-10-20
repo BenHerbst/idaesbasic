@@ -287,13 +287,17 @@ public class MainController {
                 // Create the file
                 String directoryPath = createFileDialogController.getDirectory();
                 String fileName = createFileDialogController.getFilename();
-                File file = new File(
-                        ((directoryPath.endsWith("/")) ? directoryPath : directoryPath + "/") + fileName + ".todo");
+		String fullPath = ((directoryPath.endsWith("/")) ? directoryPath : directoryPath + "/") + fileName + ".todo";
+                File file = new File(fullPath);
                 if (!file.exists()) {
                     file.createNewFile();
                 }
                 // Load the todolist view in current tab
-                Node todolistView = FXMLLoader.load(getClass().getResource("/fxml/views/todo/todo_view.fxml"));
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation("/fxml/views/todo/todo_view.fxml");
+                Node todolistView = loader.load();
+		TodolistController controller = loader.getController();
+                controller.openedFile = Paths.get(fullPath);
                 addViewToCurrentTab(todolistView);
             }
         }
