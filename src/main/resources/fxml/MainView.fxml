@@ -14,7 +14,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ainm.controllers.MainController">
    <left>
-      <TreeView fx:id="file_explorer" prefHeight="306.0" prefWidth="210.0" BorderPane.alignment="CENTER">
+      <TreeView fx:id="file_explorer" prefHeight="352.0" prefWidth="296.0" BorderPane.alignment="CENTER">
          <stylesheets>
             <URL value="@../styles/treeview/background.css" />
             <URL value="@../styles/treeview/tree_cell.css" />
@@ -71,7 +71,7 @@
                         <MenuItem disable="true" mnemonicParsing="false" text="New Whiteboard" />
                     </items>
                   </Menu>
-                  <MenuItem disable="true" mnemonicParsing="false" text="Save as" />
+                  <MenuItem fx:id="menuItemSaveAs" mnemonicParsing="false" onAction="#saveFileAs" text="Save as" />
                   <MenuItem disable="true" mnemonicParsing="false" text="Save" />
               <MenuItem fx:id="menu_item_close_file" mnemonicParsing="false" onAction="#close_file" text="Close" />
             </items>

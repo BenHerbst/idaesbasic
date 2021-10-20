@@ -36,6 +36,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class MainController {
@@ -298,6 +299,18 @@ public class MainController {
         }
     }
 
+    @FXML
+    void saveFileAs() throws IOException {
+        //Open file explorer
+        FileChooser chooser = new FileChooser();
+        File file = chooser.showSaveDialog(null);
+        //Save current view to file
+        Object controller = getController(get_current_tab().getContent());
+        if (controller.getClass().equals(new TodolistController().getClass())) {
+            ((TodolistController) controller).saveFileAs(Paths.get(file.getAbsolutePath()));
+        }
+    }
+
     void openFile(String filename) throws IOException {
         if (filename.endsWith(".todo")) {
             //Load todolist view
@@ -319,5 +332,14 @@ public class MainController {
     Tab get_current_tab() {
         SingleSelectionModel<Tab> selectionModel = tab_pane.getSelectionModel();
         return (selectionModel.getSelectedItem());
+    }
+
+    public static Object getController(Node node) {
+        Object controller = null;
+        do {
+            controller = node.getProperties().get("foo");
+            node = node.getParent();
+        } while (controller == null && node != null);
+        return controller;
     }
 }

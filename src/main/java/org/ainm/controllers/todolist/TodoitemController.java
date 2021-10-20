@@ -11,4 +11,8 @@ public class TodoitemController {
     void setTodo(String todo) {
         checkBox.setText(todo);
     }
+
+    String getTodo() {
+        return checkBox.getText();
+    }
 }

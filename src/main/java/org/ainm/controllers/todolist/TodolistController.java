@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class TodolistController {
@@ -47,5 +48,25 @@ public class TodolistController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void saveFileAs(Path file) throws IOException {
+        //Create a string with a todo per line
+        String saveData = "";
+        for(Node todoItem:todos_list.getChildren()) {
+            TodoitemController controller = (TodoitemController) getController(todoItem);
+            saveData += controller.getTodo() + "\n";
+        }
+        //Save this string to the given file
+        Files.writeString(file, saveData);
+    }
+
+    public static Object getController(Node node) {
+        Object controller = null;
+        do {
+            controller = node.getProperties().get("foo");
+            node = node.getParent();
+        } while (controller == null && node != null);
+        return controller;
     }
 }

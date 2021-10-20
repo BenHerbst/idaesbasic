@@ -11,4 +11,8 @@
             <Insets />
          </HBox.margin></CheckBox>
    </children>
+    <properties>
+        <!-- store controller at key "foo" in properties map -->
+        <foo><fx:reference source="controller" /></foo> 
+    </properties>
 </HBox>
