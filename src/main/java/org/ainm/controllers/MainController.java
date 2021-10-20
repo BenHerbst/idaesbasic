@@ -298,6 +298,7 @@ public class MainController {
                 loader.setLocation(getClass().getResource("/fxml/views/todo/todo_view.fxml"));
                 Node todolistView = loader.load();
                 TodolistController controller = loader.getController();
+                todolistView.setUserData(controller);
                 controller.openedFile = Paths.get(fullPath);
                 addViewToCurrentTab(todolistView);
             }
@@ -333,6 +334,8 @@ public class MainController {
             Node view = loader.load();
             // Load todolist
             TodolistController todolistController = loader.getController();
+            //Set controller as user data for later access
+            view.setUserData(todolistController);
             todolistController.loadFile(Paths.get(filename));
             // Open todolist view
             addViewToCurrentTab(view);
@@ -351,7 +354,7 @@ public class MainController {
     public static Object getController(Node node) {
         Object controller = null;
         do {
-            controller = node.getProperties().get("foo");
+            controller = node.getUserData();
             node = node.getParent();
         } while (controller == null && node != null);
         return controller;

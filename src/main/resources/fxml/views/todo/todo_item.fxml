@@ -2,17 +2,22 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: #232323;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ainm.controllers.todolist.TodoitemController">
+<HBox fx:id="panel" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: #232323;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ainm.controllers.todolist.TodoitemController">
    <children>
       <CheckBox fx:id="checkBox" mnemonicParsing="false" stylesheets="@../../../styles/checkbox/checkbox.css" text="New todo item">
          <HBox.margin>
             <Insets />
-         </HBox.margin></CheckBox>
+         </HBox.margin>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem fx:id="deleteItem" mnemonicParsing="false" onAction="#deleteTodoAction" text="Delete" />
+              </items>
+            </ContextMenu>
+         </contextMenu></CheckBox>
    </children>
-    <properties>
-        <!-- store controller at key "foo" in properties map -->
-        <foo><fx:reference source="controller" /></foo> 
-    </properties>
 </HBox>

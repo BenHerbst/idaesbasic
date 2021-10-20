@@ -21,8 +21,4 @@
    <padding>
       <Insets bottom="50.0" top="30.0" />
    </padding>
-   <properties>
-        <!-- store controller at key "foo" in properties map -->
-        <foo><fx:reference source="controller" /></foo> 
-    </properties>
 </ScrollPane>

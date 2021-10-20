@@ -46,6 +46,7 @@ public class TodolistController {
         Node todo_item = loader.load();
         //Set todo text
         TodoitemController todoController = loader.getController();
+        todo_item.setUserData(todoController);
         todoController.setTodo(todo);
         todoController.setDone(checked);
         // Add todo to todolist
@@ -96,7 +97,7 @@ public class TodolistController {
     public static Object getController(Node node) {
         Object controller = null;
         do {
-            controller = node.getProperties().get("foo");
+            controller = node.getUserData();
             node = node.getParent();
         } while (controller == null && node != null);
         return controller;
