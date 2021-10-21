@@ -3,8 +3,10 @@ package org.ainm.controllers;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.io.Reader;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -16,6 +18,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.ainm.controllers.todolist.TodolistController;
+
+import com.github.cliftonlabs.json_simple.JsonException;
+import com.github.cliftonlabs.json_simple.JsonObject;
+import com.github.cliftonlabs.json_simple.Jsoner;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -61,6 +67,12 @@ public class MainController {
 
     @FXML
     void initialize() {
+        try {
+            loadProjectList();
+        } catch (IOException | JsonException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
         // Set date from date button
         date_button.setText(LocalDate.now().toString());
         Timer timer = new Timer();
@@ -136,14 +148,26 @@ public class MainController {
         });
         RegisteredProjectsListMenu.getItems().add(projectMenuItem);
         open_registered_project(project.toString());
+        try {
+            saveProjectList();
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
     }
 
     @FXML
     void delete_current_project(ActionEvent event) {
-        close_project();
         // Remove the current project from the registered list
         registered_projects.remove(current_project_path);
         createProjectList();
+        close_project();
+        try {
+            saveProjectList();
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
     }
 
     void createProjectList() {
@@ -345,6 +369,39 @@ public class MainController {
 
     void addViewToCurrentTab(Node view) {
         get_current_tab().setContent(view);
+    }
+
+    void saveProjectList() throws IOException {
+        //Saves the registered projects in an json file
+        //Create json
+        JsonObject json = new JsonObject();
+        json.put("registeredProjects", registered_projects);
+        //Write json to file
+        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
+        Path userDirectory = Paths.get(userDirectoryPath);
+        if (!Files.exists(userDirectory)) {
+            Files.createDirectory(userDirectory);
+        }
+        Path file = Paths.get(userDirectoryPath + "/config.json");
+        if (!Files.exists(file)) {
+            Files.createFile(file);
+        }
+        Files.writeString(file, json.toJson());
+    }
+    
+    void loadProjectList() throws IOException, JsonException {
+        //Read the config.json file
+        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
+        Path userDirectory = Paths.get(userDirectoryPath);
+        if(Files.exists(userDirectory)) {
+            Reader reader = Files.newBufferedReader(Paths.get(userDirectoryPath + "/config.json"));
+            JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
+            //Get the registered projects from parser
+            registered_projects = (List<String>) parser.get("registeredProjects");
+            //Create the listmenu
+            createProjectList();
+        }
+        
     }
 
     Tab get_current_tab() {
