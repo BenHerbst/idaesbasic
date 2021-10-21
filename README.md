@@ -16,6 +16,8 @@ There will be lot of tools in ainm:
 - Messanges
 - ...
 
+![Screenshot 2021-10-21 125752](https://user-images.githubusercontent.com/83538916/138264358-0fef23c1-9a94-4c22-abeb-125cec09d351.png)
+
 _At the moment, only todolist is implemented_
 ## Free and open source
 Ainm is free and open source software.
