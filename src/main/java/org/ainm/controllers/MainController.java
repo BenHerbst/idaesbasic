@@ -48,19 +48,19 @@ import javafx.stage.Stage;
 public class MainController {
 
     List<String> registered_projects = new ArrayList<>();
-    String current_project_path = "";
+    String currentProjectPath = "";
 
     @FXML
-    private Button date_button;
+    private Button dateButton;
 
     @FXML
-    private Button time_button;
+    private Button timeButton;
 
     @FXML
     private TreeView<File> file_explorer;
 
     @FXML
-    private TabPane tab_pane;
+    private TabPane tabPane;
 
     @FXML
     private Menu RegisteredProjectsListMenu;
@@ -100,7 +100,7 @@ public class MainController {
         });
     }
 
-    void add_subdirs(String directory, TreeItem<File> treeItem) throws IOException {
+    void addSubdirs(String directory, TreeItem<File> treeItem) throws IOException {
         // List all sub dirs
         File[] directories = new File(directory).listFiles(File::isDirectory);
         for (File dir : directories) {
@@ -119,7 +119,7 @@ public class MainController {
         }
     }
 
-    void open_registered_project(String directory) {
+    void openRegisteredProject(String directory) {
         current_project_path = directory;
         Path rootFile = Paths.get(directory);
         TreeItem<File> rootItem = new TreeItem<>(new File(directory));
@@ -134,7 +134,7 @@ public class MainController {
     }
 
     @FXML
-    void add_project(ActionEvent event) {
+    void addProject(ActionEvent event) {
         // Register a new project and open it
         DirectoryChooser chooser = new DirectoryChooser();
         File project = chooser.showDialog(null);
@@ -144,7 +144,7 @@ public class MainController {
         projectMenuItem.setText(Paths.get(project.toString()).getFileName().toString());
         projectMenuItem.setOnAction(e -> {
             // Set open action to open the project, when clicked
-            open_registered_project(project.toString());
+            openRegisteredProject(project.toString());
         });
         RegisteredProjectsListMenu.getItems().add(projectMenuItem);
         open_registered_project(project.toString());
@@ -157,7 +157,7 @@ public class MainController {
     }
 
     @FXML
-    void delete_current_project(ActionEvent event) {
+    void deleteCurrentProject(ActionEvent event) {
         // Remove the current project from the registered list
         registered_projects.remove(current_project_path);
         createProjectList();
@@ -186,25 +186,25 @@ public class MainController {
     }
 
     @FXML
-    void close_current_project(ActionEvent event) {
+    void closeCurrentProject(ActionEvent event) {
         close_project();
     }
 
-    void close_project() {
+    void closeProject() {
         // Close the file explorer
-        file_explorer.setRoot(null);
-        current_project_path = "";
+        fileExplorer.setRoot(null);
+        currentProjectPath = "";
     }
 
     @FXML
-    void open_new_window(ActionEvent event) {
+    void openNewWindow(ActionEvent event) {
         try {
             // Open a new window in same process
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainView.fxml"));
             Scene scene = new Scene(root, 640, 480);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setTitle("Ainm - 0.01 / Todolist");
+            stage.setTitle("Idaes - 0.8 - Alpha");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -212,7 +212,7 @@ public class MainController {
     }
 
     @FXML
-    void show_github_site(ActionEvent event) throws IOException, URISyntaxException {
+    void showGithubSite(ActionEvent event) throws IOException, URISyntaxException {
         // Shows the github side of the project in the current standard browser
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
             Desktop.getDesktop().browse(new URI("https://github.com/BenHerbst/ainm"));
@@ -220,20 +220,20 @@ public class MainController {
     }
 
     @FXML
-    void close_current_window(ActionEvent event) {
+    void closeCurrentWindow(ActionEvent event) {
         // Close the current stage
-        date_button.getScene().getWindow().hide();
+        dateButton.getScene().getWindow().hide();
     }
 
     @FXML
-    void close_app(ActionEvent event) {
+    void closeApp(ActionEvent event) {
         // Fully close the app
         Platform.exit();
         System.exit(0);
     }
 
     @FXML
-    void open_default_browser(ActionEvent event) throws IOException, URISyntaxException {
+    void openDefaultBrowser(ActionEvent event) throws IOException, URISyntaxException {
         // Shows the github side of the project in the current standard browser
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
             Desktop.getDesktop().browse(new URI("https://duckduckgo.com/"));
@@ -241,7 +241,7 @@ public class MainController {
     }
 
     @FXML
-    void open_default_mail(ActionEvent event) throws IOException, URISyntaxException {
+    void openDefautMail(ActionEvent event) throws IOException, URISyntaxException {
         // Shows the github side of the project in the current standard browser
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
             Desktop.getDesktop().mail();
@@ -249,7 +249,7 @@ public class MainController {
     }
 
     @FXML
-    void open_file_explorer(ActionEvent event) {
+    void openFileExplorer(ActionEvent event) {
         // Open the file explorer in the user directory
         File file = new File(System.getProperty("user.home"));
         try {
@@ -263,7 +263,7 @@ public class MainController {
     }
 
     @FXML
-    void add_tab(ActionEvent event) throws IOException {
+    void addTab(ActionEvent event) throws IOException {
         // Open a new empty tab
         Tab newTab = new Tab();
         newTab.setText("New tab");
@@ -274,7 +274,7 @@ public class MainController {
     }
 
     @FXML
-    void close_current_tab(ActionEvent event) {
+    void closeCurrentTab(ActionEvent event) {
         // Close the current tab
         SingleSelectionModel<Tab> selectionModel = tab_pane.getSelectionModel();
         Tab currentTab = selectionModel.getSelectedItem();
@@ -282,19 +282,19 @@ public class MainController {
     }
 
     @FXML
-    void close_all_tabs(ActionEvent event) {
+    void closeAllTabs(ActionEvent event) {
         // Close all tabs of tabpane
         tab_pane.getTabs().clear();
     }
 
     @FXML
-    void close_file(ActionEvent event) {
+    void closeFile(ActionEvent event) {
         // Closes the current file and make the tab content empty
         get_current_tab().setContent(null);
     }
 
     @FXML
-    void new_todo_list(ActionEvent event) throws IOException {
+    void newTosoList(ActionEvent event) throws IOException {
         if (current_project_path != "") {
             // Shows the create a new file dialog
             FXMLLoader loader = new FXMLLoader();
