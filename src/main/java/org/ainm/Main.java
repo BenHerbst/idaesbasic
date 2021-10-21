@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -14,8 +15,9 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainView.fxml"));
             Scene scene = new Scene(root, 640, 480);
             stage.setScene(scene);
-            stage.setTitle("Ainm - 0.01 / Todolist");
+            stage.setTitle("Ainm - 0.8 - Alpha");
             stage.setMaximized(true);
+            stage.getIcons().add(new Image(Main.class.getResourceAsStream("/icon.png")));
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
