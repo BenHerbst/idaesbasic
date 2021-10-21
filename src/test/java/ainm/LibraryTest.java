@@ -5,7 +5,7 @@ package ainm;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.ainm.Library;
+import org.idaesbasic.Library;
 import org.junit.jupiter.api.Test;
 
 class LibraryTest {

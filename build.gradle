@@ -40,9 +40,9 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-mainClassName = 'org.ainm.Main'
+mainClassName = 'org.idaesbasic.Main'
 jar {
     manifest {
-        attributes 'Main-Class': 'org.ainm.Main'
+        attributes 'Main-Class': 'org.idaesbasic.Main'
     }
 }
