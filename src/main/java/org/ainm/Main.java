@@ -15,7 +15,7 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainView.fxml"));
             Scene scene = new Scene(root, 640, 480);
             stage.setScene(scene);
-            stage.setTitle("Ainm - 0.8 - Alpha");
+            stage.setTitle("Idaesbasic - 0.8 - Alpha");
             stage.setMaximized(true);
             stage.getIcons().add(new Image(Main.class.getResourceAsStream("/icon.png")));
             stage.show();

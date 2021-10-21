@@ -41,3 +41,8 @@ tasks.named('test') {
 }
 
 mainClassName = 'org.ainm.Main'
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.ainm.Main'
+    }
+}
