@@ -1,4 +1,4 @@
-# Ideasbasic - Project managment Redefined
+# Idaesbasic - Project managment Redefined
 !["logo"](https://github.com/BenHerbst/ainm/blob/master/icon.png)
 ## Everything is a file
 With this project managment tool, everything is a file. Your todolists are .todo files and your kanbans .kanban ...
