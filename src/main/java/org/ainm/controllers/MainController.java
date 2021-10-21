@@ -279,6 +279,7 @@ public class MainController {
             // Get the control of the dialog
             CreateNewFileDialogController createFileDialogController = loader.getController();
             createFileDialogController.changeExtention(".todo");
+            createFileDialogController.setDirectoryField(current_project_path + "/");
             Dialog<ButtonType> dialog = new Dialog<>();
             dialog.setDialogPane(createNewFileDialog);
             dialog.setTitle("Create a new file");

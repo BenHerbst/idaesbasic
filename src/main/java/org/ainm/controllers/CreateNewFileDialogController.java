@@ -23,6 +23,10 @@ public class CreateNewFileDialogController {
         return filenameField.getText();
     }
 
+    void setDirectoryField(String value) {
+        directoryField.setText(value);
+    }
+
     void changeExtention(String value) {
         extentionLabel.setText(value);
     }
