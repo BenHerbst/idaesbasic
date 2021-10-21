@@ -57,7 +57,7 @@ public class MainController {
     private Button timeButton;
 
     @FXML
-    private TreeView<File> file_explorer;
+    private TreeView<File> fileExplorer;
 
     @FXML
     private TabPane tabPane;
@@ -74,23 +74,23 @@ public class MainController {
             e1.printStackTrace();
         }
         // Set date from date button
-        date_button.setText(LocalDate.now().toString());
+        dateButton.setText(LocalDate.now().toString());
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 // Updates file explorer
-                // if (current_project_path != "") {
-                // Platform.runLater(() -> open_registered_project(current_project_path));
+                // if (currentProjectPath != "") {
+                // Platform.runLater(() -> openRegisteredProject(currentProjectPath));
                 // }
                 // Updates the time button every 2 seconds
                 int minutes = LocalTime.now().getMinute();
                 int hours = LocalTime.now().getHour();
-                Platform.runLater(() -> time_button
+                Platform.runLater(() -> timeButton
                         .setText(Integer.toString(hours) + ((minutes < 10) ? ":0" : ":") + Integer.toString(minutes)));
             }
         }, 0, 2000);
-        file_explorer.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+        fileExplorer.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 openFile(newValue.getValue().getAbsolutePath());
             } catch (IOException e) {
@@ -108,7 +108,7 @@ public class MainController {
             TreeItem<File> currentDirTreeItem = new TreeItem<>(dir.getAbsoluteFile());
             treeItem.getChildren().add(currentDirTreeItem);
             // Add all subdirs / files from every subdir to tree
-            add_subdirs(dir.getAbsolutePath(), currentDirTreeItem);
+            addSubdirs(dir.getAbsolutePath(), currentDirTreeItem);
         }
         // List all sub files
         File[] files = new File(directory).listFiles(File::isFile);
@@ -120,13 +120,13 @@ public class MainController {
     }
 
     void openRegisteredProject(String directory) {
-        current_project_path = directory;
+        currentProjectPath = directory;
         Path rootFile = Paths.get(directory);
         TreeItem<File> rootItem = new TreeItem<>(new File(directory));
-        file_explorer.setRoot(rootItem);
+        fileExplorer.setRoot(rootItem);
         try {
             // Add all subdirs and subfiles to the tree root
-            add_subdirs(directory, rootItem);
+            addSubdirs(directory, rootItem);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -147,7 +147,7 @@ public class MainController {
             openRegisteredProject(project.toString());
         });
         RegisteredProjectsListMenu.getItems().add(projectMenuItem);
-        open_registered_project(project.toString());
+        openRegisteredProject(project.toString());
         try {
             saveProjectList();
         } catch (IOException e1) {
@@ -159,9 +159,9 @@ public class MainController {
     @FXML
     void deleteCurrentProject(ActionEvent event) {
         // Remove the current project from the registered list
-        registered_projects.remove(current_project_path);
+        registered_projects.remove(currentProjectPath);
         createProjectList();
-        close_project();
+        closeProject();
         try {
             saveProjectList();
         } catch (IOException e1) {
@@ -179,7 +179,7 @@ public class MainController {
             projectMenuItem.setText(Paths.get(project_path).getFileName().toString());
             projectMenuItem.setOnAction(e -> {
                 // Set open action to open the project, when clicked
-                open_registered_project(project_path);
+                openRegisteredProject(project_path);
             });
             RegisteredProjectsListMenu.getItems().add(projectMenuItem);
         }
@@ -187,7 +187,7 @@ public class MainController {
 
     @FXML
     void closeCurrentProject(ActionEvent event) {
-        close_project();
+        closeProject();
     }
 
     void closeProject() {
@@ -241,7 +241,7 @@ public class MainController {
     }
 
     @FXML
-    void openDefautMail(ActionEvent event) throws IOException, URISyntaxException {
+    void openDefaultMail(ActionEvent event) throws IOException, URISyntaxException {
         // Shows the github side of the project in the current standard browser
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
             Desktop.getDesktop().mail();
@@ -267,24 +267,24 @@ public class MainController {
         // Open a new empty tab
         Tab newTab = new Tab();
         newTab.setText("New tab");
-        tab_pane.getTabs().add(newTab);
+        tabPane.getTabs().add(newTab);
         // Select the tab
-        SingleSelectionModel<Tab> selectionModel = tab_pane.getSelectionModel();
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(newTab);
     }
 
     @FXML
     void closeCurrentTab(ActionEvent event) {
         // Close the current tab
-        SingleSelectionModel<Tab> selectionModel = tab_pane.getSelectionModel();
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         Tab currentTab = selectionModel.getSelectedItem();
-        tab_pane.getTabs().remove(currentTab);
+        tabPane.getTabs().remove(currentTab);
     }
 
     @FXML
     void closeAllTabs(ActionEvent event) {
         // Close all tabs of tabpane
-        tab_pane.getTabs().clear();
+        tabPane.getTabs().clear();
     }
 
     @FXML
@@ -294,8 +294,8 @@ public class MainController {
     }
 
     @FXML
-    void newTosoList(ActionEvent event) throws IOException {
-        if (current_project_path != "") {
+    void newTodolist(ActionEvent event) throws IOException {
+        if (currentProjectPath != "") {
             // Shows the create a new file dialog
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/fxml/dialogs/CreateNewFile.fxml"));
@@ -303,7 +303,7 @@ public class MainController {
             // Get the control of the dialog
             CreateNewFileDialogController createFileDialogController = loader.getController();
             createFileDialogController.changeExtention(".todo");
-            createFileDialogController.setDirectoryField(current_project_path + "/");
+            createFileDialogController.setDirectoryField(currentProjectPath + "/");
             Dialog<ButtonType> dialog = new Dialog<>();
             dialog.setDialogPane(createNewFileDialog);
             dialog.setTitle("Create a new file");
@@ -405,7 +405,7 @@ public class MainController {
     }
 
     Tab get_current_tab() {
-        SingleSelectionModel<Tab> selectionModel = tab_pane.getSelectionModel();
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         return (selectionModel.getSelectedItem());
     }
 
