@@ -113,6 +113,7 @@
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem disable="true" mnemonicParsing="false" text="About" />
+                  <MenuItem fx:id="menuItemUsedLibarys" mnemonicParsing="false" onAction="#showUsedLibarys" text="Used libarys" />
                   <MenuItem fx:id="menuItemGithub" mnemonicParsing="false" onAction="#showGithubSite" text="Github" />
                   <MenuItem disable="true" mnemonicParsing="false" text="Settings" />
                   <MenuItem fx:id="menuItemCloseApp" mnemonicParsing="false" onAction="#closeApp" text="Close" />

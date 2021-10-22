@@ -215,6 +215,15 @@ public class MainController {
         }
     }
 
+   @FXML
+   void showUsedLibarys(ActionEvent event) throws IOException {
+	   DialogPane usedLibarys = FXMLLoader.load(getClass().getResource("/fxml/dialogs/usedLibarys.fxml"));
+	   Dialog<ButtonType> dialog = new Dialog<>();
+	   dialog.setTitle("Used libarys");
+	   dialog.setDialogPane(usedLibarys);
+	   dialog.show();
+   }
+
     @FXML
     void closeCurrentWindow(ActionEvent event) {
         // Close the current stage
