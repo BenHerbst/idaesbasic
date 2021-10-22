@@ -1,4 +1,4 @@
-package org.ainm.controllers;
+package org.idaesbasic.controllers;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -17,11 +17,7 @@ import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.ainm.controllers.todolist.TodolistController;
-
-import com.github.cliftonlabs.json_simple.JsonException;
-import com.github.cliftonlabs.json_simple.JsonObject;
-import com.github.cliftonlabs.json_simple.Jsoner;
+import org.idaesbasic.controllers.todolist.TodolistController;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -48,49 +44,49 @@ import javafx.stage.Stage;
 public class MainController {
 
     List<String> registered_projects = new ArrayList<>();
-    String current_project_path = "";
+    String currentProjectPath = "";
 
     @FXML
-    private Button date_button;
+    private Button dateButton;
 
     @FXML
-    private Button time_button;
+    private Button timeButton;
 
     @FXML
-    private TreeView<File> file_explorer;
+    private TreeView<File> fileExplorer;
 
     @FXML
-    private TabPane tab_pane;
+    private TabPane tabPane;
 
     @FXML
     private Menu RegisteredProjectsListMenu;
 
     @FXML
     void initialize() {
-        try {
-            loadProjectList();
-        } catch (IOException | JsonException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
+//        try {
+//            loadProjectList();
+//        } catch (IOException | JsonException e1) {
+//            // TODO Auto-generated catch block
+//            e1.printStackTrace();
+//        }
         // Set date from date button
-        date_button.setText(LocalDate.now().toString());
+        dateButton.setText(LocalDate.now().toString());
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 // Updates file explorer
-                // if (current_project_path != "") {
-                // Platform.runLater(() -> open_registered_project(current_project_path));
+                // if (currentProjectPath != "") {
+                // Platform.runLater(() -> openRegisteredProject(currentProjectPath));
                 // }
                 // Updates the time button every 2 seconds
                 int minutes = LocalTime.now().getMinute();
                 int hours = LocalTime.now().getHour();
-                Platform.runLater(() -> time_button
+                Platform.runLater(() -> timeButton
                         .setText(Integer.toString(hours) + ((minutes < 10) ? ":0" : ":") + Integer.toString(minutes)));
             }
         }, 0, 2000);
-        file_explorer.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+        fileExplorer.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 openFile(newValue.getValue().getAbsolutePath());
             } catch (IOException e) {
@@ -100,7 +96,7 @@ public class MainController {
         });
     }
 
-    void add_subdirs(String directory, TreeItem<File> treeItem) throws IOException {
+    void addSubdirs(String directory, TreeItem<File> treeItem) throws IOException {
         // List all sub dirs
         File[] directories = new File(directory).listFiles(File::isDirectory);
         for (File dir : directories) {
@@ -108,7 +104,7 @@ public class MainController {
             TreeItem<File> currentDirTreeItem = new TreeItem<>(dir.getAbsoluteFile());
             treeItem.getChildren().add(currentDirTreeItem);
             // Add all subdirs / files from every subdir to tree
-            add_subdirs(dir.getAbsolutePath(), currentDirTreeItem);
+            addSubdirs(dir.getAbsolutePath(), currentDirTreeItem);
         }
         // List all sub files
         File[] files = new File(directory).listFiles(File::isFile);
@@ -119,14 +115,14 @@ public class MainController {
         }
     }
 
-    void open_registered_project(String directory) {
-        current_project_path = directory;
+    void openRegisteredProject(String directory) {
+        currentProjectPath = directory;
         Path rootFile = Paths.get(directory);
         TreeItem<File> rootItem = new TreeItem<>(new File(directory));
-        file_explorer.setRoot(rootItem);
+        fileExplorer.setRoot(rootItem);
         try {
             // Add all subdirs and subfiles to the tree root
-            add_subdirs(directory, rootItem);
+            addSubdirs(directory, rootItem);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -134,7 +130,7 @@ public class MainController {
     }
 
     @FXML
-    void add_project(ActionEvent event) {
+    void addProject(ActionEvent event) {
         // Register a new project and open it
         DirectoryChooser chooser = new DirectoryChooser();
         File project = chooser.showDialog(null);
@@ -144,10 +140,10 @@ public class MainController {
         projectMenuItem.setText(Paths.get(project.toString()).getFileName().toString());
         projectMenuItem.setOnAction(e -> {
             // Set open action to open the project, when clicked
-            open_registered_project(project.toString());
+            openRegisteredProject(project.toString());
         });
         RegisteredProjectsListMenu.getItems().add(projectMenuItem);
-        open_registered_project(project.toString());
+        openRegisteredProject(project.toString());
         try {
             saveProjectList();
         } catch (IOException e1) {
@@ -157,11 +153,11 @@ public class MainController {
     }
 
     @FXML
-    void delete_current_project(ActionEvent event) {
+    void deleteCurrentProject(ActionEvent event) {
         // Remove the current project from the registered list
-        registered_projects.remove(current_project_path);
+        registered_projects.remove(currentProjectPath);
         createProjectList();
-        close_project();
+        closeProject();
         try {
             saveProjectList();
         } catch (IOException e1) {
@@ -179,32 +175,32 @@ public class MainController {
             projectMenuItem.setText(Paths.get(project_path).getFileName().toString());
             projectMenuItem.setOnAction(e -> {
                 // Set open action to open the project, when clicked
-                open_registered_project(project_path);
+                openRegisteredProject(project_path);
             });
             RegisteredProjectsListMenu.getItems().add(projectMenuItem);
         }
     }
 
     @FXML
-    void close_current_project(ActionEvent event) {
-        close_project();
+    void closeCurrentProject(ActionEvent event) {
+        closeProject();
     }
 
-    void close_project() {
+    void closeProject() {
         // Close the file explorer
-        file_explorer.setRoot(null);
-        current_project_path = "";
+        fileExplorer.setRoot(null);
+        currentProjectPath = "";
     }
 
     @FXML
-    void open_new_window(ActionEvent event) {
+    void openNewWindow(ActionEvent event) {
         try {
             // Open a new window in same process
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainView.fxml"));
             Scene scene = new Scene(root, 640, 480);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setTitle("Ainm - 0.01 / Todolist");
+            stage.setTitle("Idaesbasic - Child window - 0.8.0 - Alpha");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -212,28 +208,37 @@ public class MainController {
     }
 
     @FXML
-    void show_github_site(ActionEvent event) throws IOException, URISyntaxException {
+    void showGithubSite(ActionEvent event) throws IOException, URISyntaxException {
         // Shows the github side of the project in the current standard browser
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
             Desktop.getDesktop().browse(new URI("https://github.com/BenHerbst/ainm"));
         }
     }
 
+   @FXML
+   void showUsedLibarys(ActionEvent event) throws IOException {
+	   DialogPane usedLibarys = FXMLLoader.load(getClass().getResource("/fxml/dialogs/usedLibarys.fxml"));
+	   Dialog<ButtonType> dialog = new Dialog<>();
+	   dialog.setTitle("Used libarys");
+	   dialog.setDialogPane(usedLibarys);
+	   dialog.show();
+   }
+
     @FXML
-    void close_current_window(ActionEvent event) {
+    void closeCurrentWindow(ActionEvent event) {
         // Close the current stage
-        date_button.getScene().getWindow().hide();
+        dateButton.getScene().getWindow().hide();
     }
 
     @FXML
-    void close_app(ActionEvent event) {
+    void closeApp(ActionEvent event) {
         // Fully close the app
         Platform.exit();
         System.exit(0);
     }
 
     @FXML
-    void open_default_browser(ActionEvent event) throws IOException, URISyntaxException {
+    void openDefaultBrowser(ActionEvent event) throws IOException, URISyntaxException {
         // Shows the github side of the project in the current standard browser
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
             Desktop.getDesktop().browse(new URI("https://duckduckgo.com/"));
@@ -241,7 +246,7 @@ public class MainController {
     }
 
     @FXML
-    void open_default_mail(ActionEvent event) throws IOException, URISyntaxException {
+    void openDefaultMail(ActionEvent event) throws IOException, URISyntaxException {
         // Shows the github side of the project in the current standard browser
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
             Desktop.getDesktop().mail();
@@ -249,7 +254,7 @@ public class MainController {
     }
 
     @FXML
-    void open_file_explorer(ActionEvent event) {
+    void openFileExplorer(ActionEvent event) {
         // Open the file explorer in the user directory
         File file = new File(System.getProperty("user.home"));
         try {
@@ -263,39 +268,39 @@ public class MainController {
     }
 
     @FXML
-    void add_tab(ActionEvent event) throws IOException {
+    void addTab(ActionEvent event) throws IOException {
         // Open a new empty tab
         Tab newTab = new Tab();
         newTab.setText("New tab");
-        tab_pane.getTabs().add(newTab);
+        tabPane.getTabs().add(newTab);
         // Select the tab
-        SingleSelectionModel<Tab> selectionModel = tab_pane.getSelectionModel();
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(newTab);
     }
 
     @FXML
-    void close_current_tab(ActionEvent event) {
+    void closeCurrentTab(ActionEvent event) {
         // Close the current tab
-        SingleSelectionModel<Tab> selectionModel = tab_pane.getSelectionModel();
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         Tab currentTab = selectionModel.getSelectedItem();
-        tab_pane.getTabs().remove(currentTab);
+        tabPane.getTabs().remove(currentTab);
     }
 
     @FXML
-    void close_all_tabs(ActionEvent event) {
+    void closeAllTabs(ActionEvent event) {
         // Close all tabs of tabpane
-        tab_pane.getTabs().clear();
+        tabPane.getTabs().clear();
     }
 
     @FXML
-    void close_file(ActionEvent event) {
+    void closeFile(ActionEvent event) {
         // Closes the current file and make the tab content empty
         get_current_tab().setContent(null);
     }
 
     @FXML
-    void new_todo_list(ActionEvent event) throws IOException {
-        if (current_project_path != "") {
+    void newTodolist(ActionEvent event) throws IOException {
+        if (currentProjectPath != "") {
             // Shows the create a new file dialog
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/fxml/dialogs/CreateNewFile.fxml"));
@@ -303,7 +308,7 @@ public class MainController {
             // Get the control of the dialog
             CreateNewFileDialogController createFileDialogController = loader.getController();
             createFileDialogController.changeExtention(".todo");
-            createFileDialogController.setDirectoryField(current_project_path + "/");
+            createFileDialogController.setDirectoryField(currentProjectPath + "/");
             Dialog<ButtonType> dialog = new Dialog<>();
             dialog.setDialogPane(createNewFileDialog);
             dialog.setTitle("Create a new file");
@@ -372,40 +377,40 @@ public class MainController {
     }
 
     void saveProjectList() throws IOException {
-        //Saves the registered projects in an json file
-        //Create json
-        JsonObject json = new JsonObject();
-        json.put("registeredProjects", registered_projects);
-        //Write json to file
-        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
-        Path userDirectory = Paths.get(userDirectoryPath);
-        if (!Files.exists(userDirectory)) {
-            Files.createDirectory(userDirectory);
-        }
-        Path file = Paths.get(userDirectoryPath + "/config.json");
-        if (!Files.exists(file)) {
-            Files.createFile(file);
-        }
-        Files.writeString(file, json.toJson());
+//        //Saves the registered projects in an json file
+//        //Create json
+//        JsonObject json = new JsonObject();
+//        json.put("registeredProjects", registered_projects);
+//        //Write json to file
+//        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
+//        Path userDirectory = Paths.get(userDirectoryPath);
+//        if (!Files.exists(userDirectory)) {
+//            Files.createDirectory(userDirectory);
+//        }
+//        Path file = Paths.get(userDirectoryPath + "/config.json");
+//        if (!Files.exists(file)) {
+//            Files.createFile(file);
+//        }
+//        Files.writeString(file, json.toJson());
     }
     
-    void loadProjectList() throws IOException, JsonException {
+    void loadProjectList() throws IOException {
         //Read the config.json file
-        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
-        Path userDirectory = Paths.get(userDirectoryPath);
-        if(Files.exists(userDirectory)) {
-            Reader reader = Files.newBufferedReader(Paths.get(userDirectoryPath + "/config.json"));
-            JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
-            //Get the registered projects from parser
-            registered_projects = (List<String>) parser.get("registeredProjects");
-            //Create the listmenu
-            createProjectList();
-        }
-        
+//        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
+//        Path userDirectory = Paths.get(userDirectoryPath);
+//        if(Files.exists(userDirectory)) {
+//            Reader reader = Files.newBufferedReader(Paths.get(userDirectoryPath + "/config.json"));
+//            JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
+//            //Get the registered projects from parser
+//            registered_projects = (List<String>) parser.get("registeredProjects");
+//            //Create the listmenu
+//            createProjectList();
+//        }
+//        
     }
 
     Tab get_current_tab() {
-        SingleSelectionModel<Tab> selectionModel = tab_pane.getSelectionModel();
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         return (selectionModel.getSelectedItem());
     }
 

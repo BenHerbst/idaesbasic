@@ -1,8 +1,8 @@
-# Ainm - Project managment Redefined
+# Idaesbasic - Alpha - Project managment Redefined
 !["logo"](https://github.com/BenHerbst/ainm/blob/master/icon.png)
 ## Everything is a file
 With this project managment tool, everything is a file. Your todolists are .todo files and your kanbans .kanban ...
-You can store everything local on you computer and directly in your project. For example: figures/player/player.todo, if you are a game dev and you want to manage planning ofthe player.
+You can store everything local on you computer and directly in your project. For example: figures/player/player.todo, if you are a game dev and you want to manage planning of the player.
 
 ## Big tool set
 There will be lot of tools in ainm:

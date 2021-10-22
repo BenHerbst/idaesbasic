@@ -1,4 +1,4 @@
-package org.ainm.controllers;
+package org.idaesbasic.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

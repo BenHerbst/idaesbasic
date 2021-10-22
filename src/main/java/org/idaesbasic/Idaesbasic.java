@@ -1,13 +1,16 @@
-package org.ainm;
+package org.idaesbasic;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
-public class Main extends Application {
+public class Idaesbasic extends Application {
 
     @Override
     public void start(Stage stage) {
@@ -15,8 +18,15 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainView.fxml"));
             Scene scene = new Scene(root, 640, 480);
             stage.setScene(scene);
-            stage.setTitle("Ainm - 0.8 - Alpha");
+            stage.setTitle("Idaesbasic - Main window - 0.8.0 - Alpha");
             stage.setMaximized(true);
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent t) {
+                    Platform.exit();
+                    System.exit(0);
+                }
+            });
             stage.getIcons().add(new Image(Main.class.getResourceAsStream("/icon.png")));
             stage.show();
         } catch (Exception e) {
@@ -25,6 +35,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }
