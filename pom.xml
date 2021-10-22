@@ -35,7 +35,7 @@
 				<version>1.4.0</version>
 				<configuration>
 					<name>Idaesbasic</name>
-					<appVersion>1.0.0</appVersion>
+					<appVersion>0.8.0</appVersion>
 					<vendor>org.herbst</vendor>
 					<destination>target/dist</destination>
 					<module>idaesbasic/org.idaesbasic.Main</module>
