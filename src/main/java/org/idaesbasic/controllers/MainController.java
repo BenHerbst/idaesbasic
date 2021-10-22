@@ -19,10 +19,6 @@ import java.util.TimerTask;
 
 import org.idaesbasic.controllers.todolist.TodolistController;
 
-import com.github.cliftonlabs.json_simple.JsonException;
-import com.github.cliftonlabs.json_simple.JsonObject;
-import com.github.cliftonlabs.json_simple.Jsoner;
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -67,12 +63,12 @@ public class MainController {
 
     @FXML
     void initialize() {
-        try {
-            loadProjectList();
-        } catch (IOException | JsonException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
+//        try {
+//            loadProjectList();
+//        } catch (IOException | JsonException e1) {
+//            // TODO Auto-generated catch block
+//            e1.printStackTrace();
+//        }
         // Set date from date button
         dateButton.setText(LocalDate.now().toString());
         Timer timer = new Timer();
@@ -372,36 +368,36 @@ public class MainController {
     }
 
     void saveProjectList() throws IOException {
-        //Saves the registered projects in an json file
-        //Create json
-        JsonObject json = new JsonObject();
-        json.put("registeredProjects", registered_projects);
-        //Write json to file
-        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
-        Path userDirectory = Paths.get(userDirectoryPath);
-        if (!Files.exists(userDirectory)) {
-            Files.createDirectory(userDirectory);
-        }
-        Path file = Paths.get(userDirectoryPath + "/config.json");
-        if (!Files.exists(file)) {
-            Files.createFile(file);
-        }
-        Files.writeString(file, json.toJson());
+//        //Saves the registered projects in an json file
+//        //Create json
+//        JsonObject json = new JsonObject();
+//        json.put("registeredProjects", registered_projects);
+//        //Write json to file
+//        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
+//        Path userDirectory = Paths.get(userDirectoryPath);
+//        if (!Files.exists(userDirectory)) {
+//            Files.createDirectory(userDirectory);
+//        }
+//        Path file = Paths.get(userDirectoryPath + "/config.json");
+//        if (!Files.exists(file)) {
+//            Files.createFile(file);
+//        }
+//        Files.writeString(file, json.toJson());
     }
     
-    void loadProjectList() throws IOException, JsonException {
+    void loadProjectList() throws IOException {
         //Read the config.json file
-        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
-        Path userDirectory = Paths.get(userDirectoryPath);
-        if(Files.exists(userDirectory)) {
-            Reader reader = Files.newBufferedReader(Paths.get(userDirectoryPath + "/config.json"));
-            JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
-            //Get the registered projects from parser
-            registered_projects = (List<String>) parser.get("registeredProjects");
-            //Create the listmenu
-            createProjectList();
-        }
-        
+//        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
+//        Path userDirectory = Paths.get(userDirectoryPath);
+//        if(Files.exists(userDirectory)) {
+//            Reader reader = Files.newBufferedReader(Paths.get(userDirectoryPath + "/config.json"));
+//            JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
+//            //Get the registered projects from parser
+//            registered_projects = (List<String>) parser.get("registeredProjects");
+//            //Create the listmenu
+//            createProjectList();
+//        }
+//        
     }
 
     Tab get_current_tab() {
