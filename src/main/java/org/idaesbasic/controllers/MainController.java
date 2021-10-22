@@ -200,7 +200,7 @@ public class MainController {
             Scene scene = new Scene(root, 640, 480);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setTitle("Idaes - 0.8 - Alpha");
+            stage.setTitle("Idaesbasic - Child window - 0.8.0 - Alpha");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

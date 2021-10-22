@@ -2,6 +2,8 @@ module idaesbasic {
 	requires java.desktop;
 	requires javafx.controls;
 	requires javafx.fxml;
+	requires javafx.base;
+	requires javafx.graphics;
 
 	opens org.idaesbasic to javafx.fxml;
 	opens org.idaesbasic.controllers to javafx.fxml;
