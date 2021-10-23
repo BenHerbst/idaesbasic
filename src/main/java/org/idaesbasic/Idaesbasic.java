@@ -18,7 +18,7 @@ public class Idaesbasic extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainView.fxml"));
             Scene scene = new Scene(root, 640, 480);
             stage.setScene(scene);
-            stage.setTitle("Idaesbasic - Main window - 0.8.0 - Alpha");
+            stage.setTitle("Idaesbasic - Main window - 0.9.0 - Beta");
             stage.setMaximized(true);
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
