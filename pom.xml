@@ -24,7 +24,6 @@
 					<jlinkZipName>idaesbasic</jlinkZipName>
 					<compress>2</compress>
 					<noHeaderFiles>true</noHeaderFiles>
-					<stripDebug>true</stripDebug>
 					<noManPages>true</noManPages>
 					<launcher>idaesbasic</launcher>
 				</configuration>
@@ -62,6 +61,16 @@
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-fxml</artifactId>
 			<version>16</version>
+		</dependency>
+		<dependency>
+			<groupId>org.kordamp.ikonli</groupId>
+			<artifactId>ikonli-javafx</artifactId>
+			<version>12.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.kordamp.ikonli</groupId>
+			<artifactId>ikonli-fontawesome-pack</artifactId>
+			<version>12.2.0</version>
 		</dependency>
 	</dependencies>
 </project>

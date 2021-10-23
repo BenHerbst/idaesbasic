@@ -4,6 +4,9 @@ module idaesbasic {
 	requires javafx.fxml;
 	requires javafx.base;
 	requires javafx.graphics;
+    requires org.kordamp.ikonli.core;
+    requires org.kordamp.ikonli.javafx;
+    requires org.kordamp.ikonli.fontawesome;
 
 	opens org.idaesbasic to javafx.fxml;
 	opens org.idaesbasic.controllers to javafx.fxml;

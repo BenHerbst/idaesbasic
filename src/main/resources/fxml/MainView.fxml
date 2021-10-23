@@ -11,6 +11,7 @@
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.idaesbasic.controllers.MainController">
    <left>
@@ -62,18 +63,36 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem disable="true" mnemonicParsing="false" text="Open" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="Open">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-file" iconSize="16" />
+                     </graphic></MenuItem>
                   <Menu mnemonicParsing="false" text="New">
                     <items>
-                      <MenuItem fx:id="menuItemNewTodolist" mnemonicParsing="false" onAction="#newTodolist" text="New Todolist" />
+                      <MenuItem fx:id="menuItemNewTodolist" mnemonicParsing="false" onAction="#newTodolist" text="New Todolist">
+                           <graphic>
+                              <FontIcon iconColor="WHITE" iconLiteral="fa-check-circle" iconSize="16" />
+                           </graphic></MenuItem>
                         <MenuItem disable="true" mnemonicParsing="false" text="New Kanban" />
                         <MenuItem disable="true" mnemonicParsing="false" text="New Calendar" />
                         <MenuItem disable="true" mnemonicParsing="false" text="New Whiteboard" />
                     </items>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-plus-square" iconSize="16" />
+                     </graphic>
                   </Menu>
-                  <MenuItem fx:id="menuItemSaveAs" mnemonicParsing="false" onAction="#saveFileAs" text="Save as" />
-                  <MenuItem fx:id="menuItemSaveCurrentFile" mnemonicParsing="false" onAction="#saveCurrentFile" text="Save" />
-              <MenuItem fx:id="menuItemCloseFile" mnemonicParsing="false" onAction="#closeFile" text="Close" />
+                  <MenuItem fx:id="menuItemSaveAs" mnemonicParsing="false" onAction="#saveFileAs" text="Save as">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-share-square" iconSize="16" />
+                     </graphic></MenuItem>
+                  <MenuItem fx:id="menuItemSaveCurrentFile" mnemonicParsing="false" onAction="#saveCurrentFile" text="Save">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-save" iconSize="16" />
+                     </graphic></MenuItem>
+              <MenuItem fx:id="menuItemCloseFile" mnemonicParsing="false" onAction="#closeFile" text="Close">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="16" />
+                     </graphic></MenuItem>
             </items>
           </Menu>
           <Menu disable="true" mnemonicParsing="false" text="Edit">
@@ -102,21 +121,48 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Window">
                <items>
-                  <MenuItem fx:id="menuItemNewWIndow" mnemonicParsing="false" onAction="#openNewWindow" text="New window" />
-                  <MenuItem fx:id="menuItemCloseCurrentWindow" mnemonicParsing="false" onAction="#closeCurrentWindow" text="Close current window" />
+                  <MenuItem fx:id="menuItemNewWIndow" mnemonicParsing="false" onAction="#openNewWindow" text="New window">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-plus-square" iconSize="16" />
+                     </graphic></MenuItem>
+                  <MenuItem fx:id="menuItemCloseCurrentWindow" mnemonicParsing="false" onAction="#closeCurrentWindow" text="Close current window">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="16" />
+                     </graphic></MenuItem>
                   <MenuItem fx:id="menuItemOpenFileExplorer" mnemonicParsing="false" onAction="#openFileExplorer" text="Open file explorer" />
-                  <MenuItem fx:id="menuItemOpenBrowser" mnemonicParsing="false" onAction="#openDefaultBrowser" text="Open browser" />
-                  <MenuItem fx:id="menuItemOpenMail" mnemonicParsing="false" onAction="#openDefaultMail" text="Open mail" />
+                  <MenuItem fx:id="menuItemOpenBrowser" mnemonicParsing="false" onAction="#openDefaultBrowser" text="Open browser">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-internet-explorer" iconSize="16" />
+                     </graphic></MenuItem>
+                  <MenuItem fx:id="menuItemOpenMail" mnemonicParsing="false" onAction="#openDefaultMail" text="Open mail">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-envelope" />
+                     </graphic></MenuItem>
                   <MenuItem disable="true" mnemonicParsing="false" text="Open in standard app" />
                </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem disable="true" mnemonicParsing="false" text="About" />
-                  <MenuItem fx:id="menuItemUsedLibarys" mnemonicParsing="false" onAction="#showUsedLibarys" text="Used libarys" />
-                  <MenuItem fx:id="menuItemGithub" mnemonicParsing="false" onAction="#showGithubSite" text="Github" />
-                  <MenuItem disable="true" mnemonicParsing="false" text="Settings" />
-                  <MenuItem fx:id="menuItemCloseApp" mnemonicParsing="false" onAction="#closeApp" text="Close" />
+              <MenuItem disable="true" mnemonicParsing="false" text="About">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-question-circle" iconSize="16" />
+                     </graphic></MenuItem>
+                  <MenuItem fx:id="menuItemUsedLibarys" mnemonicParsing="false" onAction="#showUsedLibarys" text="Used libarys">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-book" iconSize="16" />
+                     </graphic></MenuItem>
+                  <MenuItem fx:id="menuItemGithub" mnemonicParsing="false" onAction="#showGithubSite" text="Github">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-github" iconSize="16" />
+                     </graphic></MenuItem>
+                  <MenuItem disable="true" mnemonicParsing="false" text="Settings">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-cog" iconSize="16" />
+                     </graphic></MenuItem>
+                  <MenuItem fx:id="menuItemCloseApp" mnemonicParsing="false" onAction="#closeApp" text="Close">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="16" />
+                     </graphic></MenuItem>
             </items>
           </Menu>
         </menus>
