@@ -72,5 +72,16 @@
 			<artifactId>ikonli-fontawesome-pack</artifactId>
 			<version>12.2.0</version>
 		</dependency>
+		<dependency>
+    		<groupId>com.calendarfx</groupId>
+    		<artifactId>calendar</artifactId>
+    		<version>11.10.1</version>
+    		<type>pom</type>
+		</dependency>
+		<dependency>
+    		<groupId>com.calendarfx</groupId>
+    		<artifactId>view</artifactId>
+    		<version>11.10.1</version>
+		</dependency>
 	</dependencies>
 </project>
