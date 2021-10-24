@@ -47,7 +47,7 @@ _At the moment, only todolist is implemented, kanban and calendar come with 0.9.
 </br>
 _To update the file browser, click on "Projects" -> "Project list" -> [Project location]_
 
-## Free and open source🗽
+## Free and open source 🗽
 
 Idaesbasic is free and open source software.
 - Everyone can make a pull request and we wil add the feature
@@ -60,9 +60,26 @@ Idaesbasic is free and open source software.
 - If you are a single person that is famous, manage all your interviews etc. in the todolist and kalander.
 - If you are a single developer, manage the tasks for your project directly in the project isself and create kanbans
 
+## License
+MIT License
+
 ## Build with javafx 💪
 The software is build with javafx 17:
 - Faster then web app
 - Small, doesnt have a browser inside
 - Less ram
 - Can access your files
+
+## Future
+Version 0.9.0 Beta:
+- Kanban
+- Better todolists, with date, time and tags
+- Kalendar
+- Welcome screen
+- Better design
+Version 1.0.0 Stable:
+- Whiteboard
+- Email managment
+- Faster, Optimized
+- Bug fixes
+- ...
