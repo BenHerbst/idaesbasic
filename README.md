@@ -18,7 +18,7 @@ You can store everything local on you computer and directly in your project. For
 
 
 ## Big tool set ⚒️
-There will be lot of tools in ainm:
+There will be lot of tools in idaesbasic:
 - Todolist
 - Kanban
 - Whiteboard
@@ -52,7 +52,7 @@ Idaesbasic is free and open source software.
 - Everyone can look the code
 - Everyone can change the code and built the software perfect for her / his needs
 
-## For everyone 🧑🧑‍🦰🧑‍🦱🧑‍🦳🧑‍🦲🧔
+## For everyone 🧑🧑‍🦰🧑‍🦱🧑‍🦳🧑‍🦲🧔🧟
 - If you want to use the software to manage your personal tasks, go and use the todolist.
 - If you are a big tech company and you want to manage a website, go and use the kanban and team features, and change the code to your needs.
 - If you are a single person that is famous, manage all your interviews etc. in the todolist and kalander.
