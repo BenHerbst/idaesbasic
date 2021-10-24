@@ -31,9 +31,22 @@ There will be lot of tools in ainm:
 
 ![Screenshot 2021-10-21 125752](https://user-images.githubusercontent.com/83538916/138264358-0fef23c1-9a94-4c22-abeb-125cec09d351.png)
 
-_At the moment, only todolist is implemented_
+_At the moment, only todolist is implemented, kanban and calendar come with 0.9.0 alpha!_
+## Get started
+(1) Downloaad and install the app for windows or linux. 
+</br>
+(2) Click on "Projects" -> "Add project" and select a folder
+</br>
+(3) Create a new todolist via "File" -> "New" -> "New todolist"
+</br>
+(4) Name the file and set the file location
+</br>
+(5) Create your todos, and click on "File" -> "Save" to save them
+</br>
+</br>
+_To update the file browser, click on "Projects" -> "Project list" -> [Project location]_
 ## Free and open source
-Ainm is free and open source software.
+Idaesbasic is free and open source software.
 - Everyone can make a pull request and we wil add the feature
 - Everyone can look the code
 - Everyone can change the code and built the software perfect for her / his needs
