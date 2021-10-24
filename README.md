@@ -71,14 +71,13 @@ The software is build with javafx 17:
 - Can access your files
 
 ## Future
-Version 0.9.0 Beta:
+### Version 0.9.0 Beta:
 - Kanban
 - Better todolists, with date, time and tags
 - Kalendar
 - Welcome screen
 - Better design
-</br>
-Version 1.0.0 Stable:
+### Version 1.0.0 Stable:
 - Whiteboard
 - Email managment
 - Faster, Optimized
