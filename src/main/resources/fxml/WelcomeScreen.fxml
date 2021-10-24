@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.idaesbasic.controllers.WelcomeScreenController">
    <children>
       <Label text="You have no project open.">
          <font>
@@ -26,12 +25,12 @@
             <Insets bottom="10.0" />
          </VBox.margin>
       </Label>
-      <Button mnemonicParsing="false" style="-fx-pref-width: 150;" text="Create new one">
+      <Button mnemonicParsing="false" onAction="#createNewProject" style="-fx-pref-width: 150;" text="Create new one">
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>
       </Button>
-      <Button mnemonicParsing="false" style="-fx-pref-width: 150;" text="Add folder to project list">
+      <Button mnemonicParsing="false" onAction="#addProject" style="-fx-pref-width: 150;" text="Add folder to project list">
          <VBox.margin>
             <Insets bottom="20.0" />
          </VBox.margin>
