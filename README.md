@@ -18,6 +18,7 @@ You can store everything local on you computer and directly in your project. For
 
 
 ## Big tool set ⚒️
+
 There will be lot of tools in idaesbasic:
 - Todolist
 - Kanban
@@ -47,6 +48,7 @@ _At the moment, only todolist is implemented, kanban and calendar come with 0.9.
 _To update the file browser, click on "Projects" -> "Project list" -> [Project location]_
 
 ## Free and open source🗽
+
 Idaesbasic is free and open source software.
 - Everyone can make a pull request and we wil add the feature
 - Everyone can look the code
