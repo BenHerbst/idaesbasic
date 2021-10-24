@@ -41,6 +41,7 @@ import javafx.scene.control.TreeView;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import com.calendarfx.model.Calendar;
 import com.calendarfx.model.Calendar.Style;
@@ -149,6 +150,10 @@ public class MainController {
 
 	@FXML
 	void addProject(ActionEvent event) {
+		addNewProject();
+	}
+	
+	void addNewProject() {
 		// Register a new project and open it
 		DirectoryChooser chooser = new DirectoryChooser();
 		File project = chooser.showDialog(null);
@@ -171,7 +176,7 @@ public class MainController {
 	}
 
 	@FXML
-	void deleteCurrentProject(ActionEvent event) {
+	void deleteCurrentProject(ActionEvent event) throws IOException {
 		// Remove the current project from the registered list
 		registered_projects.remove(currentProjectPath);
 		createProjectList();
@@ -200,14 +205,27 @@ public class MainController {
 	}
 
 	@FXML
-	void closeCurrentProject(ActionEvent event) {
+	void closeCurrentProject(ActionEvent event) throws IOException {
 		closeProject();
 	}
 
-	void closeProject() {
+	void closeProject() throws IOException {
 		// Close the file explorer
 		fileExplorer.setRoot(null);
 		currentProjectPath = "";
+		//Load welcome screen
+		Parent welcomeScreen = FXMLLoader.load(getClass().getResource("/fxml/WelcomeScreen.fxml"));
+		//Configre stage
+		Scene scene = new Scene(welcomeScreen);
+		Stage stage = (Stage) getCurrentStage();
+		stage.hide();
+		stage.setHeight(530);
+		stage.setWidth(650);
+		stage.setResizable(false);
+		stage.setMaximized(false);
+		stage.setTitle("Idaesbasic / Welcome - 0.9.0 - Beta");
+		stage.show();
+		stage.setScene(scene);
 	}
 
 	@FXML
@@ -245,7 +263,11 @@ public class MainController {
 	@FXML
 	void closeCurrentWindow(ActionEvent event) {
 		// Close the current stage
-		dateButton.getScene().getWindow().hide();
+		getCurrentStage().hide();
+	}
+	
+	Window getCurrentStage() {
+		return dateButton.getScene().getWindow();
 	}
 
 	@FXML
