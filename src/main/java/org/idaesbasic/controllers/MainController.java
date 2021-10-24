@@ -48,6 +48,8 @@ import com.calendarfx.model.Calendar.Style;
 import com.calendarfx.model.CalendarSource;
 import com.calendarfx.view.CalendarView;
 
+import org.json.*;
+
 public class MainController {
 
 	public class NewFileDialogResult {
@@ -82,12 +84,11 @@ public class MainController {
 
 	@FXML
 	void initialize() {
-//        try {
-//            loadProjectList();
-//        } catch (IOException | JsonException e1) {
-//            // TODO Auto-generated catch block
-//            e1.printStackTrace();
-//        }
+        try {
+            loadProjectList();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
 		// Set date from date button
 		dateButton.setText(LocalDate.now().toString());
 		Timer timer = new Timer();
@@ -479,36 +480,37 @@ public class MainController {
 	}
 
 	void saveProjectList() throws IOException {
-//        //Saves the registered projects in an json file
-//        //Create json
-//        JsonObject json = new JsonObject();
-//        json.put("registeredProjects", registered_projects);
-//        //Write json to file
-//        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
-//        Path userDirectory = Paths.get(userDirectoryPath);
-//        if (!Files.exists(userDirectory)) {
-//            Files.createDirectory(userDirectory);
-//        }
-//        Path file = Paths.get(userDirectoryPath + "/config.json");
-//        if (!Files.exists(file)) {
-//            Files.createFile(file);
-//        }
-//        Files.writeString(file, json.toJson());
+        //Saves the registered projects in an json file
+        //Create json
+        JSONObject json = new JSONObject();
+        json.put("registeredProjects", registered_projects);
+        //Write json to file
+        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
+        Path userDirectory = Paths.get(userDirectoryPath);
+        if (!Files.exists(userDirectory)) {
+            Files.createDirectory(userDirectory);
+        }
+        Path file = Paths.get(userDirectoryPath + "/config.json");
+        if (!Files.exists(file)) {
+            Files.createFile(file);
+        }
+        Files.writeString(file, json.toString());
 	}
 
 	void loadProjectList() throws IOException {
 		// Read the config.json file
-//        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
-//        Path userDirectory = Paths.get(userDirectoryPath);
-//        if(Files.exists(userDirectory)) {
-//            Reader reader = Files.newBufferedReader(Paths.get(userDirectoryPath + "/config.json"));
-//            JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
-//            //Get the registered projects from parser
-//            registered_projects = (List<String>) parser.get("registeredProjects");
-//            //Create the listmenu
-//            createProjectList();
-//        }
-//        
+        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
+        Path userDirectory = Paths.get(userDirectoryPath);
+        if(Files.exists(userDirectory)) {
+            JSONObject parser = new JSONObject(Files.readString(Paths.get(userDirectoryPath + "/config.json")));
+            //Get the registered projects from parser
+            for (Object project:parser.getJSONArray("registeredProjects")) {
+            	registered_projects.add((String) project);
+            }
+            //Create the listmenu
+            createProjectList();
+        }
+        
 	}
 
 	Tab get_current_tab() {
