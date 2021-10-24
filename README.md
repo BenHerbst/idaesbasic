@@ -4,8 +4,12 @@
 !["java"](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 !["build_by"](http://ForTheBadge.com/images/badges/built-by-developers.svg)
 !["with_love"](	http://ForTheBadge.com/images/badges/built-with-love.svg)
-___
-!["logo"](https://github.com/BenHerbst/ainm/blob/master/icon.png)
+<br>
+<br>
+<p align="center">
+  <img src="https://github.com/BenHerbst/ainm/blob/master/icon.png">
+</p>
+
 ## Everything is a file
 With this project managment tool, everything is a file. Your todolists are .todo files and your kanbans .kanban ...
 You can store everything local on you computer and directly in your project. For example: figures/player/player.todo, if you are a game dev and you want to manage planning of the player.
