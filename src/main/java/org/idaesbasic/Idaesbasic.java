@@ -15,11 +15,16 @@ public class Idaesbasic extends Application {
     @Override
     public void start(Stage stage) {
         try {
+        	//Show welcome screen
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/WelcomeScreen.fxml"));
             Scene scene = new Scene(root, 640, 480);
             stage.setScene(scene);
             stage.setTitle("Idaesbasic / Welcome - 0.9.0 - Beta");
-            stage.setMaximized(true);
+            stage.setHeight(530);
+            stage.setWidth(650);
+            stage.setMaximized(false);
+            stage.setResizable(false);
+            //Close all timertasks on main window close
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent t) {
@@ -27,6 +32,7 @@ public class Idaesbasic extends Application {
                     System.exit(0);
                 }
             });
+            //Add icon
             stage.getIcons().add(new Image(Main.class.getResourceAsStream("/icon.png")));
             stage.show();
         } catch (Exception e) {
