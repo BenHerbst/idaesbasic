@@ -1,4 +1,10 @@
 # Idaesbasic - Alpha - Project managment Redefined
+!["windows"](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+!["ubuntu"](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+!["java"](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+!["build_by"](http://ForTheBadge.com/images/badges/built-by-developers.svg)
+!["with_love"](	http://ForTheBadge.com/images/badges/built-with-love.svg)
+___
 !["logo"](https://github.com/BenHerbst/ainm/blob/master/icon.png)
 ## Everything is a file
 With this project managment tool, everything is a file. Your todolists are .todo files and your kanbans .kanban ...
