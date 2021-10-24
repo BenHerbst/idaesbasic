@@ -77,6 +77,7 @@ Version 0.9.0 Beta:
 - Kalendar
 - Welcome screen
 - Better design
+</br>
 Version 1.0.0 Stable:
 - Whiteboard
 - Email managment
