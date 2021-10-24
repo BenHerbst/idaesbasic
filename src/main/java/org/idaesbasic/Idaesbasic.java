@@ -15,10 +15,10 @@ public class Idaesbasic extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainView.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/WelcomeScreen.fxml"));
             Scene scene = new Scene(root, 640, 480);
             stage.setScene(scene);
-            stage.setTitle("Idaesbasic - Main window - 0.9.0 - Beta");
+            stage.setTitle("Idaesbasic / Welcome - 0.9.0 - Beta");
             stage.setMaximized(true);
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
