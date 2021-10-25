@@ -43,6 +43,6 @@
             <Insets bottom="10.0" />
          </VBox.margin>
       </Label>
-      <ChoiceBox prefWidth="150.0" style="-fx-pref-width: 150;" />
+      <ChoiceBox fx:id="projectListBox" prefWidth="150.0" style="-fx-pref-width: 150;" />
    </children>
 </VBox>
