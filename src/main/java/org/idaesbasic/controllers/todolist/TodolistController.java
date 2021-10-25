@@ -4,7 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 import javafx.event.ActionEvent;
@@ -35,11 +38,11 @@ public class TodolistController {
         dialog.setTitle("Add new todo");
         Optional<ButtonType> result = dialog.showAndWait();
         if (result.get() == ButtonType.FINISH) {
-            addTodo(controller.getTodo(), false);
+            addTodo(controller.getTodo(), false, controller.getDate());
         }
     }
 
-    void addTodo(String todo, Boolean checked) throws IOException {
+    void addTodo(String todo, Boolean checked, LocalDate date) throws IOException {
         // Load a new todo item
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/views/todo/todo_item.fxml"));
@@ -49,6 +52,7 @@ public class TodolistController {
         todo_item.setUserData(todoController);
         todoController.setTodo(todo);
         todoController.setDone(checked);
+        todoController.setDate(date);
         // Add todo to todolist
         todos_list.getChildren().add(todo_item);
     }
@@ -59,7 +63,10 @@ public class TodolistController {
         try (Stream<String> lines = Files.lines(file)) {
             lines.forEach((line) -> {
                 try {
-                    addTodo(line.replace("[x] ", "").replace("[ ] ", ""), (line.startsWith("[x] ") ? true:false));
+                    //Date detect pattern, to get the date of a todo item
+                    Pattern datePattern = Pattern.compile("\\d{1,2}-\\d{1,2}-\\d{4}");
+                    Matcher matcher = datePattern.matcher(line);
+                    addTodo(line.replace("[x] ", "").replace("[ ] ", ""), (line.startsWith("[x] ") ? true:false), matcher.find() ? LocalDate.parse(matcher.group(0)):null);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -88,7 +95,7 @@ public class TodolistController {
         String saveData = "";
         for(Node todoItem:todos_list.getChildren()) {
             TodoitemController controller = (TodoitemController) getController(todoItem);
-            saveData += "[" + ((controller.isDone()) ? "x":" ") + "] " + controller.getTodo() + "\n";
+            saveData += "[" + ((controller.isDone()) ? "x":" ") + "] " + controller.getTodo() + controller.getDateAsString() + "\n";
         }
         //Save this string to the given file
         Files.writeString(file, saveData);

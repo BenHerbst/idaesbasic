@@ -1,8 +1,11 @@
 package org.idaesbasic.controllers.todolist;
 
+import java.time.LocalDate;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -15,12 +18,25 @@ public class TodoitemController {
     private HBox panel;
 
     @FXML
+    private Label dateLabel;
+
+    @FXML
     void deleteTodoAction(ActionEvent event) {
         ((VBox) panel.getParent()).getChildren().remove(panel);
     }
 
     void setTodo(String todo) {
         checkBox.setText(todo);
+    }
+
+    void setDate(LocalDate date) {
+        if (date != null) {
+            dateLabel.setText(date.toString());
+        }
+    }
+
+    String getDateAsString() {
+        return dateLabel.getText();
     }
 
     String getTodo() {
