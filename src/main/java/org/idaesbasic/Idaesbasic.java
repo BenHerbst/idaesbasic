@@ -18,6 +18,7 @@ public class Idaesbasic extends Application {
         	//Show welcome screen
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/WelcomeScreen.fxml"));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/styles/global.css").toExternalForm());
             stage.setScene(scene);
             stage.setTitle("Idaesbasic / Welcome - 0.9.0 - Beta");
             stage.setHeight(530);

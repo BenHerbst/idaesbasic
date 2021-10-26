@@ -5,3 +5,40 @@
    -light-gray-color: #666666;
    -white-color: #b5b5b5;
 }
+
+.button {
+   -fx-background-color: #232323;
+	-fx-text-fill: #b5b5b5;
+}
+
+.button:focused {
+	-fx-background-color: #666666;
+}
+
+.choice-box {
+	-fx-background-color: #232323;
+}
+
+.choice-box:focused {
+	-fx-background-color: #666666;
+}
+
+.choice-box .context-menu {
+	-fx-background-color: #232323;
+}
+
+.choice-box .context-menu .label {
+	-fx-text-fill: #b5b5b5;
+}
+
+.choice-box .menu-item:hover, .choice-box .menu-item:focused {
+	-fx-background-color: #666666;
+}
+
+.label {
+	-fx-text-fill: #b5b5b5;
+}
+
+.root {
+	-fx-background-color: #141414
+}
