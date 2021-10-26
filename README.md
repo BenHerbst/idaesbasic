@@ -74,8 +74,8 @@ The software is build with javafx 17:
 ### Version 0.9.0 Beta:
 - Kanban
 - Better todolists, with date, time and tags
-- Kalendar
-- Welcome screen
+- ~~Kalendar~~
+- ~~Welcome screen~~
 - Better design
 ### Version 1.0.0 Stable:
 - Whiteboard
