@@ -414,6 +414,17 @@ public class MainController {
                         sportCalendarSource);
                 // Update current calendar time
                 calendarView.setRequestedTime(LocalTime.now());
+                Timer timer = new Timer();
+                timer.scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+//                      Update the calendar view current day and time every 10 secounds
+                        Platform.runLater(() -> {
+                            calendarView.setToday(LocalDate.now());
+                            calendarView.setTime(LocalTime.now());
+                        });
+                    }
+                }, 0, 2000);
                 // Show new calendar in current tab
                 addViewToCurrentTab(calendarView);
             }
