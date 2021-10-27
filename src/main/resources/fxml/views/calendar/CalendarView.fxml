@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.calendarfx.view.DetailedDayView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox stylesheets="@../../../styles/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.idaesbasic.controllers.calendar.CalendarController">
+   <children>
+      <ButtonBar buttonOrder="U" prefHeight="38.0">
+        <buttons>
+            <Button layoutX="412.0" layoutY="17.0" mnemonicParsing="false" text="Day" />
+            <Button layoutX="188.0" layoutY="28.0" mnemonicParsing="false" text="Week" />
+            <Button layoutX="273.0" layoutY="18.0" mnemonicParsing="false" text="Month" />
+            <Button layoutX="315.0" layoutY="18.0" mnemonicParsing="false" text="Year" />
+        </buttons>
+      </ButtonBar>
+      <DetailedDayView fx:id="calendarView" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets left="25.0" right="25.0" />
+         </VBox.margin>
+      </DetailedDayView>
+   </children>
+</VBox>

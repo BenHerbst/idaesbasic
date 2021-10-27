@@ -1,0 +1,28 @@
+.button {
+   -fx-background-color: #232323;
+	-fx-text-fill: #b5b5b5;
+}
+
+.button:focused {
+	-fx-background-color: #666666;
+}
+
+.context-menu {
+	-fx-background-color: #141414;
+}
+
+.choice-box .context-menu .label {
+	-fx-text-fill: #b5b5b5;
+}
+
+.menu-item:hover, .menu-item:focused {
+	-fx-background-color: #666666;
+}
+
+.label {
+	-fx-text-fill: #b5b5b5;
+}
+
+.root {
+	-fx-background-color: #232323
+}
