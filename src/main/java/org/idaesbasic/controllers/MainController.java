@@ -18,6 +18,7 @@ import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.idaesbasic.controllers.calendar.CalendarController;
 import org.idaesbasic.controllers.todolist.TodolistController;
 import org.idaesbasic.data.Load;
 
@@ -383,7 +384,8 @@ public class MainController {
                 }
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/fxml/views/calendar/CalendarView.fxml"));
-                Parent calendarView = loader.load();
+                Node calendarView = loader.load();
+                calendarView.setUserData(loader.getController());
                 // Show new calendar in current tab
                 addViewToCurrentTab(calendarView);
             }
@@ -426,6 +428,8 @@ public class MainController {
         Object controller = getController(get_current_tab().getContent());
         if (controller.getClass().equals(new TodolistController().getClass())) {
             ((TodolistController) controller).saveCurrentFile();
+        } else if (controller.getClass().equals(new CalendarController().getClass())) {
+            ((CalendarController) controller).saveFile();
         }
     }
 

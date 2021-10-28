@@ -9,6 +9,7 @@ module idaesbasic {
     requires org.kordamp.ikonli.fontawesome;
 	requires com.calendarfx.view;
 	requires org.json;
+    requires org.mnode.ical4j.core;
 
 	opens org.idaesbasic to javafx.fxml;
 	opens org.idaesbasic.controllers to javafx.fxml;
