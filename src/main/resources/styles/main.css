@@ -15,6 +15,15 @@
 	-fx-text-fill: #b5b5b5;
 }
 
+.toggle-button {
+	-fx-background-color: #232323;
+	-fx-text-fill: #b5b5b5;
+}
+
+.toggle-button:selected {
+	-fx-background-color: #666666
+}
+
 .menu-item:hover, .menu-item:focused {
 	-fx-background-color: #666666;
 }
