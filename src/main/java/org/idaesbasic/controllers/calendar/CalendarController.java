@@ -3,7 +3,6 @@ package org.idaesbasic.controllers.calendar;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Instant;
@@ -17,37 +16,32 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.controlsfx.control.textfield.AutoCompletionBinding.AutoCompletionEvent;
-
 import com.calendarfx.model.Calendar;
 import com.calendarfx.model.CalendarSource;
 import com.calendarfx.model.Entry;
 import com.calendarfx.model.Calendar.Style;
 import com.calendarfx.model.CalendarEvent;
-import com.calendarfx.view.CalendarView;
+import com.calendarfx.view.DateControl;
 import com.calendarfx.view.DetailedDayView;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.effect.Effect;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.AnchorPane;
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.CalendarOutputter;
 import net.fortuna.ical4j.data.ParserException;
-import net.fortuna.ical4j.model.Component;
 import net.fortuna.ical4j.model.DateTime;
-import net.fortuna.ical4j.model.TimeZone;
-import net.fortuna.ical4j.model.TimeZoneRegistry;
-import net.fortuna.ical4j.model.TimeZoneRegistryFactory;
 import net.fortuna.ical4j.model.component.CalendarComponent;
 import net.fortuna.ical4j.model.component.VEvent;
-import net.fortuna.ical4j.model.component.VTimeZone;
 import net.fortuna.ical4j.model.property.CalScale;
 import net.fortuna.ical4j.model.property.ProdId;
 import net.fortuna.ical4j.model.property.Uid;
 import net.fortuna.ical4j.model.property.Version;
-import net.fortuna.ical4j.util.UidGenerator;
 import net.fortuna.ical4j.validate.ValidationException;
 
 public class CalendarController {
@@ -70,11 +64,35 @@ public class CalendarController {
     
     List<CalendarEventItem> events = new ArrayList<>();
     
+    private DateControl calendarView;
+    
     @FXML
-    private DetailedDayView calendarView;
+    private ToggleButton switchToDayButton;
 
     @FXML
-    void initialize() {
+    private ToggleButton switchToMonthButton;
+
+    @FXML
+    private ToggleButton switchToWeekButton;
+
+    @FXML
+    private ToggleButton switchToYearButton;
+    
+    @FXML
+    private ToggleButton[] toggleButtons;
+
+    @FXML
+    private AnchorPane viewContainer;
+
+    @FXML
+    void initialize() throws IOException {
+        ToggleButton[] initToggleButtons = {switchToDayButton, switchToMonthButton, switchToWeekButton, switchToYearButton};
+        toggleButtons = initToggleButtons;
+        // Load day view
+        Node dayView = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/DayView.fxml"));
+        // Add day view
+        calendarView = (DateControl) ((AnchorPane) dayView).getChildren().get(0);
+        viewContainer.getChildren().add(dayView);
         // Create work calendars
         Calendar meetingsCalendar = new Calendar("Meetings");
         Calendar pausesCalendar = new Calendar("Pauses");
@@ -142,23 +160,55 @@ public class CalendarController {
     }
 
     @FXML
-    void switchToDay(ActionEvent event) {
-
+    void switchToDay(ActionEvent event) throws IOException {
+        selectToggleButton(switchToDayButton);
+        // Remove old one
+        viewContainer.getChildren().remove(0);
+        // Load day view
+        Node dayView = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/DayView.fxml"));
+        // Add day view
+        calendarView = (DateControl) ((AnchorPane) dayView).getChildren().get(0);
+        AnchorPane.setLeftAnchor(dayView, 0.0);
+        AnchorPane.setRightAnchor(dayView, 0.0);
+        AnchorPane.setTopAnchor(dayView, 0.0);
+        AnchorPane.setBottomAnchor(dayView, 0.0);
+        viewContainer.getChildren().add(dayView);
     }
 
     @FXML
-    void switchToMonth(ActionEvent event) {
-
+    void switchToMonth(ActionEvent event) throws IOException {
+        selectToggleButton(switchToMonthButton);
+        // Remove old one
+        viewContainer.getChildren().remove(0);
+        // Load day view
+        Node monthView = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/MonthView.fxml"));
+        // Add day view
+        calendarView = (DateControl) ((AnchorPane) monthView).getChildren().get(0);
+        viewContainer.getChildren().add(monthView);
     }
 
     @FXML
-    void switchToWeek(ActionEvent event) {
-
+    void switchToWeek(ActionEvent event) throws IOException {
+        selectToggleButton(switchToWeekButton);
+        // Remove old one
+        viewContainer.getChildren().remove(0);
+        // Load day view
+        Node weekView = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/WeekView.fxml"));
+        // Add day view
+        calendarView = (DateControl) ((AnchorPane) weekView).getChildren().get(0);
+        viewContainer.getChildren().add(weekView);
     }
 
     @FXML
-    void switchToYear(ActionEvent event) {
-
+    void switchToYear(ActionEvent event) throws IOException {
+        selectToggleButton(switchToYearButton);
+        // Remove old one
+        viewContainer.getChildren().remove(0);
+        // Load day view
+        Node yearView = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/YearView.fxml"));
+        // Add day view
+        calendarView = (DateControl) ((AnchorPane) yearView).getChildren().get(0);
+        viewContainer.getChildren().add(yearView);
     }
     
     public void loadFile(String filePath) throws IOException, ParserException {
@@ -213,5 +263,14 @@ public class CalendarController {
         FileOutputStream fout = new FileOutputStream(filePath);
         CalendarOutputter outputter = new CalendarOutputter();
         outputter.output(icsCalendar, fout);
+    }
+
+    void selectToggleButton(ToggleButton selectButton) {
+        // Unselect all buttons
+        for(int i = 0; i < toggleButtons.length; i++) {
+            toggleButtons[i].setSelected(false);
+        }
+        // Select the button which needs to be selected
+        selectButton.setSelected(true);
     }
 }

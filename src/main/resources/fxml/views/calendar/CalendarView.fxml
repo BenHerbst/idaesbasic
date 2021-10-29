@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.calendarfx.view.DetailedDayView?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-
 
 <VBox prefHeight="406.0" prefWidth="632.0" stylesheets="@../../../styles/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.idaesbasic.controllers.calendar.CalendarController">
    <children>
       <ButtonBar buttonOrder="U" prefHeight="40.0" prefWidth="200.0">
         <buttons>
-            <ToggleButton mnemonicParsing="false" onAction="#switchToDay" text="Day" />
-            <ToggleButton layoutX="553.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchToWeek" text="Week" />
-            <ToggleButton layoutX="553.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchToMonth" text="Month" />
-            <ToggleButton layoutX="553.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchToYear" text="Year" />
+            <ToggleButton fx:id="switchToDayButton" mnemonicParsing="false" onAction="#switchToDay" selected="true" text="Day" />
+            <ToggleButton fx:id="switchToWeekButton" layoutX="553.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchToWeek" text="Week" />
+            <ToggleButton fx:id="switchToMonthButton" layoutX="553.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchToMonth" text="Month" />
+            <ToggleButton fx:id="switchToYearButton" layoutX="553.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchToYear" text="Year" />
         </buttons>
       </ButtonBar>
-      <DetailedDayView fx:id="calendarView" VBox.vgrow="ALWAYS">
-         <VBox.margin>
-            <Insets left="25.0" right="25.0" />
-         </VBox.margin>
-      </DetailedDayView>
+      <AnchorPane fx:id="viewContainer" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>
