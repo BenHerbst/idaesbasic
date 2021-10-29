@@ -44,6 +44,7 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import net.fortuna.ical4j.data.ParserException;
 
 import com.calendarfx.model.Calendar;
 import com.calendarfx.model.Calendar.Style;
@@ -111,7 +112,7 @@ public class MainController {
         fileExplorer.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 openFile(newValue.getValue().getAbsolutePath());
-            } catch (IOException e) {
+            } catch (IOException | ParserException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
@@ -385,7 +386,9 @@ public class MainController {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/fxml/views/calendar/CalendarView.fxml"));
                 Node calendarView = loader.load();
-                calendarView.setUserData(loader.getController());
+                CalendarController controller = loader.getController();
+                controller.openedFile = Paths.get(fullPath);
+                calendarView.setUserData(controller);
                 // Show new calendar in current tab
                 addViewToCurrentTab(calendarView);
             }
@@ -419,6 +422,8 @@ public class MainController {
         Object controller = getController(get_current_tab().getContent());
         if (controller.getClass().equals(new TodolistController().getClass())) {
             ((TodolistController) controller).saveFileAs(Paths.get(file.getAbsolutePath()));
+        } else if (controller.getClass().equals(new CalendarController().getClass())) {
+            ((CalendarController) controller).saveFile(file.getAbsolutePath());
         }
     }
 
@@ -429,11 +434,11 @@ public class MainController {
         if (controller.getClass().equals(new TodolistController().getClass())) {
             ((TodolistController) controller).saveCurrentFile();
         } else if (controller.getClass().equals(new CalendarController().getClass())) {
-            ((CalendarController) controller).saveFile();
+            ((CalendarController) controller).saveCurrentFile();
         }
     }
 
-    void openFile(String filename) throws IOException {
+    void openFile(String filename) throws IOException, ParserException {
         if (filename.endsWith(".todo")) {
             // Load todolist view
             FXMLLoader loader = new FXMLLoader();
@@ -444,6 +449,18 @@ public class MainController {
             // Set controller as user data for later access
             view.setUserData(todolistController);
             todolistController.loadFile(Paths.get(filename));
+            // Open todolist view
+            addViewToCurrentTab(view);
+        } else if (filename.endsWith(".ics")) {
+            // Load calendar view
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/fxml/views/calendar/CalendarView.fxml"));
+            Node view = loader.load();
+            // Load calendar
+            CalendarController calendarController = loader.getController();
+            // Set controller as user data for later access
+            view.setUserData(calendarController);
+            calendarController.loadFile(filename);
             // Open todolist view
             addViewToCurrentTab(view);
         }

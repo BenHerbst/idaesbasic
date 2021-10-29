@@ -1,9 +1,16 @@
 package org.idaesbasic.controllers.calendar;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -14,6 +21,7 @@ import org.controlsfx.control.textfield.AutoCompletionBinding.AutoCompletionEven
 
 import com.calendarfx.model.Calendar;
 import com.calendarfx.model.CalendarSource;
+import com.calendarfx.model.Entry;
 import com.calendarfx.model.Calendar.Style;
 import com.calendarfx.model.CalendarEvent;
 import com.calendarfx.view.CalendarView;
@@ -24,11 +32,15 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.effect.Effect;
+import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.CalendarOutputter;
+import net.fortuna.ical4j.data.ParserException;
+import net.fortuna.ical4j.model.Component;
 import net.fortuna.ical4j.model.DateTime;
 import net.fortuna.ical4j.model.TimeZone;
 import net.fortuna.ical4j.model.TimeZoneRegistry;
 import net.fortuna.ical4j.model.TimeZoneRegistryFactory;
+import net.fortuna.ical4j.model.component.CalendarComponent;
 import net.fortuna.ical4j.model.component.VEvent;
 import net.fortuna.ical4j.model.component.VTimeZone;
 import net.fortuna.ical4j.model.property.CalScale;
@@ -54,7 +66,7 @@ public class CalendarController {
         }
     }
     
-    String openedFile;
+    public Path openedFile;
     
     List<CalendarEventItem> events = new ArrayList<>();
     
@@ -148,8 +160,39 @@ public class CalendarController {
     void switchToYear(ActionEvent event) {
 
     }
-
-    public void saveFile() throws ValidationException, IOException {
+    
+    public void loadFile(String filePath) throws IOException, ParserException {
+        // Read ics file
+        FileInputStream icsFile = new FileInputStream(filePath);
+        CalendarBuilder builder = new CalendarBuilder();
+        net.fortuna.ical4j.model.Calendar calendar = builder.build(icsFile);
+        // Get each event from ics file
+        for(CalendarComponent component:calendar.getComponents()) {
+            //Get the event from component of calendar
+            VEvent event = (VEvent) component;
+            //Create a calendar entry for calendarfx to display it with summary from ics
+            Entry calendarEntry = new Entry(event.getSummary().getValue());
+            //Get and set start and end time from ics to entry
+            LocalDateTime startTime = Instant.ofEpochMilli(event.getStartDate().getDate().getTime())
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDateTime();
+            LocalDateTime endTime = Instant.ofEpochMilli(event.getEndDate().getDate().getTime())
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDateTime();
+            calendarEntry.setInterval(startTime, endTime);
+            //Add the entry
+            calendarView.getCalendars().get(0).addEntry(calendarEntry);
+        }
+        //Set current file
+        openedFile = Paths.get(filePath);
+    }
+    
+    public void saveCurrentFile() throws ValidationException, IOException {
+        //Save to the current file
+        saveFile(openedFile.toString());
+    }
+    
+    public void saveFile(String filePath) throws ValidationException, IOException {
         //Create an ics calendar
         net.fortuna.ical4j.model.Calendar icsCalendar = new net.fortuna.ical4j.model.Calendar();
         //Create an entry for each calendar entry in the ics calendar
@@ -167,7 +210,7 @@ public class CalendarController {
         icsCalendar.getProperties().add(CalScale.GREGORIAN);
         icsCalendar.getProperties().add(Version.VERSION_2_0);
         //Save it to file
-        FileOutputStream fout = new FileOutputStream("mycalendar.ics");
+        FileOutputStream fout = new FileOutputStream(filePath);
         CalendarOutputter outputter = new CalendarOutputter();
         outputter.output(icsCalendar, fout);
     }
