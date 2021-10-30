@@ -148,56 +148,43 @@ public class CalendarController {
         calendarView.getCalendars().get(0).addEventHandler(handler);
     }
 
-    @FXML
-    void switchToDay(ActionEvent event) throws IOException {
-        selectToggleButton(switchToDayButton);
+    void switchCalendarView(String viewName) throws IOException {
         // Remove old one
         viewContainer.getChildren().remove(0);
         // Load day view
-        Node dayView = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/DayView.fxml"));
+        Node view = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/" + viewName + ".fxml"));
         // Add day view
-        calendarView = (DateControl) ((AnchorPane) dayView).getChildren().get(0);
-        AnchorPane.setLeftAnchor(dayView, 0.0);
-        AnchorPane.setRightAnchor(dayView, 0.0);
-        AnchorPane.setTopAnchor(dayView, 0.0);
-        AnchorPane.setBottomAnchor(dayView, 0.0);
-        viewContainer.getChildren().add(dayView);
+        calendarView = (DateControl) ((AnchorPane) view).getChildren().get(0);
+        // Set resize consents
+        AnchorPane.setLeftAnchor(view, 0.0);
+        AnchorPane.setRightAnchor(view, 0.0);
+        AnchorPane.setTopAnchor(view, 0.0);
+        AnchorPane.setBottomAnchor(view, 0.0);
+        viewContainer.getChildren().add(view);
+    }
+
+    @FXML
+    void switchToDay(ActionEvent event) throws IOException {
+        selectToggleButton(switchToDayButton);
+        switchCalendarView("DayView");
     }
 
     @FXML
     void switchToMonth(ActionEvent event) throws IOException {
         selectToggleButton(switchToMonthButton);
-        // Remove old one
-        viewContainer.getChildren().remove(0);
-        // Load day view
-        Node monthView = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/MonthView.fxml"));
-        // Add day view
-        calendarView = (DateControl) ((AnchorPane) monthView).getChildren().get(0);
-        viewContainer.getChildren().add(monthView);
+        switchCalendarView("MonthView");
     }
 
     @FXML
     void switchToWeek(ActionEvent event) throws IOException {
         selectToggleButton(switchToWeekButton);
-        // Remove old one
-        viewContainer.getChildren().remove(0);
-        // Load day view
-        Node weekView = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/WeekView.fxml"));
-        // Add day view
-        calendarView = (DateControl) ((AnchorPane) weekView).getChildren().get(0);
-        viewContainer.getChildren().add(weekView);
+        switchCalendarView("WeekView");
     }
 
     @FXML
     void switchToYear(ActionEvent event) throws IOException {
         selectToggleButton(switchToYearButton);
-        // Remove old one
-        viewContainer.getChildren().remove(0);
-        // Load day view
-        Node yearView = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/YearView.fxml"));
-        // Add day view
-        calendarView = (DateControl) ((AnchorPane) yearView).getChildren().get(0);
-        viewContainer.getChildren().add(yearView);
+        switchCalendarView("YearView");
     }
     
     public void loadFile(String filePath) throws IOException, ParserException {
