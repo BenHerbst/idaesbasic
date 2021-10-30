@@ -1,9 +1,7 @@
 package org.idaesbasic.controllers;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 
-import org.idaesbasic.data.Load;
 import org.idaesbasic.models.Projects;
 
 import javafx.beans.value.ChangeListener;
@@ -16,7 +14,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 

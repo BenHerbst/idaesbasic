@@ -14,14 +14,12 @@ module idaesbasic {
 	opens org.idaesbasic to javafx.fxml;
 	opens org.idaesbasic.controllers to javafx.fxml;
 	opens org.idaesbasic.controllers.todolist to javafx.fxml;
-	opens org.idaesbasic.data to org.json;
 	opens org.idaesbasic.models to org.json;
 	opens org.idaesbasic.controllers.calendar to javafx.fxml;
 	
 	exports org.idaesbasic;
 	exports org.idaesbasic.controllers;
 	exports org.idaesbasic.controllers.todolist;
-	exports org.idaesbasic.data;
 	exports org.idaesbasic.controllers.calendar;
 	exports org.idaesbasic.models;
 }

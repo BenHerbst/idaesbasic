@@ -10,6 +10,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+import org.idaesbasic.models.ViewModel;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +24,7 @@ import javafx.scene.layout.VBox;
 
 public class TodolistController {
 
-    public Path openedFile;
+    public ViewModel viewModel = new ViewModel();
 
     @FXML
     private VBox todos_list;
@@ -58,7 +60,7 @@ public class TodolistController {
     }
 
     public void loadFile(Path file) {
-        openedFile = file;
+        viewModel.setOpenedFile(file);
         // Add each line from file to todolist
         try (Stream<String> lines = Files.lines(file)) {
             lines.forEach((line) -> {
@@ -81,7 +83,7 @@ public class TodolistController {
     }
 
     public void saveFileAs(Path file) {
-        openedFile = file;
+        viewModel.setOpenedFile(file);
         try {
             saveFile(file);
         } catch (IOException e) {
@@ -91,7 +93,7 @@ public class TodolistController {
     }
 
     public void saveCurrentFile() throws IOException {
-        saveFile(openedFile);
+        saveFile(viewModel.getOpenedFile());
     }
 
     void saveFile(Path file) throws IOException {

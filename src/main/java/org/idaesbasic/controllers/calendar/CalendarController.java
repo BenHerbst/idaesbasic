@@ -16,6 +16,10 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.idaesbasic.models.CalendarEventItem;
+import org.idaesbasic.models.CalendarModel;
+import org.idaesbasic.models.ViewModel;
+
 import com.calendarfx.model.Calendar;
 import com.calendarfx.model.CalendarSource;
 import com.calendarfx.model.Entry;
@@ -45,24 +49,10 @@ import net.fortuna.ical4j.model.property.Version;
 import net.fortuna.ical4j.validate.ValidationException;
 
 public class CalendarController {
+
+    public ViewModel viewModel = new ViewModel();
     
-    class CalendarEventItem {
-        java.util.Calendar startDate;
-        java.util.Calendar endDate;
-        String summary;
-        String id;
-        
-        public CalendarEventItem(String summary, java.util.Calendar startDate, java.util.Calendar endDate, String id) {
-            this.startDate = startDate;
-            this.endDate = endDate;
-            this.summary = summary;
-            this.id = id;
-        }
-    }
-    
-    public Path openedFile;
-    
-    List<CalendarEventItem> events = new ArrayList<>();
+    public CalendarModel calendarModel = new CalendarModel();
     
     private DateControl calendarView;
     
@@ -145,15 +135,14 @@ public class CalendarController {
                 startTime.setTimeInMillis(evt.getEntry().getStartMillis());
                 endTime.setTimeInMillis(evt.getEntry().getEndMillis());
                 //Remove current entry, to re-add it
-                for (int i = 0; i < events.size(); i++) {
-                    CalendarEventItem calendarEventItem = events.get(i);
+                for (int i = 0; i < calendarModel.getEvents().size(); i++) {
+                    CalendarEventItem calendarEventItem = calendarModel.getEvents().get(i);
                     if(calendarEventItem.id == evt.getEntry().getId()) {
-                        events.remove(i);
+                        calendarModel.removeEvent(i);
                     }
                 }
                 //Add a calendareventitem with the summary and start / and end calendar to the events list
-                events.add(new CalendarEventItem(evt.getEntry().getTitle(), startTime, endTime, evt.getEntry().getId()));
-                System.out.println(events);
+                calendarModel.addEvent(new CalendarEventItem(evt.getEntry().getTitle(), startTime, endTime, evt.getEntry().getId()));
             }
         };
         calendarView.getCalendars().get(0).addEventHandler(handler);
@@ -234,20 +223,20 @@ public class CalendarController {
             calendarView.getCalendars().get(0).addEntry(calendarEntry);
         }
         //Set current file
-        openedFile = Paths.get(filePath);
+        viewModel.setOpenedFile(Paths.get(filePath));
     }
     
     public void saveCurrentFile() throws ValidationException, IOException {
         //Save to the current file
-        saveFile(openedFile.toString());
+        saveFile(viewModel.getOpenedFile().toString());
     }
     
     public void saveFile(String filePath) throws ValidationException, IOException {
         //Create an ics calendar
         net.fortuna.ical4j.model.Calendar icsCalendar = new net.fortuna.ical4j.model.Calendar();
         //Create an entry for each calendar entry in the ics calendar
-        for (int i = 0; i < events.size(); i++) {
-            CalendarEventItem calendarEventItem = events.get(i);
+        for (int i = 0; i < calendarModel.getEvents().size(); i++) {
+            CalendarEventItem calendarEventItem = calendarModel.getEvents().get(i);
             String eventName = calendarEventItem.summary;
             DateTime start = new DateTime(calendarEventItem.startDate.getTime());
             DateTime end = new DateTime(calendarEventItem.endDate.getTime());

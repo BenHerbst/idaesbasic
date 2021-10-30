@@ -3,24 +3,18 @@ package org.idaesbasic.controllers;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
-import java.io.Reader;
-import java.lang.reflect.Array;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import org.idaesbasic.controllers.calendar.CalendarController;
 import org.idaesbasic.controllers.todolist.TodolistController;
-import org.idaesbasic.data.Load;
 import org.idaesbasic.models.Projects;
 
 import javafx.application.Platform;
@@ -47,11 +41,6 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import net.fortuna.ical4j.data.ParserException;
 
-import com.calendarfx.model.Calendar;
-import com.calendarfx.model.Calendar.Style;
-import com.calendarfx.model.CalendarSource;
-import com.calendarfx.view.CalendarView;
-
 import org.json.*;
 
 public class MainController {
@@ -67,7 +56,7 @@ public class MainController {
             this.filename = filename;
         }
     }
-    
+
     Projects projectModel = new Projects();
 
     @FXML
@@ -182,7 +171,7 @@ public class MainController {
     @FXML
     void deleteCurrentProject(ActionEvent event) throws IOException {
         // Remove the current project from the registered list
-        //registered_projects.remove(currentProjectPath);
+        // registered_projects.remove(currentProjectPath);
         createProjectList();
         closeProject();
         try {
@@ -363,7 +352,7 @@ public class MainController {
                 Node todolistView = loader.load();
                 TodolistController controller = loader.getController();
                 todolistView.setUserData(controller);
-                controller.openedFile = Paths.get(fullPath);
+                controller.viewModel.setOpenedFile(Paths.get(fullPath));
                 addViewToCurrentTab(todolistView);
             }
         }
@@ -388,7 +377,7 @@ public class MainController {
                 loader.setLocation(getClass().getResource("/fxml/views/calendar/CalendarView.fxml"));
                 Node calendarView = loader.load();
                 CalendarController controller = loader.getController();
-                controller.openedFile = Paths.get(fullPath);
+                controller.viewModel.setOpenedFile(Paths.get(fullPath));
                 calendarView.setUserData(controller);
                 // Show new calendar in current tab
                 addViewToCurrentTab(calendarView);
