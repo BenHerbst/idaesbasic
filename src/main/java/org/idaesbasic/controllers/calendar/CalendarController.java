@@ -29,6 +29,7 @@ import com.calendarfx.view.DateControl;
 import com.calendarfx.view.DetailedDayView;
 
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -83,7 +84,7 @@ public class CalendarController {
 
     void switchCalendarView(String viewName) throws IOException {
         // Remove old one
-        viewContainer.getChildren().remove(0);
+        viewContainer.getChildren().clear();
         // Load day view
         Node view = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/" + viewName + ".fxml"));
         // Add day view
@@ -147,7 +148,7 @@ public class CalendarController {
                 //Remove current entry, to re-add it
                 for (int i = 0; i < calendarModel.getEvents().size(); i++) {
                     CalendarEventItem calendarEventItem = calendarModel.getEvents().get(i);
-                    if(calendarEventItem.id == evt.getEntry().getId()) {
+                    if(calendarEventItem.getId() == evt.getEntry().getId()) {
                         calendarModel.removeEvent(i);
                     }
                 }
@@ -155,16 +156,22 @@ public class CalendarController {
                 calendarModel.addEvent(new CalendarEventItem(evt.getEntry().getTitle(), startTime, endTime, evt.getEntry().getId()));
             }
         };
-        calendarView.getCalendars().get(0).addEventHandler(handler);
-        for(CalendarEventItem eventItem:calendarModel.getEvents()) {
+        viewContainer.getChildren().add(view);
+        ObservableList<CalendarEventItem> calendarEventList = calendarModel.getEvents();
+        for(CalendarEventItem eventItem:calendarEventList) {
             // Create a new Calendar entry, with the given props from the event item
             Entry calendarEntry = new Entry(eventItem.summary);
-            LocalDateTime startTime = eventItem.startTime.toLocalDateTime;
-            LocalDateTime endTime = eventItem.endTime.toLocalDateTime;
+            calendarEntry.setId(eventItem.getId());
+            LocalDateTime startTime = eventItem.startDate.getTime().toInstant()
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDateTime();
+            LocalDateTime endTime = eventItem.endDate.getTime().toInstant()
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDateTime();
             calendarEntry.setInterval(startTime, endTime);
-            view.addEntry(calendarEntry);
+            calendarView.getCalendars().get(0).addEntry(calendarEntry);
         }
-        viewContainer.getChildren().add(view);
+        calendarView.getCalendars().get(0).addEventHandler(handler);
     }
 
     @FXML
@@ -232,7 +239,7 @@ public class CalendarController {
             DateTime start = new DateTime(calendarEventItem.startDate.getTime());
             DateTime end = new DateTime(calendarEventItem.endDate.getTime());
             VEvent event = new VEvent(start, end, eventName);
-            event.getProperties().add(new Uid(calendarEventItem.id));
+            event.getProperties().add(new Uid(calendarEventItem.getId()));
             icsCalendar.getComponents().add(event);
         }
         //Set some properties

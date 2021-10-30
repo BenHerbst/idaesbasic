@@ -23,7 +23,7 @@ public class CalendarModel {
     
 
     public final ObservableList<CalendarEventItem> getEvents() {
-        return this.eventsProperty().get();
+        return this.eventsProperty().getValue();
     }
     
 
