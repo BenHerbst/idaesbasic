@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Paths;
 
 import org.idaesbasic.data.Load;
+import org.idaesbasic.models.Projects;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -20,6 +21,8 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 public class WelcomeScreenController {
+    
+    Projects registeredProjects = new Projects();
 
     @FXML
     private ChoiceBox projectListBox;
@@ -53,7 +56,8 @@ public class WelcomeScreenController {
 
     @FXML
     public void initialize() throws IOException {
-        projectListBox.setItems(FXCollections.observableArrayList(new Load().loadProjectList()));
+        registeredProjects.loadProjectListFromUserFiles();
+        projectListBox.setItems(FXCollections.observableArrayList(registeredProjects.getProjectList()));
         projectListBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Object>() {
             public void changed(ObservableValue ov, Object value, Object newValue) {
                 FXMLLoader loader = new FXMLLoader();

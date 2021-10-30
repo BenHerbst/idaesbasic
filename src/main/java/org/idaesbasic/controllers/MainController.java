@@ -21,6 +21,7 @@ import java.util.TimerTask;
 import org.idaesbasic.controllers.calendar.CalendarController;
 import org.idaesbasic.controllers.todolist.TodolistController;
 import org.idaesbasic.data.Load;
+import org.idaesbasic.models.Projects;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -66,9 +67,8 @@ public class MainController {
             this.filename = filename;
         }
     }
-
-    List<String> registered_projects = new ArrayList<>();
-    String currentProjectPath = "";
+    
+    Projects projectModel = new Projects();
 
     @FXML
     private Button dateButton;
@@ -88,7 +88,8 @@ public class MainController {
     @FXML
     void initialize() {
         try {
-            loadProjectList();
+            projectModel.loadProjectListFromUserFiles();
+            createProjectList();
         } catch (IOException e1) {
             e1.printStackTrace();
         }
@@ -139,7 +140,7 @@ public class MainController {
     }
 
     void openRegisteredProject(String directory) {
-        currentProjectPath = directory;
+        projectModel.setCurrentProjectPath(directory);
         Path rootFile = Paths.get(directory);
         TreeItem<File> rootItem = new TreeItem<>(new File(directory));
         fileExplorer.setRoot(rootItem);
@@ -160,7 +161,7 @@ public class MainController {
     }
 
     void addNewProject(File project) {
-        registered_projects.add(project.toString());
+        projectModel.addProjectToRegisteredProjects(project.toString());
         // Add menuitem from added project to the registered projects list menu
         MenuItem projectMenuItem = new MenuItem();
         projectMenuItem.setText(Paths.get(project.toString()).getFileName().toString());
@@ -171,7 +172,7 @@ public class MainController {
         RegisteredProjectsListMenu.getItems().add(projectMenuItem);
         openRegisteredProject(project.toString());
         try {
-            saveProjectList();
+            projectModel.saveProjectListToUserFiles();
         } catch (IOException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -181,22 +182,22 @@ public class MainController {
     @FXML
     void deleteCurrentProject(ActionEvent event) throws IOException {
         // Remove the current project from the registered list
-        registered_projects.remove(currentProjectPath);
+        //registered_projects.remove(currentProjectPath);
         createProjectList();
         closeProject();
         try {
-            saveProjectList();
+            projectModel.saveProjectListToUserFiles();
         } catch (IOException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
     }
 
-    void createProjectList() {
+    void createProjectList() throws JSONException, IOException {
         // Delete all projects from RegisteredProjectsListMenu
         RegisteredProjectsListMenu.getItems().removeAll(RegisteredProjectsListMenu.getItems());
-        // Add every project from registered_projects to the RegisteredProjectsListMenu
-        for (String project_path : registered_projects) {
+        // Add every project from registered projects to the RegisteredProjectsListMenu
+        for (String project_path : projectModel.getProjectList()) {
             MenuItem projectMenuItem = new MenuItem();
             projectMenuItem.setText(Paths.get(project_path).getFileName().toString());
             projectMenuItem.setOnAction(e -> {
@@ -215,7 +216,7 @@ public class MainController {
     void closeProject() throws IOException {
         // Close the file explorer
         fileExplorer.setRoot(null);
-        currentProjectPath = "";
+        projectModel.setCurrentProjectPath("");
         // Load welcome screen
         Parent welcomeScreen = FXMLLoader.load(getClass().getResource("/fxml/WelcomeScreen.fxml"));
         // Configre stage
@@ -343,7 +344,7 @@ public class MainController {
 
     @FXML
     void newTodolist(ActionEvent event) throws IOException {
-        if (currentProjectPath != "") {
+        if (projectModel.getCurrentProjectPath() != "") {
             NewFileDialogResult dialogResult = showCreateNewFileDialog(".todo");
             Optional<ButtonType> result = dialogResult.result;
             if (result.get() == ButtonType.FINISH) {
@@ -370,7 +371,7 @@ public class MainController {
 
     @FXML
     void newCalendar(ActionEvent event) throws IOException {
-        if (currentProjectPath != "") {
+        if (projectModel.getCurrentProjectPath() != "") {
             NewFileDialogResult dialogResult = showCreateNewFileDialog(".ics");
             Optional<ButtonType> result = dialogResult.result;
             if (result.get() == ButtonType.FINISH) {
@@ -403,7 +404,7 @@ public class MainController {
         // Get the control of the dialog
         CreateNewFileDialogController createFileDialogController = loader.getController();
         createFileDialogController.changeExtention(extention);
-        createFileDialogController.setDirectoryField(currentProjectPath + "/");
+        createFileDialogController.setDirectoryField(projectModel.getCurrentProjectPath() + "/");
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setDialogPane(createNewFileDialog);
         dialog.setTitle("Create a new file");
@@ -468,31 +469,6 @@ public class MainController {
 
     void addViewToCurrentTab(Node view) {
         get_current_tab().setContent(view);
-    }
-
-    void saveProjectList() throws IOException {
-        // Saves the registered projects in an json file
-        // Create json
-        JSONObject json = new JSONObject();
-        json.put("registeredProjects", registered_projects);
-        // Write json to file
-        String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
-        Path userDirectory = Paths.get(userDirectoryPath);
-        if (!Files.exists(userDirectory)) {
-            Files.createDirectory(userDirectory);
-        }
-        Path file = Paths.get(userDirectoryPath + "/config.json");
-        if (!Files.exists(file)) {
-            Files.createFile(file);
-        }
-        Files.writeString(file, json.toString());
-    }
-
-    void loadProjectList() throws IOException {
-        registered_projects = new Load().loadProjectList();
-        // Create the listmenu
-        if (registered_projects != null)
-            createProjectList();
     }
 
     Tab get_current_tab() {
