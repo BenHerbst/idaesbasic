@@ -78,11 +78,21 @@ public class CalendarController {
     void initialize() throws IOException {
         ToggleButton[] initToggleButtons = {switchToDayButton, switchToMonthButton, switchToWeekButton, switchToYearButton};
         toggleButtons = initToggleButtons;
+        switchCalendarView("DayView");
+    }
+
+    void switchCalendarView(String viewName) throws IOException {
+        // Remove old one
+        viewContainer.getChildren().remove(0);
         // Load day view
-        Node dayView = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/DayView.fxml"));
+        Node view = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/" + viewName + ".fxml"));
         // Add day view
-        calendarView = (DateControl) ((AnchorPane) dayView).getChildren().get(0);
-        viewContainer.getChildren().add(dayView);
+        calendarView = (DateControl) ((AnchorPane) view).getChildren().get(0);
+        // Set resize consents
+        AnchorPane.setLeftAnchor(view, 0.0);
+        AnchorPane.setRightAnchor(view, 0.0);
+        AnchorPane.setTopAnchor(view, 0.0);
+        AnchorPane.setBottomAnchor(view, 0.0);
         // Create work calendars
         Calendar meetingsCalendar = new Calendar("Meetings");
         Calendar pausesCalendar = new Calendar("Pauses");
@@ -146,20 +156,14 @@ public class CalendarController {
             }
         };
         calendarView.getCalendars().get(0).addEventHandler(handler);
-    }
-
-    void switchCalendarView(String viewName) throws IOException {
-        // Remove old one
-        viewContainer.getChildren().remove(0);
-        // Load day view
-        Node view = FXMLLoader.load(getClass().getResource("/fxml/views/calendar/views/" + viewName + ".fxml"));
-        // Add day view
-        calendarView = (DateControl) ((AnchorPane) view).getChildren().get(0);
-        // Set resize consents
-        AnchorPane.setLeftAnchor(view, 0.0);
-        AnchorPane.setRightAnchor(view, 0.0);
-        AnchorPane.setTopAnchor(view, 0.0);
-        AnchorPane.setBottomAnchor(view, 0.0);
+        for(CalendarEventItem eventItem:calendarModel.getEvents()) {
+            // Create a new Calendar entry, with the given props from the event item
+            Entry calendarEntry = new Entry(eventItem.summary);
+            LocalDateTime startTime = eventItem.startTime.toLocalDateTime;
+            LocalDateTime endTime = eventItem.endTime.toLocalDateTime;
+            calendarEntry.setInterval(startTime, endTime);
+            view.addEntry(calendarEntry);
+        }
         viewContainer.getChildren().add(view);
     }
 
