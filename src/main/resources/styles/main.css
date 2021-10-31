@@ -132,6 +132,11 @@
     -fx-background-color: mark-color;
 }
 
+#add_todo_button {
+	-fx-background-color: #141414;
+	-fx-background-radius: 15;
+}
+
 .root {
 	-fx-background-color: #232323
 }
