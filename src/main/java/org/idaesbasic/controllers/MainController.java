@@ -16,6 +16,7 @@ import java.util.TimerTask;
 import org.idaesbasic.controllers.calendar.CalendarController;
 import org.idaesbasic.controllers.todolist.TodolistController;
 import org.idaesbasic.models.Projects;
+import org.idaesbasic.controllers.kanban.KanbanController;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -381,6 +382,33 @@ public class MainController {
                 calendarView.setUserData(controller);
                 // Show new calendar in current tab
                 addViewToCurrentTab(calendarView);
+            }
+        }
+    }
+
+    @FXML
+    void newKanban(ActionEvent event) throws IOException {
+        if (projectModel.getCurrentProjectPath() != "") {
+            NewFileDialogResult dialogResult = showCreateNewFileDialog(".knbn");
+            Optional<ButtonType> result = dialogResult.result;
+            if (result.get() == ButtonType.FINISH) {
+                // Create the file
+                String directoryPath = dialogResult.directory;
+                String fileName = dialogResult.filename;
+                String fullPath = ((directoryPath.endsWith("/")) ? directoryPath : directoryPath + "/") + fileName
+                        + ".knbn";
+                File file = new File(fullPath);
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/fxml/views/kanban/KanbanView.fxml"));
+                Node view = loader.load();
+                KanbanController controller = loader.getController();
+//                controller.viewModel.setOpenedFile(Paths.get(fullPath));
+                view.setUserData(controller);
+                // Show new calendar in current tab
+                addViewToCurrentTab(view);
             }
         }
     }
