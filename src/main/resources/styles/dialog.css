@@ -1,47 +1,47 @@
 * {
-   -black-color: #070707;
-   -dark-gray-color: #0c0c0c;
-   -gray-color: #141414;
-   -light-gray-color: #666666;
-   -white-color: #b5b5b5;
+    -black-color: #070707;
+    -dark-gray-color: #0c0c0c;
+    -gray-color: #141414;
+    -light-gray-color: #666666;
+    -white-color: #b5b5b5;
 }
 
 .button {
-   -fx-background-color: #232323;
-	-fx-text-fill: #b5b5b5;
+    -fx-background-color: #232323;
+    -fx-text-fill: #b5b5b5;
 }
 
 .button:focused {
-	-fx-background-color: #666666;
+    -fx-background-color: #666666;
 }
 
 .choice-box {
-	-fx-background-color: #232323;
+    -fx-background-color: #232323;
 }
 
 .choice-box:focused {
-	-fx-background-color: #666666;
+    -fx-background-color: #666666;
 }
 
 .choice-box .context-menu {
-	-fx-background-color: #232323;
+    -fx-background-color: #232323;
 }
 
 .choice-box .context-menu .label {
-	-fx-text-fill: #b5b5b5;
+    -fx-text-fill: #b5b5b5;
 }
 
 .choice-box .menu-item:hover, .choice-box .menu-item:focused {
-	-fx-background-color: #666666;
+    -fx-background-color: #666666;
 }
 
 .label {
-	-fx-text-fill: #b5b5b5;
+    -fx-text-fill: #b5b5b5;
 }
 
 .text-field {
-	-fx-background-color: #232323;
-	-fx-text-fill: #b5b5b5;
+    -fx-background-color: #232323;
+    -fx-text-fill: #b5b5b5;
 }
 
 .combo-box-base:editable > .arrow-button,
@@ -64,45 +64,45 @@
 }
 
 .date-picker-popup {
-	-fx-background-color: #232323;
+    -fx-background-color: #232323;
 }
 
 .date-picker-popup .month-year-pane {
-	-fx-background-color: #232323;
+    -fx-background-color: #232323;
 }
 
 .date-picker-popup > .calendar-grid {
-	-fx-background-color: #232323;
+    -fx-background-color: #232323;
 }
 
 .date-picker-popup > * > .day-name-cell,
 .date-picker-popup > * > .week-number-cell {
-	-fx-text-fill: #b5b5b5;
+    -fx-text-fill: #b5b5b5;
 }
 
 .date-picker-popup > * > .day-cell {
-	-fx-background-color: #232323;
-	-fx-border-width: 0;
-	-fx-text-fill: #b5b5b5;
+    -fx-background-color: #232323;
+    -fx-border-width: 0;
+    -fx-text-fill: #b5b5b5;
 }
 
 .date-picker-popup > * > .day-cell:hover,
 .date-picker-popup > * > .day-cell:selected {
-	-fx-background-color: #666666;
+    -fx-background-color: #666666;
 }
 
 .date-picker-popup > * > .today:hover,
 .date-picker-popup > * > .today.selected {
-	-fx-background-color: #666666;
+    -fx-background-color: #666666;
 }
 
 .date-picker-popup > * > .week-number-cell {
-	-fx-background-color: #141414;
-	-fx-border-width: 1;
-	-fx-border-color: #141414;
+    -fx-background-color: #141414;
+    -fx-border-width: 1;
+    -fx-border-color: #141414;
     -fx-text-fill: #b5b5b5;
 }
 
 .root {
-	-fx-background-color: #141414
+    -fx-background-color: #141414
 }

@@ -113,10 +113,10 @@
 }
 
 .check-box {
-	-fx-text-fill: #b5b5b5;
-    selected-box-color: #070707;
-    box-color: #070707;
-    mark-color: #b5b5b5;
+    -fx-text-fill: #b5b5b5;
+    -fx-selected-box-color: #070707;
+    -fx-box-color: #070707;
+    -fx-mark-color: #b5b5b5;
 }
 
 .check-box:selected > .box {
@@ -133,10 +133,10 @@
 }
 
 #add_todo_button {
-	-fx-background-color: #141414;
-	-fx-background-radius: 15;
+    -fx-background-color: #141414;
+    -fx-background-radius: 15;
 }
 
 .root {
-	-fx-background-color: #232323
+    -fx-background-color: #232323
 }
