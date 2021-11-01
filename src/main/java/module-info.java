@@ -10,6 +10,7 @@ module idaesbasic {
     requires com.calendarfx.view;
     requires org.json;
     requires java.logging;
+    requires java.base;
 
     opens org.idaesbasic to javafx.fxml;
     opens org.idaesbasic.controllers to javafx.fxml;
