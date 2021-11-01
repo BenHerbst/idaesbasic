@@ -132,6 +132,14 @@
     -fx-background-color: mark-color;
 }
 
+.scroll-pane {
+    -fx-background-color: #232323;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: #232323;
+}
+
 #add_todo_button {
     -fx-background-color: #141414;
     -fx-background-radius: 15;
