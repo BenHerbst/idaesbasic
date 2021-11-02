@@ -1,84 +1,85 @@
-package org.idaesbasic.controllers;
+package org.idaesbasic.controllers
 
-import java.io.IOException;
+import javafx.beans.value.ChangeListener
+import org.idaesbasic.models.Projects
+import javafx.fxml.FXML
+import javafx.scene.control.ChoiceBox
+import kotlin.Throws
+import java.io.IOException
+import javafx.fxml.FXMLLoader
+import javafx.stage.Stage
+import javafx.scene.Scene
+import org.idaesbasic.controllers.MainController
+import javafx.stage.DirectoryChooser
+import javafx.collections.FXCollections
+import javafx.beans.value.ObservableValue
+import javafx.event.ActionEvent
+import javafx.scene.Node
+import javafx.scene.Parent
 
-import org.idaesbasic.models.Projects;
-
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.Stage;
-
-public class WelcomeScreenController {
-    
-    Projects registeredProjects = new Projects();
-
-    @FXML
-    private ChoiceBox projectListBox;
+class WelcomeScreenController {
+    var registeredProjects = Projects()
 
     @FXML
-    void addProject(ActionEvent event) throws IOException {
+    private val projectListBox: ChoiceBox<*>? = null
+    @FXML
+    @Throws(IOException::class)
+    fun addProject(event: ActionEvent) {
         // Load main scene
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/MainView.fxml"));
-        Parent parent = loader.load();
-        Node node = (Node) event.getSource();
-        Stage thisStage = (Stage) node.getScene().getWindow();
-        Scene scene = new Scene(parent);
+        val loader = FXMLLoader()
+        loader.location = javaClass.getResource("/fxml/MainView.fxml")
+        val parent = loader.load<Parent>()
+        val node = event.source as Node
+        val thisStage = node.scene.window as Stage
+        val scene = Scene(parent)
         // Change stage
-        thisStage.hide();
-        thisStage.setMaximized(true);
-        thisStage.setResizable(true);
-        thisStage.setTitle("Idaesbasic / Main - 0.9.0 - Beta");
-        thisStage.setScene(scene);
-        thisStage.show();
+        thisStage.hide()
+        thisStage.isMaximized = true
+        thisStage.isResizable = true
+        thisStage.title = "Idaesbasic / Main - 0.9.0 - Beta"
+        thisStage.scene = scene
+        thisStage.show()
         // Show open project window
-        MainController controller = loader.getController();
-        DirectoryChooser chooser = new DirectoryChooser();
-        controller.addNewProject(chooser.showDialog(null));
+        val controller = loader.getController<MainController>()
+        val chooser = DirectoryChooser()
+        controller.addNewProject(chooser.showDialog(null))
     }
 
     @FXML
-    void createNewProject(ActionEvent event) {
-
+    fun createNewProject(event: ActionEvent?) {
     }
 
     @FXML
-    public void initialize() throws IOException {
-        registeredProjects.loadProjectListFromUserFiles();
-        projectListBox.setItems(FXCollections.observableArrayList(registeredProjects.getProjectList()));
-        projectListBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Object>() {
-            public void changed(ObservableValue ov, Object value, Object newValue) {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/fxml/MainView.fxml"));
-                Parent parent = null;
+    @Throws(IOException::class)
+    fun initialize() {
+        registeredProjects.loadProjectListFromUserFiles()
+/*
+        projectListBox!!.setItems(FXCollections.observableArrayList(registeredProjects.projectList))
+        projectListBox.selectionModel.selectedItemProperty().addListener(object : ChangeListener<Any> {
+            override fun changed(ov: ObservableValue<*>?, value: Any, newValue: Any) {
+                val loader = FXMLLoader()
+                loader.location = javaClass.getResource("/fxml/MainView.fxml")
+                var parent: Parent? = null
                 try {
-                    parent = loader.load();
-                } catch (IOException e) {
+                    parent = loader.load()
+                } catch (e: IOException) {
                     // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    e.printStackTrace()
                 }
-                Node node = (Node) projectListBox;
-                Stage thisStage = (Stage) node.getScene().getWindow();
-                Scene scene = new Scene(parent);
+                val node = projectListBox as Node?
+                val thisStage = node!!.scene.window as Stage
+                val scene = Scene(parent)
                 // Change stage
-                thisStage.hide();
-                thisStage.setMaximized(true);
-                thisStage.setResizable(true);
-                thisStage.setTitle("Idaesbasic / Main - 0.9.0 - Beta");
-                thisStage.setScene(scene);
-                MainController controller = loader.getController();
-                controller.openRegisteredProject(newValue.toString());
-                thisStage.show();
+                thisStage.hide()
+                thisStage.isMaximized = true
+                thisStage.isResizable = true
+                thisStage.title = "Idaesbasic / Main - 0.9.0 - Beta"
+                thisStage.scene = scene
+                val controller = loader.getController<MainController>()
+                controller.openRegisteredProject(newValue.toString())
+                thisStage.show()
             }
-        });
+        })
+    */
     }
 }

@@ -1,51 +1,56 @@
-package org.idaesbasic.controllers.kanban;
+package org.idaesbasic.controllers.kanban
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.Optional;
-import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.DialogPane;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
-import org.idaesbasic.controllers.todolist.TodoitemController;
-import org.idaesbasic.models.TaskRowModel;
+import javafx.fxml.Initializable
+import javafx.fxml.FXML
+import javafx.scene.layout.VBox
+import org.idaesbasic.models.TaskRowModel
+import java.util.ResourceBundle
+import kotlin.Throws
+import java.io.IOException
+import javafx.fxml.FXMLLoader
+import javafx.scene.Node
+import javafx.scene.control.DialogPane
+import javafx.scene.control.ButtonType
+import javafx.scene.control.Dialog
+import javafx.scene.control.Label
+import org.idaesbasic.controllers.todolist.CreateNewTodoController
+import org.idaesbasic.controllers.todolist.TodoitemController
+import java.net.URL
+import java.util.Optional
 
-public class TaskRowController implements Initializable {
+class TaskRowController {
+    @FXML
+    private var todoContainer: VBox? = null
 
     @FXML
-    private VBox todoContainer;
+    private var title: Label? = null
 
-    @FXML
-    private Label title;
+    @JvmField
+    var taskModel: TaskRowModel? = TaskRowModel()
 
-    TaskRowModel taskModel = new TaskRowModel();
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        title.textProperty().bindBidirectional(taskModel.titleProperty());
+    fun initialize() {
+        title?.textProperty()?.bindBidirectional(taskModel?.titleProperty())
     }
 
     @FXML
-    void addNewTask() throws IOException {
-        FXMLLoader newTaskLoader = new FXMLLoader();
-        newTaskLoader.setLocation(getClass().getResource("/fxml/dialogs/AddTodo.fxml"));
-        DialogPane newTaskDialogPane = newTaskLoader.load();
-        Dialog<ButtonType> newTaskDialog = new Dialog<ButtonType>();
-        newTaskDialog.setDialogPane(newTaskDialogPane);
-        Optional<ButtonType> result = newTaskDialog.showAndWait();
-        if(result.get() == ButtonType.FINISH) {
+    @Throws(IOException::class)
+    fun addNewTask() {
+        val newTaskLoader = FXMLLoader()
+        newTaskLoader.location = javaClass.getResource("/fxml/dialogs/AddTodo.fxml")
+        val newTaskDialogPane = newTaskLoader.load<DialogPane>()
+        val newTaskDialog = Dialog<ButtonType>()
+        newTaskDialog.dialogPane = newTaskDialogPane
+        val result = newTaskDialog.showAndWait()
+        if (result.get() == ButtonType.FINISH) {
             // Load a new todo item
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxml/views/todo/todo_item.fxml"));
-            Node todo_item = loader.load();
+            val loader = FXMLLoader()
+            loader.location = javaClass.getResource("/fxml/views/todo/todo_item.fxml")
+            val todo_item = loader.load<Node>()
+            val todoItemController: TodoitemController? = loader.getController<TodoitemController>();
+            val newTaskDialogController: CreateNewTodoController? = newTaskLoader.getController<CreateNewTodoController>()
+            todoItemController?.setTodo(newTaskDialogController?.todo);
             // Add todo to todolist
-            todoContainer.getChildren().add(todo_item);
+            todoContainer!!.children.add(todo_item)
         }
     }
 }

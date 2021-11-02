@@ -1,5 +1,5 @@
-package org.idaesbasic.controllers;
+package org.idaesbasic.controllers
 
-public class View {
-    private String openedFile;
+class View {
+    private val openedFile: String? = null
 }

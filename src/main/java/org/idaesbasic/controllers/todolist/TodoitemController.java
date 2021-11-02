@@ -25,7 +25,7 @@ public class TodoitemController {
         ((VBox) panel.getParent()).getChildren().remove(panel);
     }
 
-    void setTodo(String todo) {
+    public void setTodo(String todo) {
         checkBox.setText(todo);
     }
 

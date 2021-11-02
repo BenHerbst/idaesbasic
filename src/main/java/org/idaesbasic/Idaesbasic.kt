@@ -1,47 +1,47 @@
-package org.idaesbasic;
+package org.idaesbasic
 
-import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
+import javafx.application.Application
+import javafx.application.Platform
+import javafx.event.EventHandler
+import javafx.stage.Stage
+import javafx.fxml.FXMLLoader
+import javafx.scene.Parent
+import javafx.scene.Scene
+import javafx.scene.image.Image
+import javafx.stage.WindowEvent
+import java.lang.Exception
+import kotlin.jvm.JvmStatic
 
-public class Idaesbasic extends Application {
-
-    @Override
-    public void start(Stage stage) {
+class Idaesbasic : Application() {
+    override fun start(stage: Stage) {
         try {
             // Show welcome screen
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/WelcomeScreen.fxml"));
-            Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource("/styles/dialog.css").toExternalForm());
-            stage.setScene(scene);
-            stage.setTitle("Idaesbasic / Welcome - 0.9.0 - Beta");
-            stage.setHeight(530);
-            stage.setWidth(650);
-            stage.setMaximized(false);
-            stage.setResizable(false);
+            val root = FXMLLoader.load<Parent>(javaClass.getResource("/fxml/WelcomeScreen.fxml"))
+            val scene = Scene(root)
+            scene.stylesheets.add(javaClass.getResource("/styles/dialog.css").toExternalForm())
+            stage.scene = scene
+            stage.title = "Idaesbasic / Welcome - 0.9.0 - Beta"
+            stage.height = 530.0
+            stage.width = 650.0
+            stage.isMaximized = false
+            stage.isResizable = false
             // Close all timertasks on main window close
-            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                @Override
-                public void handle(WindowEvent t) {
-                    Platform.exit();
-                    System.exit(0);
-                }
-            });
+            stage.onCloseRequest = EventHandler {
+                Platform.exit()
+                System.exit(0)
+            }
             // Add icon
-            stage.getIcons().add(new Image(Main.class.getResourceAsStream("/icon.png")));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
+            stage.icons.add(Image(Main::class.java.getResourceAsStream("/icon.png")))
+            stage.show()
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            launch(Idaesbasic::class.java)
+        }
     }
 }

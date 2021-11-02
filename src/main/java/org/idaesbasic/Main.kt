@@ -1,7 +1,11 @@
-package org.idaesbasic;
+package org.idaesbasic
 
-public class Main {
-    public static void main(String[] args) {
-        Idaesbasic.main(args);
+import kotlin.jvm.JvmStatic
+import org.idaesbasic.Idaesbasic
+
+object Main {
+    @JvmStatic
+    fun main(args: Array<String>) {
+        Idaesbasic.main(args)
     }
 }
