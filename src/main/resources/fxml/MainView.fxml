@@ -60,7 +60,7 @@
                            <graphic>
                               <FontIcon iconColor="WHITE" iconLiteral="fa-check-circle" iconSize="16" />
                            </graphic></MenuItem>
-                        <MenuItem disable="true" mnemonicParsing="false" text="New Kanban" />
+                        <MenuItem mnemonicParsing="false" onAction="#newKanban" text="New Kanban" />
                         <MenuItem fx:id="menuItemNewCalendar" mnemonicParsing="false" onAction="#newCalendar" text="New Calendar" />
                         <MenuItem disable="true" mnemonicParsing="false" text="New Whiteboard" />
                     </items>

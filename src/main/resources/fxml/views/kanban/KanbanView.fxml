@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="org.idaesbasic.controllers.kanban.KanbanController">
-    <stylesheets>
-        <URL value="@/styles/main.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.idaesbasic.controllers.kanban.KanbanController">
    <children>
       <ScrollPane fitToHeight="true" prefHeight="200.0" prefWidth="200.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <HBox fx:id="boardsContainer" prefHeight="0.0" prefWidth="0.0" />
+            <HBox fx:id="boardsContainer" prefHeight="0.0" prefWidth="0.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding></HBox>
          </content>
       </ScrollPane>
    </children>
