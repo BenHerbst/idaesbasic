@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.idaesbasic.controllers.kanban.KanbanController">
    <children>
       <ScrollPane fitToHeight="true" prefHeight="200.0" prefWidth="200.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <HBox fx:id="boardsContainer" prefHeight="0.0" prefWidth="0.0">
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <HBox fx:id="boardsContainer" prefHeight="0.0" prefWidth="0.0" spacing="20.0" />
+                  <HBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="182.0">
+                     <children>
+                        <TextField fx:id="addRowTextField" onKeyPressed="#textFieldKeyPressed">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin></TextField>
+                        <Button mnemonicParsing="false" onAction="#addNewRowAction" prefHeight="25.0" prefWidth="25.0" textFill="WHITE">
+                           <graphic>
+                              <FontIcon iconColor="#b5b5b5" iconLiteral="fa-plus" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
                <padding>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </padding></HBox>
+               </padding>
+            </HBox>
          </content>
       </ScrollPane>
    </children>

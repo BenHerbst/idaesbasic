@@ -29,7 +29,7 @@ public class TodoitemController {
         checkBox.setText(todo);
     }
 
-    void setDate(LocalDate date) {
+    public void setDate(LocalDate date) {
         if (date != null) {
             dateLabel.setText(date.toString());
         }

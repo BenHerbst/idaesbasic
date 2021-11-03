@@ -1,12 +1,3 @@
-.button {
-   -fx-background-color: #232323;
-	-fx-text-fill: #b5b5b5;
-}
-
-.button:focused {
-	-fx-background-color: #666666;
-}
-
 .context-menu {
 	-fx-background-color: #141414;
 }
@@ -107,29 +98,21 @@
     -fx-background-color: #666666;
 }
 
-.tool-bar{
+.tool-bar {
 	-fx-background-color: #070707;
 	-fx-padding: 0;
 }
 
 .check-box {
     -fx-text-fill: #b5b5b5;
-    -fx-selected-box-color: #070707;
-    -fx-box-color: #070707;
-    -fx-mark-color: #b5b5b5;
 }
 
-.check-box:selected > .box {
-    -fx-background-color: selected-box-color;
+.check-box .box {
+    -fx-background-color: #141414;
 }
 
-.check-box > .box {
-    -fx-background-color: box-color;
-}
-
-.check-box:selected > .box > .mark,
-.check-box:indeterminate  > .box > .mark {
-    -fx-background-color: mark-color;
+.check-box:selected .mark {
+    -fx-background-color: #b5b5b5;
 }
 
 .scroll-pane {
@@ -140,9 +123,15 @@
     -fx-background-color: #232323;
 }
 
-#add_todo_button {
+.button {
     -fx-background-color: #141414;
-    -fx-background-radius: 15;
+    -fx-background-radius: 10;
+    -fx-text-fill: #b5b5b5;
+}
+
+.text-field {
+    -fx-background-color: #141414;
+    -fx-text-fill: #b5b5b5;
 }
 
 .root {

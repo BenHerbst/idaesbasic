@@ -14,7 +14,7 @@
         <compilerSettings />
         <compilerArguments>
           <option name="languageVersion" value="1.6" />
-          <option name="apiVersion" value="1.5" />
+          <option name="apiVersion" value="1.6" />
           <option name="pluginOptions">
             <array />
           </option>
@@ -67,5 +67,11 @@
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.6.0-RC" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.0-RC" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jetbrains.kotlin:kotlin-test:1.6.0-RC" level="project" />
+    <orderEntry type="library" name="Maven: org.moditect:moditect-maven-plugin:1.0.0.Beta2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.aether:aether-util:1.0.2.v20150114" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.aether:aether-api:1.0.2.v20150114" level="project" />
+    <orderEntry type="library" name="Maven: org.moditect:moditect:1.0.0.Beta2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.javaparser:javaparser-core:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.beust:jcommander:1.60" level="project" />
   </component>
 </module>
