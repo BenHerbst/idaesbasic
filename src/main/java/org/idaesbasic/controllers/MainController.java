@@ -67,7 +67,7 @@ public class MainController {
     private Button timeButton;
 
     @FXML
-    private TreeView<File> fileExplorer;
+    private TreeView<String> fileExplorer;
 
     @FXML
     private TabPane tabPane;
@@ -102,7 +102,7 @@ public class MainController {
         }, 0, 2000);
         fileExplorer.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             try {
-                openFile(newValue.getValue().getAbsolutePath());
+                openFile(getPathOf(newValue));
             } catch (IOException | ParserException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -110,12 +110,12 @@ public class MainController {
         });
     }
 
-    void addSubdirs(String directory, TreeItem<File> treeItem) throws IOException {
+    void addSubdirs(String directory, TreeItem<String> treeItem) throws IOException {
         // List all sub dirs
         File[] directories = new File(directory).listFiles(File::isDirectory);
         for (File dir : directories) {
             // Add every subdir as tree item to its parent's tree item
-            TreeItem<File> currentDirTreeItem = new TreeItem<>(dir.getAbsoluteFile());
+            TreeItem<String> currentDirTreeItem = new TreeItem<>(dir.getName());
             treeItem.getChildren().add(currentDirTreeItem);
             // Add all subdirs / files from every subdir to tree
             addSubdirs(dir.getAbsolutePath(), currentDirTreeItem);
@@ -123,16 +123,25 @@ public class MainController {
         // List all sub files
         File[] files = new File(directory).listFiles(File::isFile);
         for (File file : files) {
+            System.out.println(file.getName());
             // Add every subfile as tree item to its parent's tree item
-            TreeItem<File> currentFileTreeItem = new TreeItem<>(file.getAbsoluteFile());
+            TreeItem<String> currentFileTreeItem = new TreeItem<>(file.getName());
             treeItem.getChildren().add(currentFileTreeItem);
         }
+    }
+
+    String getPathOf(TreeItem<String> treeItem) {
+        String currentPath = treeItem.getValue();
+        if (treeItem.getParent() != null) {
+            currentPath = getPathOf(treeItem.getParent()) + "/" + currentPath;
+        }
+        return currentPath;
     }
 
     void openRegisteredProject(String directory) {
         projectModel.setCurrentProjectPath(directory);
         Path rootFile = Paths.get(directory);
-        TreeItem<File> rootItem = new TreeItem<>(new File(directory));
+        TreeItem<String> rootItem = new TreeItem<>(directory);
         fileExplorer.setRoot(rootItem);
         try {
             // Add all subdirs and subfiles to the tree root

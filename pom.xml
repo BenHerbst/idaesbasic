@@ -100,41 +100,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.moditect</groupId>
-                <artifactId>moditect-maven-plugin</artifactId>
-                <version>1.0.0.Beta2</version>
-                <executions>
-                    <execution>
-                        <id>add-module-infos</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>add-module-info</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/modules</outputDirectory>
-                            <modules>
-                                <module>
-                                    <artifact>
-                                        <groupId>org.json</groupId>
-                                        <artifactId>json</artifactId>
-                                        <version>20210307</version>
-                                    </artifact>
-                                    <moduleInfoSource>
-                                        module org.json {
-                                        requires java.logging;
-                                        exports org.json.JSONObject
-                                        }
-                                    </moduleInfoSource>
-                                </module>
-                                <module>
-                                    ...
-                                </module>
-                            </modules>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
     <dependencies>
@@ -194,11 +159,6 @@
             <artifactId>kotlin-test</artifactId>
             <version>${kotlin.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.moditect</groupId>
-            <artifactId>moditect-maven-plugin</artifactId>
-            <version>1.0.0.Beta2</version>
         </dependency>
     </dependencies>
 </project>
