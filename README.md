@@ -4,18 +4,22 @@
 !["build_by"](http://ForTheBadge.com/images/badges/built-by-developers.svg)
 !["with_love"](	http://ForTheBadge.com/images/badges/built-with-love.svg)
 # Idaesbasic - Project-Managment redefined
+
 <br>
 <p align="center">
   <img src="https://github.com/BenHerbst/ainm/blob/master/icon.png" width=250>
+  </br>
+  <a href="https://benherbst.github.io/idaesbasic">Idaesbasic</a>
 </p>
 
 ## Everything is a file 💾
 With this project managment tool, everything is a file. Your todolists are .todo files and your kanbans .kanban ...
 You can store everything local on you computer and directly in your project. For example: figures/player/player.todo, if you are a game dev and you want to manage planning of the player.
 </br>
-![Screenshot 2021-10-24 230156](https://user-images.githubusercontent.com/83538916/138612819-686cd80a-9ede-4f05-a017-a4ef443c6c69.png)
-![Screenshot 2021-10-24 230257](https://user-images.githubusercontent.com/83538916/138612887-69677d2b-ff62-4836-9b37-9949ace6c960.png)
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/83538916/138612819-686cd80a-9ede-4f05-a017-a4ef443c6c69.png" width=350>
+  <img src="https://user-images.githubusercontent.com/83538916/138612887-69677d2b-ff62-4836-9b37-9949ace6c960.png" width=200>
+</p>
 
 ## Big tool set ⚒️
 
