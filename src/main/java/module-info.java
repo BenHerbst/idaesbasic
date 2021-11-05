@@ -8,7 +8,7 @@ module idaesbasic {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.fontawesome;
     requires com.calendarfx.view;
-    requires com.fasterxml.jackson.core;
+    requires com.google.gson;
     requires java.logging;
     requires java.base;
     requires org.mnode.ical4j.core;
@@ -17,7 +17,7 @@ module idaesbasic {
     opens org.idaesbasic to javafx.fxml;
     opens org.idaesbasic.controllers to javafx.fxml;
     opens org.idaesbasic.controllers.todolist to javafx.fxml;
-    opens org.idaesbasic.models to com.fasterxml.jackson.core;
+    opens org.idaesbasic.models to com.google.gson;
     opens org.idaesbasic.controllers.calendar to javafx.fxml;
     opens org.idaesbasic.controllers.kanban to javafx.fxml;
 

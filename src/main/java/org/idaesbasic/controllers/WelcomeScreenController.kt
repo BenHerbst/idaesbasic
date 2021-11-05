@@ -1,28 +1,26 @@
 package org.idaesbasic.controllers
 
 import javafx.beans.value.ChangeListener
-import org.idaesbasic.models.Projects
-import javafx.fxml.FXML
-import javafx.scene.control.ChoiceBox
-import kotlin.Throws
-import java.io.IOException
-import javafx.fxml.FXMLLoader
-import javafx.stage.Stage
-import javafx.scene.Scene
-import org.idaesbasic.controllers.MainController
-import javafx.stage.DirectoryChooser
-import javafx.collections.FXCollections
 import javafx.beans.value.ObservableValue
+import javafx.collections.FXCollections
 import javafx.event.ActionEvent
+import javafx.fxml.FXML
+import javafx.fxml.FXMLLoader
 import javafx.scene.Node
 import javafx.scene.Parent
+import javafx.scene.Scene
+import javafx.scene.control.ChoiceBox
+import javafx.stage.DirectoryChooser
+import javafx.stage.Stage
+import org.idaesbasic.models.Projects
+import java.io.IOException
 
 class WelcomeScreenController {
     var registeredProjects = Projects()
 
     @FXML
-    private val projectListBox: ChoiceBox<*>? = null
-    @FXML
+    private lateinit var projectListBox: ChoiceBox<Any>
+
     @Throws(IOException::class)
     fun addProject(event: ActionEvent) {
         // Load main scene
@@ -53,10 +51,12 @@ class WelcomeScreenController {
     @Throws(IOException::class)
     fun initialize() {
         registeredProjects.loadProjectListFromUserFiles()
-/*
-        projectListBox!!.setItems(FXCollections.observableArrayList(registeredProjects.projectList))
-        projectListBox.selectionModel.selectedItemProperty().addListener(object : ChangeListener<Any> {
-            override fun changed(ov: ObservableValue<*>?, value: Any, newValue: Any) {
+
+        println(registeredProjects.projectList)
+        projectListBox.items = FXCollections.observableArrayList(registeredProjects.projectList)
+        println(projectListBox.items)
+        projectListBox.selectionModel?.selectedItemProperty()?.addListener(object : ChangeListener<Any> {
+            override fun changed(ov: ObservableValue<*>, value: Any?, newValue: Any?) {
                 val loader = FXMLLoader()
                 loader.location = javaClass.getResource("/fxml/MainView.fxml")
                 var parent: Parent? = null
@@ -80,6 +80,5 @@ class WelcomeScreenController {
                 thisStage.show()
             }
         })
-    */
     }
 }

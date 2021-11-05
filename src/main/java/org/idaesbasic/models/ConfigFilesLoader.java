@@ -1,8 +1,9 @@
 package org.idaesbasic.models;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -14,12 +15,15 @@ public class ConfigFilesLoader {
         String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
         Path userDirectory = Paths.get(userDirectoryPath);
         if(Files.exists(userDirectory)) {
-            ObjectMapper mapper = new ObjectMapper();
+            Gson gson = new Gson();
 
-            // Convert JSON file to map
-            Map<?, ?> map = mapper.readValue(Paths.get(userDirectoryPath + "/config.json").toFile(), Map.class);
+            // create a reader
+            Reader reader = Files.newBufferedReader(Paths.get(userDirectoryPath + "/config.json"));
 
-            // Return the map
+            // convert JSON string to Book object
+            Map<?, ?> map = gson.fromJson(reader, Map.class);
+
+            reader.close();
             return map;
         } else {
             return null;

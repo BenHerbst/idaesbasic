@@ -10,7 +10,6 @@
         <kotlin.version>1.6.0-RC</kotlin.version>
     </properties>
 
-
     <build>
         <plugins>
             <plugin>
@@ -19,8 +18,6 @@
                 <version>0.0.8</version>
                 <configuration>
                     <mainClass>idaesbasic/org.idaesbasic.Main</mainClass>
-                    <jlinkImageName>idaesbasic</jlinkImageName>
-                    <jlinkZipName>idaesbasic</jlinkZipName>
                     <compress>2</compress>
                     <noHeaderFiles>true</noHeaderFiles>
                     <noManPages>true</noManPages>
@@ -33,20 +30,38 @@
                 <version>1.4.0</version>
                 <configuration>
                     <name>Idaesbasic</name>
-                    <appVersion>0.8.0</appVersion>
-                    <vendor>org.herbst</vendor>
-                    <destination>target/dist</destination>
-                    <module>idaesbasic/org.idaesbasic.Main</module>
-                    <runtimeImage>target/idaesbasic</runtimeImage>
-                    <linuxShortcut>true</linuxShortcut>
-                    <linuxPackageName>idaesbasic</linuxPackageName>
-                    <linuxAppCategory>Utilities</linuxAppCategory>
-                    <linuxMenuGroup>Utilities</linuxMenuGroup>
+                    <appVersion>1.0.0</appVersion>
+                    <destination>target/</destination>
+                    <input>target/</input>
+                    <mainJar>idaesbasic-0.0.1-SNAPSHOT-shaded.jar</mainJar>
                     <icon>${project.basedir}/icon.png</icon>
-                    <javaOptions>
-                        <option>-Dfile.encoding=UTF-8</option>
-                    </javaOptions>
+                    <mainClass>org.idaesbasic.Main</mainClass>
+                    <verbose>true</verbose>
+                    <winPerUserInstall>true</winPerUserInstall>
+                    <type>EXE</type>
+                    <winDirChooser>true</winDirChooser>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <shadedArtifactAttached>true</shadedArtifactAttached>
+                            <transformers>
+                                <transformer implementation=
+                                                     "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>org.idaesbasic.Main</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
@@ -75,6 +90,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -147,7 +163,7 @@
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <artifactId>kotlin-stdlib</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
         <dependency>
@@ -155,6 +171,11 @@
             <artifactId>kotlin-test</artifactId>
             <version>${kotlin.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.9</version>
         </dependency>
     </dependencies>
 </project>

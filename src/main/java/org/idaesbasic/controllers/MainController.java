@@ -42,8 +42,6 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import net.fortuna.ical4j.data.ParserException;
 
-import org.json.*;
-
 public class MainController {
 
     public class NewFileDialogResult {
@@ -153,13 +151,13 @@ public class MainController {
     }
 
     @FXML
-    void addProject(ActionEvent event) {
+    void addProject(ActionEvent event) throws IOException {
         // Register a new project and open it
         DirectoryChooser chooser = new DirectoryChooser();
         addNewProject(chooser.showDialog(null));
     }
 
-    void addNewProject(File project) {
+    void addNewProject(File project) throws IOException {
         projectModel.addProjectToRegisteredProjects(project.toString());
         // Add menuitem from added project to the registered projects list menu
         MenuItem projectMenuItem = new MenuItem();
@@ -192,18 +190,20 @@ public class MainController {
         }
     }
 
-    void createProjectList() throws JSONException, IOException {
+    void createProjectList() throws IOException {
         // Delete all projects from RegisteredProjectsListMenu
         RegisteredProjectsListMenu.getItems().removeAll(RegisteredProjectsListMenu.getItems());
-        // Add every project from registered projects to the RegisteredProjectsListMenu
-        for (String project_path : projectModel.getProjectList()) {
-            MenuItem projectMenuItem = new MenuItem();
-            projectMenuItem.setText(Paths.get(project_path).getFileName().toString());
-            projectMenuItem.setOnAction(e -> {
-                // Set open action to open the project, when clicked
-                openRegisteredProject(project_path);
-            });
-            RegisteredProjectsListMenu.getItems().add(projectMenuItem);
+        if(projectModel.getProjectList() != null) {
+            // Add every project from registered projects to the RegisteredProjectsListMenu
+            for (String project_path : projectModel.getProjectList()) {
+                MenuItem projectMenuItem = new MenuItem();
+                projectMenuItem.setText(Paths.get(project_path).getFileName().toString());
+                projectMenuItem.setOnAction(e -> {
+                    // Set open action to open the project, when clicked
+                    openRegisteredProject(project_path);
+                });
+                RegisteredProjectsListMenu.getItems().add(projectMenuItem);
+            }
         }
     }
 

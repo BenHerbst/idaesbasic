@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Idaesbasic" />
+        <module name="idaesbasic" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Idaesbasic" target="16" />
+      <module name="idaesbasic" target="16" />
+      <module name="Idaesbasic" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
