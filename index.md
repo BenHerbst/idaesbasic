@@ -1,8 +1,4 @@
-# Idaesbasic - Project-Managment redefined
-<br>
-<p align="center">
-  <img src="https://github.com/BenHerbst/ainm/blob/master/icon.png" width=250>
-</p>
+# Idaesbasic
 
 ## Everything is a file 💾
 With this project managment tool, everything is a file. Your todolists are .todo files and your kanbans .kanban ...
