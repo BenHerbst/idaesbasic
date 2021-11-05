@@ -44,11 +44,11 @@ public class TodoitemController {
         }
     }
 
-    String getDateAsString() {
+    public String getDateAsString() {
         return dateLabel.getText();
     }
 
-    String getTodo() {
+    public String getTodo() {
         return checkBox.getText();
     }
 

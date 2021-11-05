@@ -14,6 +14,7 @@ import org.idaesbasic.controllers.todolist.CreateNewTodoController
 import org.idaesbasic.controllers.todolist.TodoitemController
 import org.idaesbasic.models.TaskRowModel
 import java.io.IOException
+import java.time.LocalDate
 
 
 class TaskRowController {
@@ -64,7 +65,6 @@ class TaskRowController {
             todoItemController?.setDate(newTaskDialogController?.date)
             // Set todoItem controller propertie
             todoItem.userData = loader.getController()
-            println(todoItem.userData)
             // Add todo to todolist
             todoContainer!!.children.add(todoItem)
         }
@@ -77,16 +77,28 @@ class TaskRowController {
 
     @FXML
     fun dragDroppedAction(event: DragEvent) {
+        //Get the dropped todo item
         val db: Dragboard = event.dragboard
         taskRow.parent.childrenUnmodifiable.forEach{ child ->
             run {
                 child as VBox
-                val todoContainer = (child.userData as TaskRowController).getTodoContainer()
-                todoContainer.children.forEach{
+                val oldTodoContainer = (child.userData as TaskRowController).getTodoContainer()
+                oldTodoContainer.children.forEach{
                     task ->
                     run {
-                        if(db.string == (task.userData as TodoitemController).draggingID) {
-                            todoContainer.children.remove(task)
+                        val taskController = (task.userData as TodoitemController)
+                        if(db.string == taskController.draggingID) {
+                            // Add a new todo item with the properties of the dropped one
+                            val newTaskLoader = FXMLLoader()
+                            newTaskLoader.location = javaClass.getResource("/fxml/views/todo/todo_item.fxml")
+                            val newTask: HBox = newTaskLoader.load()
+                            newTask.userData = newTaskLoader.getController()
+                            todoContainer.children.add(newTask)
+                            val newTaskController = newTaskLoader.getController<TodoitemController>()
+                            newTaskController.todo = taskController.todo
+                            newTaskController.setDate(LocalDate.parse(taskController.dateAsString))
+                            // Remove the dropped todo item
+                            oldTodoContainer.children.remove(task)
                             return
                         }
                     }

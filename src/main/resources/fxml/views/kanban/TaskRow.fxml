@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -21,7 +22,11 @@
             </ContextMenu>
          </contextMenu>
       </Label>
-      <VBox fx:id="todoContainer" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <content>
+            <VBox fx:id="todoContainer" prefHeight="200.0" prefWidth="100.0" />
+         </content>
+      </ScrollPane>
       <Button mnemonicParsing="false" onAction="#addNewTask" prefHeight="25.0" prefWidth="367.0" text="Add task" />
    </children>
 </VBox>
