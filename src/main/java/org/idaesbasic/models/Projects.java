@@ -6,12 +6,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -19,7 +18,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Projects {
+public class jProjects {
 
     private final ListProperty<String> registeredProjects = new SimpleListProperty<String>();
     
@@ -41,19 +40,25 @@ public class Projects {
         return currentProjectPath.getValue();
     }
 
-    public void loadProjectListFromUserFiles() throws JSONException, IOException {
-        List<String> newProjectList = new ArrayList<>();
-        for (Object project:(JSONArray) new ConfigFilesLoader().load("registeredProjects")) {
-            newProjectList.add((String) project);
-        }
-        registeredProjects.set(FXCollections.observableArrayList(newProjectList));
+    public void loadProjectListFromUserFiles() throws IOException {
+        Map map = new ConfigFilesLoader().loadConfigs();
+        if(map != null) {
+            List<String> newProjectList = new ArrayList<>();
+            for (Object project:(List<String>) map.get("registeredProjects")) {
+                newProjectList.add((String) project);
+            }
+            registeredProjects.set(FXCollections.observableArrayList(newProjectList));
+    }
     }
 
     public void saveProjectListToUserFiles() throws IOException {
         // Saves the registered projects in an json file
         // Create json
-        JSONObject json = new JSONObject();
-        json.put("registeredProjects", registeredProjects.getValue());
+        Map<String, Object> map = new HashMap<>();
+        map.put("registeredProjects", registeredProjects.getValue());
+        // create object mapper instance
+        ObjectMapper mapper = new ObjectMapper();
+
         // Write json to file
         String userDirectoryPath = System.getProperty("user.home") + "/.ideasbasic";
         Path userDirectory = Paths.get(userDirectoryPath);
@@ -64,7 +69,7 @@ public class Projects {
         if (!Files.exists(file)) {
             Files.createFile(file);
         }
-        Files.writeString(file, json.toString());
+        mapper.writeValue(file.toFile(), map);
     }
 
     public List<String> getProjectList() {
