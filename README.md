@@ -72,11 +72,11 @@ The software is build with javafx 17:
 
 ## Future
 ### Version 0.9.0 Beta:
-- Kanban
-- Better todolists, with date, time and tags
-- ~~Kalendar~~
+- ~~Kanban~~
+- Better todolists, ~~with date~~, time and tags
+- ~~Calendar~~
 - ~~Welcome screen~~
-- Better design
+- ~~Better design~~
 ### Version 1.0.0 Stable:
 - Whiteboard
 - Email managment
