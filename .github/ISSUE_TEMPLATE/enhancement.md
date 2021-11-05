@@ -1,7 +1,7 @@
 ---
-name: Enhancment
+name: Enhancement
 about: Create a enhancment to request features
-title: "[ENHANCMENT]"
+title: "[ENHANCEMENT]"
 labels: enhancment
 assignees: ''
 
