@@ -75,11 +75,6 @@ The software is build with javafx 17:
 - Can access your files
 
 ## Future
-### Version 0.9.0 Beta:
-- ~~Kanban~~
-- ~~Better todolists with date~~
-- ~~Calendar~~
-- ~~Welcome screen~~
 - ~~Better design~~
 ### Version 1.0.0 Stable:
 - Todolists with time and tags
