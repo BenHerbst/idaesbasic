@@ -75,7 +75,6 @@ The software is build with javafx 17:
 - Can access your files
 
 ## Future
-- ~~Better design~~
 ### Version 1.0.0 Stable:
 - Todolists with time and tags
 - Whiteboard
