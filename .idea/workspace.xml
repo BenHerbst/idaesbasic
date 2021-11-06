@@ -4,28 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Save and load kanban">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/kanban/kanbanTaskModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/kanban/taskRowModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/styles/sidepanel/sidepanel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_1_6_0_RC.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_test_1_5_31.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_common_1_6_0_RC.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_common_1_5_31.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_test_1_6_0_RC.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_1_5_31.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/idaesbasic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/idaesbasic.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/WelcomeScreenController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/WelcomeScreenController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/kanban/KanbanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/kanban/KanbanController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/kanban/TaskRowController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/kanban/TaskRowController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/KanbanModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/KanbanModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/TaskRowModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/dialogs/usedLibarys.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/dialogs/usedLibarys.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/views/kanban/TaskRow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/views/kanban/TaskRow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/main.css" afterDir="false" />
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Ready for beta">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +15,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Kotlin Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="0.9.0" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -71,7 +56,7 @@
       <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager" selected="JAR Application.idaesbasic-0.0.1-SNAPSHOT-shaded.jar">
+  <component name="RunManager" selected="Kotlin.Main">
     <configuration name="idaesbasic-0.0.1-SNAPSHOT-shaded.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/idaesbasic-0.0.1-SNAPSHOT-shaded.jar" />
       <method v="2" />
@@ -89,9 +74,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Main" />
+        <item itemvalue="JAR Application.idaesbasic-0.0.1-SNAPSHOT-shaded.jar" />
+        <item itemvalue="JAR Application.idaesbasic-0.0.1-SNAPSHOT.jar" />
         <item itemvalue="JAR Application.idaesbasic-0.0.1-SNAPSHOT-shaded.jar" />
         <item itemvalue="Kotlin.Main" />
-        <item itemvalue="JAR Application.idaesbasic-0.0.1-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -118,7 +105,21 @@
       <option name="project" value="LOCAL" />
       <updated>1636164445827</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Ready for beta">
+      <created>1636221662139</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1636221662139</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Ready for beta">
+      <created>1636221684086</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1636221684086</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -126,7 +127,49 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/0.9.0" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/0.8.0" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -137,7 +180,8 @@
     <MESSAGE value="Added jar plugin" />
     <MESSAGE value="New scroll bar design" />
     <MESSAGE value="Save and load kanban" />
-    <option name="LAST_COMMIT_MESSAGE" value="Save and load kanban" />
+    <MESSAGE value="Ready for beta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ready for beta" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
