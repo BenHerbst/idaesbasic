@@ -65,7 +65,7 @@ Idaesbasic is free and open source software.
 - If you are a single developer, manage the tasks for your project directly in the project isself and create kanbans
 
 ## License
-MIT License
+The software is provided under the Apache 2.0 License
 
 ## Build with javafx 💪
 The software is build with javafx 17:
