@@ -77,7 +77,7 @@ The software is build with javafx 17:
 ## Future
 ### Version 0.9.0 Beta:
 - ~~Kanban~~
-- Better todolists ~~with date~~
+- ~~Better todolists with date~~
 - ~~Calendar~~
 - ~~Welcome screen~~
 - ~~Better design~~
