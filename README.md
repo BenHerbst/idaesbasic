@@ -13,8 +13,8 @@
 </p>
 
 ## Everything is a file 💾
-With this project managment tool, everything is a file. Your todolists are .todo files and your kanbans .kanban ...
-You can store everything local on you computer and directly in your project. For example: figures/player/player.todo, if you are a game dev and you want to manage planning of the player.
+With this project managment tool, everything is a file. Your todolists are .todo files and your kanbans .knbn ...
+You can store everything local on you computer and directly in your project. For example: figures/player/player.todo, if you are a Game-Developer and you want to manage planning of the player.
 </br>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/83538916/138612819-686cd80a-9ede-4f05-a017-a4ef443c6c69.png" width=350>
@@ -23,7 +23,7 @@ You can store everything local on you computer and directly in your project. For
 
 ## Big tool set ⚒️
 
-There will be lot of tools in idaesbasic:
+There will be lot of tools in Idaesbasic:
 - Todolist
 - Kanban
 - Whiteboard
@@ -31,7 +31,7 @@ There will be lot of tools in idaesbasic:
 - Chatting
 - Calendar
 - Email
-- Messanges
+- Messenges
 - ...
 
 ![Screenshot 2021-10-21 125752](https://user-images.githubusercontent.com/83538916/138264358-0fef23c1-9a94-4c22-abeb-125cec09d351.png)
@@ -54,18 +54,21 @@ _To update the file browser, click on "Projects" -> "Project list" -> [Project l
 ## Free and open source 🗽
 
 Idaesbasic is free and open source software.
-- Everyone can make a pull request and we wil add the feature
-- Everyone can look the code
-- Everyone can change the code and built the software perfect for her / his needs
+- Everyone can make a pull request and we will add it
+- Everyone can see the code
+- Everyone can change the code and build the software perfect for her / his needs
 
 ## For everyone 🧑🧑‍🦰🧑‍🦱🧑‍🦳🧑‍🦲🧔🧟
 - If you want to use the software to manage your personal tasks, go and use the todolist.
 - If you are a big tech company and you want to manage a website, go and use the kanban and team features, and change the code to your needs.
-- If you are a single person that is famous, manage all your interviews etc. in the todolist and kalander.
-- If you are a single developer, manage the tasks for your project directly in the project isself and create kanbans
+- If you are a single person that is famous, manage all your interviews etc. in the todolist and calendar.
+- If you are a single developer, manage the tasks for your project directly in the project it selfes and create kanbans.
 
 ## License
 The software is provided under the Apache 2.0 License
+
+## Contributin
+If you want to contribute to Idaesbasic, see CONTRIBUTING.md first!
 
 ## Build with javafx 💪
 The software is build with javafx 17:
@@ -73,6 +76,9 @@ The software is build with javafx 17:
 - Small, doesnt have a browser inside
 - Less ram
 - Can access your files
+
+## Website
+The website of the project is avaible under https://benherbst.github.io/idaesbasic
 
 ## Future
 ### Version 1.0.0 Stable:
