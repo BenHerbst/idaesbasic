@@ -81,6 +81,11 @@ The software is build with javafx 17:
 The website of the project is avaible under https://benherbst.github.io/idaesbasic
 
 ## Future
+### Version 0.9.1:
+- Clean up
+- More stable
+- Bug fixes
+
 ### Version 1.0.0 Stable:
 - Todolists with time and tags
 - Whiteboard
