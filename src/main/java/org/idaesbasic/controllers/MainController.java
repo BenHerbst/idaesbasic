@@ -179,15 +179,9 @@ public class MainController {
     @FXML
     void deleteCurrentProject(ActionEvent event) throws IOException {
         // Remove the current project from the registered list
-        // registered_projects.remove(currentProjectPath);
-        createProjectList();
+        projectModel.removeCurrentProjectFromRegisteredProjects();
+        projectModel.saveProjectListToUserFiles();
         closeProject();
-        try {
-            projectModel.saveProjectListToUserFiles();
-        } catch (IOException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
     }
 
     void createProjectList() throws IOException {

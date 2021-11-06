@@ -13,6 +13,7 @@ import javafx.scene.control.ChoiceBox
 import javafx.stage.DirectoryChooser
 import javafx.stage.Stage
 import org.idaesbasic.models.Projects
+import java.io.File
 import java.io.IOException
 
 class WelcomeScreenController {
@@ -30,17 +31,20 @@ class WelcomeScreenController {
         val node = event.source as Node
         val thisStage = node.scene.window as Stage
         val scene = Scene(parent)
-        // Change stage
-        thisStage.hide()
-        thisStage.isMaximized = true
-        thisStage.isResizable = true
-        thisStage.title = "Idaesbasic / Main - 0.9.0 - Beta"
-        thisStage.scene = scene
-        thisStage.show()
         // Show open project window
         val controller = loader.getController<MainController>()
         val chooser = DirectoryChooser()
-        controller.addNewProject(chooser.showDialog(null))
+        val newProjectFile: File = chooser.showDialog(null)
+        if(newProjectFile.isDirectory) {
+            controller.addNewProject(newProjectFile)
+            // Change stage
+            thisStage.hide()
+            thisStage.isMaximized = true
+            thisStage.isResizable = true
+            thisStage.title = "Idaesbasic / Main - 0.9.0 - Beta"
+            thisStage.scene = scene
+            thisStage.show()
+        }
     }
 
     @FXML

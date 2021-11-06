@@ -32,7 +32,7 @@ public class Projects {
     }
 
     public void removeCurrentProjectFromRegisteredProjects() {
-        registeredProjects.remove(currentProjectPath);
+        registeredProjects.remove(getCurrentProjectPath());
     }
 
     public void setCurrentProjectPath(String projectPath) {

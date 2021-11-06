@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Ready for beta">
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Fixed welcome screen isnt styled">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/WelcomeScreenController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/WelcomeScreenController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/Projects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/Projects.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +47,6 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -119,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636221684086</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed welcome screen isnt styled">
+      <created>1636240731987</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1636240731987</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,7 +190,8 @@
     <MESSAGE value="New scroll bar design" />
     <MESSAGE value="Save and load kanban" />
     <MESSAGE value="Ready for beta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ready for beta" />
+    <MESSAGE value="Fixed welcome screen isnt styled" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed welcome screen isnt styled" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
