@@ -7,10 +7,18 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
-        <kotlin.version>1.6.0-RC</kotlin.version>
+        <kotlin.version>1.5.31</kotlin.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>mvnrepo</id>
+            <url>https://mvnrepository.com/artifact/</url>
+        </repository>
+    </repositories>
+
     <build>
+
         <plugins>
             <plugin>
                 <groupId>org.openjfx</groupId>
@@ -25,24 +33,6 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.panteleyev</groupId>
-                <artifactId>jpackage-maven-plugin</artifactId>
-                <version>1.4.0</version>
-                <configuration>
-                    <name>Idaesbasic</name>
-                    <appVersion>1.0.0</appVersion>
-                    <destination>target/</destination>
-                    <input>target/</input>
-                    <mainJar>idaesbasic-0.0.1-SNAPSHOT-shaded.jar</mainJar>
-                    <icon>${project.basedir}/icon.png</icon>
-                    <mainClass>org.idaesbasic.Main</mainClass>
-                    <verbose>true</verbose>
-                    <winPerUserInstall>true</winPerUserInstall>
-                    <type>EXE</type>
-                    <winDirChooser>true</winDirChooser>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.4</version>
@@ -54,6 +44,7 @@
                         <configuration>
                             <shadedArtifactAttached>true</shadedArtifactAttached>
                             <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                                 <transformer implementation=
                                                      "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>org.idaesbasic.Main</mainClass>
@@ -145,11 +136,6 @@
             <groupId>com.calendarfx</groupId>
             <artifactId>view</artifactId>
             <version>11.10.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.13.0</version>
         </dependency>
         <dependency>
             <groupId>org.mnode.ical4j</groupId>

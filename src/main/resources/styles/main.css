@@ -33,10 +33,6 @@
 }
 
 .tree-cell:focused {
-	-fx-background-color: #666666;
-}
-
-.tree-cell:hover {
 	-fx-background-color: #232323;
 }
 
@@ -218,6 +214,7 @@
 .scroll-bar:vertical:focused {
    -fx-background-color: transparent;
 }
+
 .root {
     -fx-background-color: #232323
 }

@@ -20,6 +20,7 @@ module idaesbasic {
     opens org.idaesbasic.models to com.google.gson;
     opens org.idaesbasic.controllers.calendar to javafx.fxml;
     opens org.idaesbasic.controllers.kanban to javafx.fxml;
+    opens org.idaesbasic.models.kanban to com.google.gson;
 
     exports org.idaesbasic;
     exports org.idaesbasic.controllers;
@@ -27,4 +28,5 @@ module idaesbasic {
     exports org.idaesbasic.controllers.calendar;
     exports org.idaesbasic.controllers.kanban;
     exports org.idaesbasic.models;
+    exports org.idaesbasic.models.kanban;
 }

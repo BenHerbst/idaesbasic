@@ -60,12 +60,7 @@ class WelcomeScreenController {
                 val loader = FXMLLoader()
                 loader.location = javaClass.getResource("/fxml/MainView.fxml")
                 var parent: Parent? = null
-                try {
-                    parent = loader.load()
-                } catch (e: IOException) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace()
-                }
+                parent = loader.load()
                 val node = projectListBox as Node?
                 val thisStage = node!!.scene.window as Stage
                 val scene = Scene(parent)

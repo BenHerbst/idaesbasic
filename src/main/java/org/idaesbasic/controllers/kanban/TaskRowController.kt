@@ -12,7 +12,7 @@ import javafx.scene.layout.HBox
 import javafx.scene.layout.VBox
 import org.idaesbasic.controllers.todolist.CreateNewTodoController
 import org.idaesbasic.controllers.todolist.TodoitemController
-import org.idaesbasic.models.TaskRowModel
+import org.idaesbasic.models.kanban.taskRowModel
 import java.io.IOException
 import java.time.LocalDate
 
@@ -28,14 +28,14 @@ class TaskRowController {
     private lateinit var taskRow: VBox;
 
     @JvmField
-    var taskModel: TaskRowModel? = TaskRowModel()
+    var taskModel: taskRowModel = taskRowModel("")
 
     fun getTodoContainer(): VBox {
         return todoContainer
     }
 
     fun initialize() {
-        title?.textProperty()?.bindBidirectional(taskModel?.titleProperty())
+        title?.textProperty()?.bindBidirectional(taskModel.nameProperty())
         taskRow.userData = this;
     }
 

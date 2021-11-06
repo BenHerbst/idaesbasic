@@ -414,7 +414,7 @@ public class MainController {
                 loader.setLocation(getClass().getResource("/fxml/views/kanban/KanbanView.fxml"));
                 Node view = loader.load();
                 KanbanController controller = loader.getController();
-//                controller.viewModel.setOpenedFile(Paths.get(fullPath));
+                controller.viewModel.setOpenedFile(Paths.get(fullPath));
                 view.setUserData(controller);
                 // Show new calendar in current tab
                 addViewToCurrentTab(view);
@@ -451,6 +451,8 @@ public class MainController {
             ((TodolistController) controller).saveFileAs(Paths.get(file.getAbsolutePath()));
         } else if (controller.getClass().equals(new CalendarController().getClass())) {
             ((CalendarController) controller).saveFile(file.getAbsolutePath());
+        } else if (controller.getClass().equals(new KanbanController().getClass())) {
+            ((KanbanController) controller).saveFile(file.getAbsolutePath());
         }
     }
 
@@ -488,6 +490,18 @@ public class MainController {
             // Set controller as user data for later access
             view.setUserData(calendarController);
             calendarController.loadFile(filename);
+            // Open todolist view
+            addViewToCurrentTab(view);
+        } else if (filename.endsWith(".knbn")) {
+            // Load calendar view
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/fxml/views/kanban/KanbanView.fxml"));
+            Node view = loader.load();
+            // Load calendar
+            KanbanController kanbanController = loader.getController();
+            // Set controller as user data for later access
+            view.setUserData(kanbanController);
+            kanbanController.loadFile(filename);
             // Open todolist view
             addViewToCurrentTab(view);
         }

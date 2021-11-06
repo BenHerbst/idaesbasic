@@ -22,7 +22,7 @@
             </ContextMenu>
          </contextMenu>
       </Label>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
          <content>
             <VBox fx:id="todoContainer" prefHeight="200.0" prefWidth="100.0" />
          </content>
