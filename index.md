@@ -24,7 +24,7 @@ There will be lot of tools in idaesbasic:
 
 ![Screenshot 2021-10-21 125752](https://user-images.githubusercontent.com/83538916/138264358-0fef23c1-9a94-4c22-abeb-125cec09d351.png)
 
-_At the moment, only todolist is implemented, kanban and calendar come with 0.9.0 alpha!_
+_At the moment, only todolist is implemented, kanban and calendar come with 0.9.0 beta!_
 ## Get started 🛫
 (1) Downloaad and install the app for windows or linux. 
 </br>
@@ -53,7 +53,7 @@ Idaesbasic is free and open source software.
 - If you are a single developer, manage the tasks for your project directly in the project isself and create kanbans
 
 ## License
-MIT License
+Apache 2.0 License
 
 ## Build with javafx 💪
 The software is build with javafx 17:
@@ -65,7 +65,7 @@ The software is build with javafx 17:
 ## Future
 ### Version 0.9.0 Beta:
 - ~~Kanban~~
-- Better todolists, ~~with date~~, time and tags
+- ~~Better todolists, ~~with date~~, time and tags~~
 - ~~Calendar~~
 - ~~Welcome screen~~
 - ~~Better design~~
