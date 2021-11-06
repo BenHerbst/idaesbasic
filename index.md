@@ -26,17 +26,12 @@ There will be lot of tools in idaesbasic:
 
 _At the moment, only todolist is implemented, kanban and calendar come with 0.9.0 beta!_
 ## Get started 🛫
-(1) Downloaad and install the app for windows or linux. 
-</br>
+(1) Downloaad and install the app for windows or linux.
 (2) Click on "Projects" -> "Add project" and select a folder
-</br>
 (3) Create a new todolist via "File" -> "New" -> "New todolist"
-</br>
 (4) Name the file and set the file location
-</br>
 (5) Create your todos, and click on "File" -> "Save" to save them
-</br>
-</br>
+
 _To update the file browser, click on "Projects" -> "Project list" -> [Project location]_
 
 ## Free and open source 🗽
