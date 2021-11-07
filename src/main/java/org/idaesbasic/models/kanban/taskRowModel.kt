@@ -11,19 +11,19 @@ class taskRowModel(val nameValue: String) {
     private var name: StringProperty = SimpleStringProperty()
     private val tasks: ListProperty<kanbanTaskModel> = SimpleListProperty<kanbanTaskModel>(FXCollections.observableArrayList())
 
-    public fun getName(): String? {
+    fun getName(): String? {
         return name.value
     }
 
-    public fun setName(value: String) {
+    fun setName(value: String) {
         name.value = value
     }
 
-    public fun nameProperty(): StringProperty {
+    fun nameProperty(): StringProperty {
         return name
     }
 
-    public fun getTasks(): List<kanbanTaskModel> {
+    fun getTasks(): List<kanbanTaskModel> {
         return tasks.value
     }
 

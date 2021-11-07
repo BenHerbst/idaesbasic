@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Delete file option for todolist">
-      <change afterPath="$PROJECT_DIR$/releases/calendars/beta.ics" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.knbn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mycalendar.ics" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/releases.todo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/kanban/TaskRowController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/kanban/TaskRowController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/todolist/TodolistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/todolist/TodolistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/ViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/ViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/views/todo/todo_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/views/todo/todo_view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/kanban/kanbanTaskModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/kanban/kanbanTaskModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/kanban/taskRowModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/kanban/taskRowModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +41,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="2" />
+  </component>
   <component name="ProjectId" id="20Vkq0l6wWQYKLlwgl9qkAfw1Zt" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -60,7 +61,8 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="tasks.servers" />
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -143,8 +145,20 @@
       <option name="project" value="LOCAL" />
       <updated>1636242194316</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
-    <servers />
+    <task id="LOCAL-00007" summary="Delete file option for todolist">
+      <created>1636310957024</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1636310957024</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers>
+      <GitHub url="https://github.com">
+        <option name="repoAuthor" value="BenHerbst" />
+        <option name="repoName" value="idaesbasic" />
+      </GitHub>
+    </servers>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -214,5 +228,15 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="regexState">
+    <option name="map">
+      <map>
+        <entry key="flags" value="0" />
+        <entry key="mode" value="0" />
+        <entry key="regex" value="\d{4}-(0[1-9]||1[0-2])-(0[1-9]||[12][0-9]||3[0-1])" />
+        <entry key="text" value="2021-12-31" />
+      </map>
+    </option>
   </component>
 </project>

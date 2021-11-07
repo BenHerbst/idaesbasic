@@ -45,9 +45,9 @@ import net.fortuna.ical4j.data.ParserException;
 public class MainController {
 
     public class NewFileDialogResult {
-        private Optional<ButtonType> result;
-        private String directory;
-        private String filename;
+        private final Optional<ButtonType> result;
+        private final String directory;
+        private final String filename;
 
         public NewFileDialogResult(Optional<ButtonType> result, String directory, String filename) {
             this.result = result;
@@ -95,7 +95,7 @@ public class MainController {
                 int minutes = LocalTime.now().getMinute();
                 int hours = LocalTime.now().getHour();
                 Platform.runLater(() -> timeButton
-                        .setText(Integer.toString(hours) + ((minutes < 10) ? ":0" : ":") + Integer.toString(minutes)));
+                        .setText(hours + ((minutes < 10) ? ":0" : ":") + minutes));
             }
         }, 0, 2000);
         fileExplorer.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {

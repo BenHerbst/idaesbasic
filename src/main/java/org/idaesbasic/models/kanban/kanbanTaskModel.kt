@@ -12,7 +12,7 @@ class kanbanTaskModel(taskValue: String, dateValue: String) {
         date.set(dateValue)
     }
 
-    public fun getTask(): String {
+    fun getTask(): String {
         return task.value
     }
 }
