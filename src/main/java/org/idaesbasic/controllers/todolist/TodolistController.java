@@ -10,15 +10,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+import javafx.scene.control.*;
+import javafx.scene.control.skin.TabPaneSkin;
+import javafx.scene.layout.AnchorPane;
 import org.idaesbasic.models.ViewModel;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.DialogPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -28,6 +28,9 @@ public class TodolistController {
 
     @FXML
     private VBox todos_list;
+
+    @FXML
+    private AnchorPane pane;
 
     @FXML
     void add_todo_item(ActionEvent event) throws IOException {
@@ -105,6 +108,15 @@ public class TodolistController {
         }
         //Save this string to the given file
         Files.writeString(file, saveData);
+    }
+
+    @FXML
+    void deleteCurrentFile() throws IOException {
+        viewModel.deleteCurrentFile();
+        // Remove the todo panel
+        TabPane tabPane = ((TabPane) pane.getParent().getParent());
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        selectionModel.getSelectedItem().setContent(null);
     }
 
     public static Object getController(Node node) {

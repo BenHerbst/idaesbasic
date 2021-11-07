@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Fixed welcome screen isnt styled">
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Delete file option for todolist">
+      <change afterPath="$PROJECT_DIR$/releases/calendars/beta.ics" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.knbn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/WelcomeScreenController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/WelcomeScreenController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/Projects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/Projects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycalendar.ics" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/releases.todo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/todolist/TodolistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/todolist/TodolistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/ViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/models/ViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/views/todo/todo_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/views/todo/todo_view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,17 +44,23 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="20Vkq0l6wWQYKLlwgl9qkAfw1Zt" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -77,10 +87,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.Main" />
-        <item itemvalue="JAR Application.idaesbasic-0.0.1-SNAPSHOT-shaded.jar" />
         <item itemvalue="JAR Application.idaesbasic-0.0.1-SNAPSHOT.jar" />
         <item itemvalue="JAR Application.idaesbasic-0.0.1-SNAPSHOT-shaded.jar" />
-        <item itemvalue="Kotlin.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -128,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636240731987</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed can't delete project">
+      <created>1636242194316</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1636242194316</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,12 +201,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added jar plugin" />
     <MESSAGE value="New scroll bar design" />
     <MESSAGE value="Save and load kanban" />
     <MESSAGE value="Ready for beta" />
     <MESSAGE value="Fixed welcome screen isnt styled" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed welcome screen isnt styled" />
+    <MESSAGE value="Fixed can't delete project" />
+    <MESSAGE value="Delete file option for todolist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete file option for todolist" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

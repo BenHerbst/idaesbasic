@@ -1,5 +1,7 @@
 package org.idaesbasic.models;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 import javafx.beans.property.ObjectProperty;
@@ -20,6 +22,10 @@ public class ViewModel {
 
     public final void setOpenedFile(final Path openedFile) {
         this.openedFileProperty().set(openedFile);
+    }
+
+    public final void deleteCurrentFile() throws IOException {
+        Files.delete(getOpenedFile());
     }
     
 }
