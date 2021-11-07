@@ -172,6 +172,11 @@
     -fx-padding :0.0 0.15em;
 }
 
+.tree-view > .virtual-flow > .corner,
+.scroll-bar > .corner {
+    -fx-background-color: transparent;
+}
+
 .tree-view .scroll-bar:horizontal .thumb,
 .tree-view .scroll-bar:vertical .thumb {
     -fx-background-color : #232323;
