@@ -20,9 +20,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.SingleSelectionModel;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import net.fortuna.ical4j.validate.ValidationException;
@@ -44,6 +48,9 @@ public class KanbanController implements Initializable {
 
     @FXML
     TextField addRowTextField = new TextField();
+
+    @FXML
+    AnchorPane pane = new AnchorPane();
 
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
@@ -81,6 +88,15 @@ public class KanbanController implements Initializable {
         if(event.getCode() == KeyCode.ENTER) {
             addNewRowAction();
         }
+    }
+
+    @FXML
+    void deleteCurrentFile() throws IOException {
+        viewModel.deleteCurrentFile();
+        // Remove the todo panel
+        TabPane tabPane = ((TabPane) pane.getParent().getParent());
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        selectionModel.getSelectedItem().setContent(null);
     }
 
     public void loadFile(String filePath) throws IOException {

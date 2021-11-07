@@ -6,9 +6,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.idaesbasic.controllers.kanban.KanbanController">
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.idaesbasic.controllers.kanban.KanbanController">
    <children>
       <ScrollPane fitToHeight="true" prefHeight="200.0" prefWidth="200.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
@@ -35,5 +36,14 @@
             </HBox>
          </content>
       </ScrollPane>
+      <VBox layoutX="722.0" layoutY="19.0" prefHeight="123.0" prefWidth="52.0" AnchorPane.rightAnchor="33.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#deleteCurrentFile" prefHeight="46.0" prefWidth="47.0">
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="fa-trash" iconSize="24" />
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
