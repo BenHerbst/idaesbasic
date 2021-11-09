@@ -16,6 +16,9 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.scene.control.SingleSelectionModel;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import org.idaesbasic.models.CalendarEventItem;
 import org.idaesbasic.models.CalendarModel;
 import org.idaesbasic.models.ViewModel;
@@ -74,6 +77,9 @@ public class CalendarController {
 
     @FXML
     private AnchorPane viewContainer;
+
+    @FXML
+    private AnchorPane pane;
 
     @FXML
     void initialize() throws IOException {
@@ -196,6 +202,15 @@ public class CalendarController {
     void switchToYear(ActionEvent event) throws IOException {
         selectToggleButton(switchToYearButton);
         switchCalendarView("YearView");
+    }
+
+    @FXML
+    void deleteCurrentFileAction(ActionEvent event) throws IOException {
+        viewModel.deleteCurrentFile();
+        // Remove the todo panel
+        TabPane tabPane = ((TabPane) pane.getParent().getParent());
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        selectionModel.getSelectedItem().setContent(null);
     }
     
     public void loadFile(String filePath) throws IOException, ParserException {
