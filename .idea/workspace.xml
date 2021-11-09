@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Fixed corner style issue">
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Delete calendar file">
       <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_0_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_17_0_0_1.xml" afterDir="false" />
@@ -177,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636316374923</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Delete calendar file">
+      <created>1636489877880</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1636489877880</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -250,7 +257,8 @@
     <MESSAGE value="Delete file option for todolist" />
     <MESSAGE value="New date regex" />
     <MESSAGE value="Fixed corner style issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed corner style issue" />
+    <MESSAGE value="Delete calendar file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete calendar file" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
