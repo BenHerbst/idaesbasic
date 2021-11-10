@@ -13,6 +13,7 @@ import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.scene.control.*;
 import org.idaesbasic.controllers.calendar.CalendarController;
 import org.idaesbasic.controllers.todolist.TodolistController;
 import org.idaesbasic.models.Projects;
@@ -25,17 +26,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.DialogPane;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SingleSelectionModel;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -424,7 +414,7 @@ public class MainController {
         // Get the control of the dialog
         CreateNewFileDialogController createFileDialogController = loader.getController();
         createFileDialogController.changeExtention(extention);
-        createFileDialogController.setDirectoryField(projectModel.getCurrentProjectPath() + "/");
+        createFileDialogController.setDirectoryField(getPathOf(currentTreeItem()) + "/");
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setDialogPane(createNewFileDialog);
         dialog.setTitle("Create a new file");
@@ -508,6 +498,11 @@ public class MainController {
     Tab get_current_tab() {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         return (selectionModel.getSelectedItem());
+    }
+
+    TreeItem<String> currentTreeItem() {
+        MultipleSelectionModel<TreeItem<String>> selectionModel = fileExplorer.getSelectionModel();
+        return(selectionModel.getSelectedItem());
     }
 
     public static Object getController(Node node) {
