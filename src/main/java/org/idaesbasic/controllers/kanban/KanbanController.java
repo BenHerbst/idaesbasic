@@ -155,4 +155,7 @@ public class KanbanController implements Initializable {
         // close writer
         writer.close();
     }
+
+    public void saveCurrentFile() throws IOException {
+    }
 }

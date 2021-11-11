@@ -158,8 +158,11 @@ public class CalendarController {
                         calendarModel.removeEvent(i);
                     }
                 }
-                //Add a calendareventitem with the summary and start / and end calendar to the events list
-                calendarModel.addEvent(new CalendarEventItem(evt.getEntry().getTitle(), startTime, endTime, evt.getEntry().getId()));
+                // Check if the entry is deleted
+                if (evt.getEntry().getCalendar() != null) {
+                    //Add a calendareventitem with the summary and start / and end calendar to the events list
+                    calendarModel.addEvent(new CalendarEventItem(evt.getEntry().getTitle(), startTime, endTime, evt.getEntry().getId()));
+                }
             }
         };
         viewContainer.getChildren().add(view);

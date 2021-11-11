@@ -448,6 +448,8 @@ public class MainController {
             ((TodolistController) controller).saveCurrentFile();
         } else if (controller.getClass().equals(new CalendarController().getClass())) {
             ((CalendarController) controller).saveCurrentFile();
+        } else if (controller.getClass().equals(new KanbanController().getClass())) {
+            ((KanbanController) controller).saveCurrentFile();
         }
     }
 
@@ -503,8 +505,10 @@ public class MainController {
     TreeItem<String> currentTreeItem() {
         MultipleSelectionModel<TreeItem<String>> selectionModel = fileExplorer.getSelectionModel();
         if(selectionModel.getSelectedItem() != null) {
+            // Non root item is selected
             return (selectionModel.getSelectedItem());
         } else {
+            // Root item is selected
             return fileExplorer.getRoot();
         }
     }
