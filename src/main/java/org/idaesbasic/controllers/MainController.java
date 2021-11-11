@@ -502,7 +502,11 @@ public class MainController {
 
     TreeItem<String> currentTreeItem() {
         MultipleSelectionModel<TreeItem<String>> selectionModel = fileExplorer.getSelectionModel();
-        return(selectionModel.getSelectedItem());
+        if(selectionModel.getSelectedItem() != null) {
+            return (selectionModel.getSelectedItem());
+        } else {
+            return fileExplorer.getRoot();
+        }
     }
 
     public static Object getController(Node node) {
