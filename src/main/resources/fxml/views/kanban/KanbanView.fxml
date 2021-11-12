@@ -16,18 +16,21 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <HBox fx:id="boardsContainer" prefHeight="0.0" prefWidth="0.0" spacing="20.0" />
-                  <HBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="182.0">
+                  <HBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="162.0">
                      <children>
                         <TextField fx:id="addRowTextField" onKeyPressed="#textFieldKeyPressed">
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin></TextField>
-                        <Button mnemonicParsing="false" onAction="#addNewRowAction" prefHeight="25.0" prefWidth="25.0" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#addNewRowAction" prefHeight="26.0" prefWidth="0.0" textFill="WHITE">
                            <graphic>
                               <FontIcon iconColor="#b5b5b5" iconLiteral="fa-plus" />
                            </graphic>
                         </Button>
                      </children>
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
                   </HBox>
                </children>
                <padding>

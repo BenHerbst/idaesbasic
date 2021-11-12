@@ -17,6 +17,7 @@
 
 .menu-item:hover, .menu-item:focused {
 	-fx-background-color: #666666;
+	-fx-background-insets: 0 0 0 0;
 }
 
 .label {
@@ -29,7 +30,8 @@
 
 .tree-cell {
 	-fx-background-color: #141414;
-	-fx-text-fill: #b5b5b5 ;
+	-fx-text-fill: #b5b5b5;
+	-fx-background-insets: 0 0 0 0;
 }
 
 .tree-cell:focused {
@@ -41,13 +43,18 @@
 }
 
 .tab-pane > .tab-header-area > *.tab-header-background {
-	-fx-background-color: #141414;	
+	-fx-background-color: #141414;
 }
+
+.tab-pane .tab-header-area {
+    -fx-padding: 10 0 0 0;
+}
+
 .tab {
 	-fx-background-color: transparent;
-	-fx-background-radius: 7;
-	-fx-padding: 7;
+	-fx-background-radius: 2 2 0 0;
 	-fx-pref-width: 200;
+	-fx-background-insets: 0 0 0 0;
 }
 
 .tab:selected {

@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Fixed null pointer if root tree item is selected">
-      <change afterPath="$PROJECT_DIR$/test.ics" afterDir="false" />
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Fixed calendar save">
+      <change afterPath="$PROJECT_DIR$/t.knbn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.knbn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Calendar.todo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/calendar/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/calendar/CalendarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/kanban/KanbanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/kanban/KanbanController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/views/kanban/KanbanView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/views/kanban/KanbanView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.ics" beforeDir="false" afterPath="$PROJECT_DIR$/test.ics" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636620102918</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fixed calendar save">
+      <created>1636624692834</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1636624692834</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -274,7 +281,8 @@
     <MESSAGE value="Delete calendar file" />
     <MESSAGE value="Create new file is now located under current file tree dir" />
     <MESSAGE value="Fixed null pointer if root tree item is selected" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed null pointer if root tree item is selected" />
+    <MESSAGE value="Fixed calendar save" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed calendar save" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
