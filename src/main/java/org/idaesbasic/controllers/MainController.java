@@ -13,6 +13,10 @@ import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import org.idaesbasic.controllers.calendar.CalendarController;
 import org.idaesbasic.controllers.todolist.TodolistController;
@@ -55,6 +59,9 @@ public class MainController {
     private Button timeButton;
 
     @FXML
+    private Tab plusTab;
+
+    @FXML
     private TreeView<String> fileExplorer;
 
     @FXML
@@ -71,6 +78,17 @@ public class MainController {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+        // Add new tab when "add tab" tab is selected
+        tabPane.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Tab>() {
+            @Override
+            public void changed(ObservableValue<? extends Tab> observable, Tab oldTab, Tab newTab) {
+                if(newTab.equals (plusTab)) {
+                    addNewTab();
+                    tabPane.getTabs().remove(plusTab);
+                    tabPane.getTabs().add(plusTab);
+                }
+            }
+        });
         // Set date from date button
         dateButton.setText(LocalDate.now().toString());
         Timer timer = new Timer();
@@ -295,7 +313,11 @@ public class MainController {
     }
 
     @FXML
-    void addTab(ActionEvent event) throws IOException {
+    void addTabAction(ActionEvent event) throws IOException {
+        addNewTab();
+    }
+
+    void addNewTab() {
         // Open a new empty tab
         Tab newTab = new Tab();
         newTab.setText("New tab");

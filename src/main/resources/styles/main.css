@@ -227,6 +227,14 @@
    -fx-background-color: transparent;
 }
 
+#plusTab {
+    -fx-pref-width: 24px;
+}
+
+#plusTab .tab-label {
+    -fx-text-fill: transparent;
+}
+
 .root {
     -fx-background-color: #232323
 }
