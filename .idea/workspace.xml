@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Styled split pane">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/AboutDialogController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/dialogs/About.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/icon.png" afterDir="false" />
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Added an about dialog">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/views/kanban/KanbanView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/views/kanban/KanbanView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t.knbn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.ics" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.knbn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/AboutDialogController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/AboutDialogController.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636806975806</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added an about dialog">
+      <created>1636821204420</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1636821204420</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -324,7 +323,8 @@
     <MESSAGE value="New tab that adds tabs when selected" />
     <MESSAGE value="Fixed add tab button" />
     <MESSAGE value="We now use split pane, not border pane anymore" />
-    <option name="LAST_COMMIT_MESSAGE" value="We now use split pane, not border pane anymore" />
+    <MESSAGE value="Added an about dialog" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added an about dialog" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -205,15 +205,15 @@
               <tabs>
                 <Tab disable="true" text="Messenges">
                      <content>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                        <VBox alignment="CENTER">
                            <children>
-                              <Label alignment="CENTER" text="This panel will be added in version 1.0.0 Stable" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label alignment="CENTER" text="This panel will be added in version 1.0.0 Stable">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
                            </children>
-                        </AnchorPane>
+                        </VBox>
                      </content>
                 </Tab>
                   <Tab disable="true" text="News">
