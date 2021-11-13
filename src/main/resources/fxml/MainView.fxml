@@ -19,7 +19,7 @@
    <children>
       <MenuBar>
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="_File">
             <items>
                   <MenuItem disable="true" mnemonicParsing="false" text="Open">
                      <graphic>
@@ -58,7 +58,7 @@
                   </MenuItem>
             </items>
           </Menu>
-          <Menu disable="true" mnemonicParsing="false" text="Edit">
+          <Menu disable="true" mnemonicParsing="false" text="_Edit">
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
                   <MenuItem mnemonicParsing="false" text="Select all" />
@@ -66,7 +66,7 @@
                   <MenuItem mnemonicParsing="false" text="Convert" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Navigation">
+            <Menu mnemonicParsing="false" text="_Navigation">
               <items>
                 <MenuItem fx:id="menuItemCloseAllTabs" mnemonicParsing="false" onAction="#closeAllTabs" text="Close all tabs">
                      <graphic>
@@ -85,7 +85,7 @@
                   </MenuItem>
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Projects">
+            <Menu mnemonicParsing="false" text="Pr_ojects">
                <items>
                   <MenuItem disable="true" mnemonicParsing="false" text="Start new project">
                      <graphic>
@@ -114,9 +114,9 @@
                   </MenuItem>
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Window">
+            <Menu mnemonicParsing="false" text="_Window">
                <items>
-                  <MenuItem fx:id="menuItemNewWIndow" mnemonicParsing="false" onAction="#openNewWindow" text="New window">
+                  <MenuItem fx:id="menuItemNewWindow" mnemonicParsing="false" onAction="#openNewWindow" text="New window">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-plus-square" iconSize="16" />
                      </graphic>
@@ -148,7 +148,7 @@
                   </MenuItem>
                </items>
             </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="_Help">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#showAboutDialogAction" text="About">
                      <graphic>

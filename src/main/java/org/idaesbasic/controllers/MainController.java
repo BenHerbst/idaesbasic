@@ -7,6 +7,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.Key;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
@@ -19,6 +20,9 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import org.idaesbasic.controllers.calendar.CalendarController;
 import org.idaesbasic.controllers.todolist.TodolistController;
 import org.idaesbasic.models.Projects;
@@ -72,6 +76,21 @@ public class MainController {
     private Menu RegisteredProjectsListMenu;
 
     @FXML
+    private MenuItem menuItemNewTab;
+
+    @FXML
+    private MenuItem menuItemNewWindow;
+
+    @FXML
+    private MenuItem menuItemSaveCurrentFile;
+
+    @FXML
+    private MenuItem menuItemSaveAs;
+
+    @FXML
+    private MenuItem menuItemCloseTab;
+
+    @FXML
     void initialize() {
         try {
             projectModel.loadProjectListFromUserFiles();
@@ -113,6 +132,12 @@ public class MainController {
                 e.printStackTrace();
             }
         });
+        // Add shortcuts
+        menuItemNewTab.setAccelerator(new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN));
+        menuItemNewWindow.setAccelerator(new KeyCodeCombination(KeyCode.N, KeyCombination.CONTROL_DOWN));
+        menuItemSaveAs.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.SHIFT_DOWN, KeyCombination.CONTROL_DOWN));
+        menuItemSaveCurrentFile.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN));
+        menuItemCloseTab.setAccelerator(new KeyCodeCombination(KeyCode.W, KeyCombination.CONTROL_DOWN));
     }
 
     void addSubdirs(String directory, TreeItem<String> treeItem) throws IOException {
@@ -240,7 +265,7 @@ public class MainController {
             Scene scene = new Scene(root, 640, 480);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setTitle("Idaesbasic - Child window - 0.8.0 - Alpha");
+            stage.setTitle("Idaesbasic -  0.9.0 - Beta");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

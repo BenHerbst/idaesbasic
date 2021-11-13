@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Added an about dialog">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/AboutDialogController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/AboutDialogController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636821204420</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added an about dialog">
+      <created>1636835457336</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1636835457337</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
