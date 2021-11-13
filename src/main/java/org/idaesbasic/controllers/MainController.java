@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -515,6 +516,14 @@ public class MainController {
             // Open todolist view
             addViewToCurrentTab(view);
         }
+    }
+
+    @FXML
+    void showAboutDialogAction(ActionEvent event) throws IOException {
+        Dialog<ButtonType> aboutDialog = new Dialog<ButtonType>();
+        aboutDialog.setDialogPane(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/dialogs/About.fxml"))));
+        aboutDialog.setTitle("About Idaesbasic");
+        aboutDialog.show();
     }
 
     void addViewToCurrentTab(Node view) {

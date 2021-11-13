@@ -18,11 +18,11 @@
                   <HBox fx:id="boardsContainer" prefHeight="0.0" prefWidth="0.0" spacing="20.0" />
                   <HBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="162.0">
                      <children>
-                        <TextField fx:id="addRowTextField" onKeyPressed="#textFieldKeyPressed">
+                        <TextField fx:id="addRowTextField" onKeyPressed="#textFieldKeyPressed" prefHeight="25.0" prefWidth="192.0" style="-fx-background-radius: 50 0 0 50;">
                            <HBox.margin>
-                              <Insets right="10.0" />
+                              <Insets />
                            </HBox.margin></TextField>
-                        <Button mnemonicParsing="false" onAction="#addNewRowAction" prefHeight="26.0" prefWidth="0.0" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#addNewRowAction" prefHeight="19.0" prefWidth="26.0" style="-fx-background-radius: 0 50 50 0;" textFill="WHITE">
                            <graphic>
                               <FontIcon iconColor="#b5b5b5" iconLiteral="fa-plus" />
                            </graphic>

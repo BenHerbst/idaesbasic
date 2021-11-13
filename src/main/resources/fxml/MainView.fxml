@@ -15,7 +15,6 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-
 <VBox prefHeight="742.0" prefWidth="1323.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.idaesbasic.controllers.MainController">
    <children>
       <MenuBar>
@@ -151,7 +150,7 @@
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem disable="true" mnemonicParsing="false" text="About">
+              <MenuItem mnemonicParsing="false" onAction="#showAboutDialogAction" text="About">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-question-circle" iconSize="16" />
                      </graphic>

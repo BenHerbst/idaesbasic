@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+
+<DialogPane stylesheets="@../../styles/dialog.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.idaesbasic.controllers.AboutDialogController">
+   <content>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="105.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="@../../img/icon.png" />
+               </image>
+            </ImageView>
+            <Text fill="#9a9a9a" strokeType="OUTSIDE" strokeWidth="0.0" text="Idaesbasic&#10;- Project managment redefined -&#10;by Ben Herbst and Contributors" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Text>
+            <Hyperlink onAction="#linkClicked" text="https://github.com/BenHerbst/idaesbasic">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Hyperlink>
+            <TextFlow prefHeight="0.0" prefWidth="600.0" textAlignment="CENTER">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Made ">
+                     <font>
+                        <Font size="31.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#c3c3c3" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="with ">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Text>
+                  <FontIcon iconColor="RED" iconLiteral="fa-heart" iconSize="35" />
+               </children>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </TextFlow>
+         </children>
+      </VBox>
+   </content>
+   <buttonTypes>
+      <ButtonType fx:constant="CLOSE" />
+   </buttonTypes>
+</DialogPane>
