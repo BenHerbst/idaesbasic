@@ -5,63 +5,35 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="1113.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.idaesbasic.controllers.MainController">
-   <left>
-      <TreeView fx:id="fileExplorer" prefHeight="689.0" prefWidth="264.0" BorderPane.alignment="CENTER" />
-   </left>
-   <bottom>
-      <ToolBar prefHeight="22.0" prefWidth="600.0" stylesheets="@../styles/airbar/button.css" BorderPane.alignment="CENTER">
-        <items>
-            <Button fx:id="dateButton" layoutX="272.0" layoutY="10.0" mnemonicParsing="false" text="17/10/2021" />
-            <Button fx:id="timeButton" layoutX="310.0" layoutY="10.0" mnemonicParsing="false" text="12:30" />
-        </items>
-      </ToolBar>
-   </bottom>
-   <center>
-      <TabPane fx:id="tabPane" prefHeight="33.0" prefWidth="600.0" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER">
-        <tabs>
-          <Tab text="New tab">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-          <Tab text="New tab">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="648.0" prefWidth="384.0" />
-            </content>
-          </Tab>
-            <Tab fx:id="plusTab" closable="false" text="Add tab">
-               <graphic>
-                  <FontIcon iconColor="WHITE" iconLiteral="fa-plus" />
-               </graphic>
-            </Tab>
-        </tabs>
-      </TabPane>
-   </center>
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
+
+<VBox prefHeight="742.0" prefWidth="1323.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.idaesbasic.controllers.MainController">
+   <children>
+      <MenuBar>
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
                   <MenuItem disable="true" mnemonicParsing="false" text="Open">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-file" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <Menu mnemonicParsing="false" text="New">
                     <items>
                       <MenuItem fx:id="menuItemNewTodolist" mnemonicParsing="false" onAction="#newTodolist" text="New Todolist">
                            <graphic>
                               <FontIcon iconColor="WHITE" iconLiteral="fa-check-circle" iconSize="16" />
-                           </graphic></MenuItem>
+                           </graphic>
+                        </MenuItem>
                         <MenuItem mnemonicParsing="false" onAction="#newKanban" text="New Kanban" />
                         <MenuItem fx:id="menuItemNewCalendar" mnemonicParsing="false" onAction="#newCalendar" text="New Calendar" />
                         <MenuItem disable="true" mnemonicParsing="false" text="New Whiteboard" />
@@ -73,15 +45,18 @@
                   <MenuItem fx:id="menuItemSaveAs" mnemonicParsing="false" onAction="#saveFileAs" text="Save as">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-share-square" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="menuItemSaveCurrentFile" mnemonicParsing="false" onAction="#saveCurrentFile" text="Save">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-save" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
               <MenuItem fx:id="menuItemCloseFile" mnemonicParsing="false" onAction="#closeFile" text="Close">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
             </items>
           </Menu>
           <Menu disable="true" mnemonicParsing="false" text="Edit">
@@ -97,15 +72,18 @@
                 <MenuItem fx:id="menuItemCloseAllTabs" mnemonicParsing="false" onAction="#closeAllTabs" text="Close all tabs">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-window-close" iconSize="16" selectionEnd="0" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="menuItemNewTab" mnemonicParsing="false" onAction="#addTabAction" text="New tab">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-plus-square" iconSize="16" selectionEnd="0" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="menuItemCloseTab" mnemonicParsing="false" onAction="#closeCurrentTab" text="Close tab">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="16" selectionEnd="0" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Projects">
@@ -113,23 +91,28 @@
                   <MenuItem disable="true" mnemonicParsing="false" text="Start new project">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-plus-square" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="menuItemAddProject" mnemonicParsing="false" onAction="#addProject" text="Open and add project">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-folder-open" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="menuItemCloseProject" mnemonicParsing="false" onAction="#closeCurrentProject" text="Close current project">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-folder" iconSize="16" selectionEnd="0" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <Menu fx:id="RegisteredProjectsListMenu" mnemonicParsing="false" text="Project list">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-folder" iconSize="16" selectionEnd="0" />
-                     </graphic></Menu>
+                     </graphic>
+                  </Menu>
                   <MenuItem fx:id="menuItemDeleteProject" mnemonicParsing="false" onAction="#deleteCurrentProject" text="Delete project">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-trash" iconSize="16" selectionEnd="0" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Window">
@@ -137,27 +120,33 @@
                   <MenuItem fx:id="menuItemNewWIndow" mnemonicParsing="false" onAction="#openNewWindow" text="New window">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-plus-square" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="menuItemCloseCurrentWindow" mnemonicParsing="false" onAction="#closeCurrentWindow" text="Close current window">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="menuItemOpenFileExplorer" mnemonicParsing="false" onAction="#openFileExplorer" text="Open file explorer">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-folder" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="menuItemOpenBrowser" mnemonicParsing="false" onAction="#openDefaultBrowser" text="Open browser">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-internet-explorer" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="menuItemOpenMail" mnemonicParsing="false" onAction="#openDefaultMail" text="Open mail">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-envelope" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem disable="true" mnemonicParsing="false" text="Open in standard app">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-external-link-square" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -165,60 +154,93 @@
               <MenuItem disable="true" mnemonicParsing="false" text="About">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-question-circle" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="menuItemUsedLibarys" mnemonicParsing="false" onAction="#showUsedLibarys" text="Used libarys">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-book" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="menuItemGithub" mnemonicParsing="false" onAction="#showGithubSite" text="Github">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-github" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem disable="true" mnemonicParsing="false" text="Settings">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-cog" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="menuItemCloseApp" mnemonicParsing="false" onAction="#closeApp" text="Close">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fa-close" iconSize="16" />
-                     </graphic></MenuItem>
+                     </graphic>
+                  </MenuItem>
             </items>
           </Menu>
         </menus>
       </MenuBar>
-   </top>
-   <right>
-      <TabPane prefHeight="689.0" prefWidth="409.0" side="RIGHT" stylesheets="@../styles/sidepanel/sidepanel.css" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-        <tabs>
-          <Tab disable="true" text="Messenges">
-               <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <Label alignment="CENTER" text="This panel will be added in version 1.0.0 Stable" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-               </content>
-          </Tab>
-            <Tab disable="true" text="News">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab disable="true" text="Properties">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab disable="true" text="Pomodoro timer">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-   </right>
-</BorderPane>
+      <SplitPane dividerPositions="0.2, 0.7" VBox.vgrow="ALWAYS">
+         <items>
+            <TreeView fx:id="fileExplorer" prefHeight="689.0" prefWidth="484.0" />
+            <TabPane fx:id="tabPane" prefHeight="689.0" prefWidth="0.0" tabClosingPolicy="ALL_TABS">
+              <tabs>
+                <Tab text="New tab">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+                <Tab text="New tab">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="648.0" prefWidth="384.0" />
+                  </content>
+                </Tab>
+                  <Tab fx:id="plusTab" closable="false" text="Add tab">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-plus" />
+                     </graphic>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <TabPane prefHeight="689.0" prefWidth="409.0" side="RIGHT" stylesheets="@../styles/sidepanel/sidepanel.css" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab disable="true" text="Messenges">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" text="This panel will be added in version 1.0.0 Stable" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                </Tab>
+                  <Tab disable="true" text="News">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab disable="true" text="Properties">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab disable="true" text="Pomodoro timer">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </items>
+      </SplitPane>
+      <ToolBar prefHeight="22.0" prefWidth="600.0" stylesheets="@../styles/airbar/button.css">
+        <items>
+            <Button fx:id="dateButton" layoutX="272.0" layoutY="10.0" mnemonicParsing="false" text="17/10/2021" />
+            <Button fx:id="timeButton" layoutX="310.0" layoutY="10.0" mnemonicParsing="false" text="12:30" />
+        </items>
+      </ToolBar>
+   </children>
+</VBox>

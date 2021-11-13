@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Fixed add tab button">
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="We now use split pane, not border pane anymore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" afterDir="false" />
     </list>
@@ -222,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636804428754</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="We now use split pane, not border pane anymore">
+      <created>1636806975806</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1636806975806</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -302,7 +309,8 @@
     <MESSAGE value="Better tabbar style" />
     <MESSAGE value="New tab that adds tabs when selected" />
     <MESSAGE value="Fixed add tab button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed add tab button" />
+    <MESSAGE value="We now use split pane, not border pane anymore" />
+    <option name="LAST_COMMIT_MESSAGE" value="We now use split pane, not border pane anymore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
