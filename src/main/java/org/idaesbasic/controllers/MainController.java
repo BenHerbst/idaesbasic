@@ -84,8 +84,6 @@ public class MainController {
             public void changed(ObservableValue<? extends Tab> observable, Tab oldTab, Tab newTab) {
                 if(newTab.equals (plusTab)) {
                     addNewTab();
-                    tabPane.getTabs().remove(plusTab);
-                    tabPane.getTabs().add(plusTab);
                 }
             }
         });
@@ -325,6 +323,9 @@ public class MainController {
         // Select the tab
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(newTab);
+        // Remove and re-add the "add tab" tab, to have it always as last tab
+        tabPane.getTabs().remove(plusTab);
+        tabPane.getTabs().add(plusTab);
     }
 
     @FXML
@@ -339,6 +340,7 @@ public class MainController {
     void closeAllTabs(ActionEvent event) {
         // Close all tabs of tabpane
         tabPane.getTabs().clear();
+        tabPane.getTabs().add(plusTab);
     }
 
     @FXML
