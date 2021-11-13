@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="New tab that adds tabs when selected">
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Fixed add tab button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636803307019</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fixed add tab button">
+      <created>1636804428754</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1636804428754</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -294,7 +301,8 @@
     <MESSAGE value="Fixed calendar save" />
     <MESSAGE value="Better tabbar style" />
     <MESSAGE value="New tab that adds tabs when selected" />
-    <option name="LAST_COMMIT_MESSAGE" value="New tab that adds tabs when selected" />
+    <MESSAGE value="Fixed add tab button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed add tab button" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
