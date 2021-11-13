@@ -34,9 +34,14 @@ There will be lot of tools in Idaesbasic:
 - Messenges
 - ...
 
-![Screenshot 2021-10-21 125752](https://user-images.githubusercontent.com/83538916/138264358-0fef23c1-9a94-4c22-abeb-125cec09d351.png)
+![image](https://user-images.githubusercontent.com/83538916/141648768-c7746c7a-ff53-4aee-9e7c-ccb2e5abb0fa.png)
+![image](https://user-images.githubusercontent.com/83538916/141648690-22e5fca7-4891-469f-b31a-02e571ff1631.png)
+![image](https://user-images.githubusercontent.com/83538916/141648926-f56fbbc7-86cb-411f-bea9-8d12f29999a5.png)
+![image](https://user-images.githubusercontent.com/83538916/141648957-d23a2f85-e2bd-4fe1-bac4-89d59274e39f.png)
+
 
 _At the moment, todolist, calendar and kanban are implemented, more are coming soon!_
+
 ## Get started 🛫
 (1) Downloaad and install the app for windows or linux. 
 </br>
