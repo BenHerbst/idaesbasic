@@ -227,6 +227,15 @@
    -fx-background-color: transparent;
 }
 
+.split-pane  {
+    -fx-background-color: transparent;
+}
+
+.split-pane > .split-pane-divider {
+    -fx-background-color: #070707;
+    -fx-padding: 0 1 0 1;
+}
+
 #plusTab {
     -fx-pref-width: 24px;
 }
