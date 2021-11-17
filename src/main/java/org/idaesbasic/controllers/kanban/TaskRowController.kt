@@ -4,7 +4,6 @@ import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
 import javafx.scene.Node
 import javafx.scene.control.*
-import javafx.scene.input.ClipboardContent
 import javafx.scene.input.DragEvent
 import javafx.scene.input.Dragboard
 import javafx.scene.input.TransferMode
@@ -56,7 +55,7 @@ class TaskRowController {
         if (result.get() == ButtonType.FINISH) {
             // Load a new todo item
             val loader = FXMLLoader()
-            loader.location = javaClass.getResource("/fxml/views/todo/todo_item.fxml")
+            loader.location = javaClass.getResource("/fxml/views/todo/TodoItem.fxml")
             val todoItem: HBox = loader.load<Node>() as HBox
             val todoItemController: TodoitemController? = loader.getController<TodoitemController>()
             val newTaskDialogController: CreateNewTodoController? =
@@ -90,7 +89,7 @@ class TaskRowController {
                         if(db.string == taskController.draggingID) {
                             // Add a new todo item with the properties of the dropped one
                             val newTaskLoader = FXMLLoader()
-                            newTaskLoader.location = javaClass.getResource("/fxml/views/todo/todo_item.fxml")
+                            newTaskLoader.location = javaClass.getResource("/fxml/views/todo/TodoItem.fxml")
                             val newTask: HBox = newTaskLoader.load()
                             newTask.userData = newTaskLoader.getController()
                             todoContainer.children.add(newTask)

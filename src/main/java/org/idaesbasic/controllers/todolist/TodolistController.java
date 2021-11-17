@@ -46,7 +46,7 @@ public class TodolistController {
     void addTodo(String todo, Boolean checked, LocalDate date) throws IOException {
         // Load a new todo item
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/views/todo/todo_item.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/views/todo/TodoItem.fxml"));
         Node todo_item = loader.load();
         //Set todo text
         TodoitemController todoController = loader.getController();

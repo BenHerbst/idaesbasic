@@ -7,7 +7,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.security.Key;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
@@ -17,8 +16,6 @@ import java.util.TimerTask;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
@@ -153,7 +150,6 @@ public class MainController {
         // List all sub files
         File[] files = new File(directory).listFiles(File::isFile);
         for (File file : files) {
-            System.out.println(file.getName());
             // Add every subfile as tree item to its parent's tree item
             TreeItem<String> currentFileTreeItem = new TreeItem<>(file.getName());
             treeItem.getChildren().add(currentFileTreeItem);
@@ -234,7 +230,7 @@ public class MainController {
     }
 
     @FXML
-    void closeCurrentProject(ActionEvent event) throws IOException {
+    void closeProjectAction(ActionEvent event) throws IOException {
         closeProject();
     }
 
@@ -282,7 +278,7 @@ public class MainController {
 
     @FXML
     void showUsedLibarys(ActionEvent event) throws IOException {
-        DialogPane usedLibarys = FXMLLoader.load(getClass().getResource("/fxml/dialogs/usedLibarys.fxml"));
+        DialogPane usedLibarys = FXMLLoader.load(getClass().getResource("/fxml/dialogs/UsedLibarys.fxml"));
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setTitle("Used libarys");
         dialog.setDialogPane(usedLibarys);
@@ -372,7 +368,7 @@ public class MainController {
     @FXML
     void closeFile(ActionEvent event) {
         // Closes the current file and make the tab content empty
-        get_current_tab().setContent(null);
+        getCurrentTab().setContent(null);
     }
 
     @FXML
@@ -392,7 +388,7 @@ public class MainController {
                 }
                 // Load the todolist view in current tab
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/fxml/views/todo/todo_view.fxml"));
+                loader.setLocation(getClass().getResource("/fxml/views/todo/TodoView.fxml"));
                 Node todolistView = loader.load();
                 TodolistController controller = loader.getController();
                 todolistView.setUserData(controller);
@@ -480,7 +476,7 @@ public class MainController {
         FileChooser chooser = new FileChooser();
         File file = chooser.showSaveDialog(null);
         // Save current view to file
-        Object controller = getController(get_current_tab().getContent());
+        Object controller = getController(getCurrentTab().getContent());
         if (controller.getClass().equals(new TodolistController().getClass())) {
             ((TodolistController) controller).saveFileAs(Paths.get(file.getAbsolutePath()));
         } else if (controller.getClass().equals(new CalendarController().getClass())) {
@@ -493,7 +489,7 @@ public class MainController {
     @FXML
     void saveCurrentFile() throws IOException {
         // Save current view to file
-        Object controller = getController(get_current_tab().getContent());
+        Object controller = getController(getCurrentTab().getContent());
         if (controller.getClass().equals(new TodolistController().getClass())) {
             ((TodolistController) controller).saveCurrentFile();
         } else if (controller.getClass().equals(new CalendarController().getClass())) {
@@ -507,7 +503,7 @@ public class MainController {
         if (filename.endsWith(".todo")) {
             // Load todolist view
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxml/views/todo/todo_view.fxml"));
+            loader.setLocation(getClass().getResource("/fxml/views/todo/TodoView.fxml"));
             Node view = loader.load();
             // Load todolist
             TodolistController todolistController = loader.getController();
@@ -552,10 +548,10 @@ public class MainController {
     }
 
     void addViewToCurrentTab(Node view) {
-        get_current_tab().setContent(view);
+        getCurrentTab().setContent(view);
     }
 
-    Tab get_current_tab() {
+    Tab getCurrentTab() {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         return (selectionModel.getSelectedItem());
     }
@@ -569,6 +565,20 @@ public class MainController {
             // Root item is selected
             return fileExplorer.getRoot();
         }
+    }
+
+    @FXML
+    void createNewDirectoryAction(ActionEvent event) throws IOException {
+        // Load the create new directory dialog, so the user can enter a dir name
+        Dialog<ButtonType> createNewDirectoryDialog = new Dialog<ButtonType>();
+        FXMLLoader createNewDirectoryLoader = new FXMLLoader();
+        createNewDirectoryLoader.setLocation(getClass().getResource("/fxml/dialogs/CreateNewDirectory.fxml"));
+        createNewDirectoryDialog.setDialogPane(createNewDirectoryLoader.load());
+        createNewDirectoryDialog.setTitle("Create new directory");
+        Optional<ButtonType> result = createNewDirectoryDialog.showAndWait();
+        // After clicking on finish, create the new folder
+        if (result.get() == ButtonType.FINISH) {
+            projectModel.addNewFolder(getPathOf(currentTreeItem()) + "/" + ((CreateNewDirectoryDialogController) createNewDirectoryLoader.getController()).getDirectoryName());}
     }
 
     public static Object getController(Node node) {

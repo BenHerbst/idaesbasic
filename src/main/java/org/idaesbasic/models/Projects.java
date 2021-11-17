@@ -80,4 +80,8 @@ public class Projects {
     public List<String> getProjectList() {
         return registeredProjects.getValue();
     }
+
+    public void addNewFolder(String newFolderPath) throws IOException {
+        Files.createDirectory(Paths.get(newFolderPath));
+    }
 }

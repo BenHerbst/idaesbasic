@@ -14,8 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,12 +26,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import net.fortuna.ical4j.validate.ValidationException;
 import org.idaesbasic.controllers.todolist.TodoitemController;
 import org.idaesbasic.models.KanbanModel;
 import org.idaesbasic.models.ViewModel;
-import org.idaesbasic.models.kanban.kanbanTaskModel;
 import org.idaesbasic.models.kanban.taskRowModel;
 
 public class KanbanController implements Initializable {
@@ -123,7 +118,7 @@ public class KanbanController implements Initializable {
             Map<?, ?> todoMap = gson.fromJson((String) entry.getValue(), Map.class);
             for (Map.Entry<?, ?> todoMapEntry : todoMap.entrySet()) {
                 FXMLLoader todoLoader = new FXMLLoader();
-                todoLoader.setLocation(getClass().getResource("/fxml/views/todo/todo_item.fxml"));
+                todoLoader.setLocation(getClass().getResource("/fxml/views/todo/TodoItem.fxml"));
                 taskRowController.getTodoContainer().getChildren().add(todoLoader.load());
                 TodoitemController todoController = todoLoader.getController();
                 todoController.setTodo((String) todoMapEntry.getKey());
