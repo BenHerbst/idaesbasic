@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -182,7 +183,14 @@
       </MenuBar>
       <SplitPane dividerPositions="0.2, 0.7" VBox.vgrow="ALWAYS">
          <items>
-            <TreeView fx:id="fileExplorer" prefHeight="689.0" prefWidth="484.0" />
+            <TreeView fx:id="fileExplorer" prefHeight="689.0" prefWidth="484.0">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#deleteFileAction" text="Delete file" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu></TreeView>
             <TabPane fx:id="tabPane" prefHeight="689.0" prefWidth="0.0" tabClosingPolicy="ALL_TABS">
               <tabs>
                 <Tab text="New tab">

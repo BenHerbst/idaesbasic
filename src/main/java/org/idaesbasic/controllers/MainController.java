@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -13,6 +14,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import org.apache.commons.io.*;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -579,6 +582,17 @@ public class MainController {
         // After clicking on finish, create the new folder
         if (result.get() == ButtonType.FINISH) {
             projectModel.addNewFolder(getPathOf(currentTreeItem()) + "/" + ((CreateNewDirectoryDialogController) createNewDirectoryLoader.getController()).getDirectoryName());}
+    }
+
+    @FXML
+    void deleteFileAction(ActionEvent event) throws IOException {
+        // Delete currently selected file
+        File toDeleteFile = new File(getPathOf(currentTreeItem()));
+        if (toDeleteFile.isDirectory()) {
+            FileUtils.deleteDirectory(toDeleteFile);
+        } else {
+            FileUtils.delete(toDeleteFile);
+        }
     }
 
     public static Object getController(Node node) {
