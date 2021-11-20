@@ -42,6 +42,25 @@ There will be lot of tools in Idaesbasic:
 
 _At the moment, todolist, calendar and kanban are implemented, more are coming soon!_
 
+## Compare with other tools
+
+| Has feature | ✅ |
+| ----------- | -- |
+| Doesn't have feature |  ❌ |
+| Feature is coming soon | ⏱️ |
+| Not completly implemented | 😑 |
+
+| Feature | *Idaesbasic* | Zenkit | Trello | Todoist |
+| ------- | ------------ | ------ | ------ | ------- |
+| Save into files | ✅ | 😑 ( Only markdowns from Hypernotes )  | 😑 ( Not directly, you must to use import and export ) | ❌ |
+| Kanbans | ✅ | ✅ | ✅ | ✅ |
+| Calendars | ✅ | ✅ | ✅ | ❌ |
+| Todolists | ✅ | ✅ | ❌ | ✅ |
+| Whiteboards | ⏱️ | ❌ | ❌ | ❌ |
+| Mindmaps | ⏱️ | ✅ | ❌ |
+| No electron | ✅ | ❌ | ❌ | ❌|
+
+
 ## Get started 🛫
 (1) Downloaad and install the app for windows or linux. 
 </br>
@@ -72,7 +91,7 @@ Idaesbasic is free and open source software.
 ## License
 The software is provided under the Apache 2.0 License
 
-## Contributin
+## Contributing
 If you want to contribute to Idaesbasic, see CONTRIBUTING.md first!
 
 ## Build with javafx 💪
