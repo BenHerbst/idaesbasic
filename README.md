@@ -1,4 +1,4 @@
-![maven](https://github.com/ss1978/idaesbasic/actions/workflows/maven.yml/badge.svg)
+![maven](actions/workflows/maven.yml/badge.svg)
 !["windows"](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 !["ubuntu"](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 !["java"](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
