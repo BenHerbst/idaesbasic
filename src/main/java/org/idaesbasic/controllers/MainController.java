@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -14,8 +13,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import org.apache.commons.io.*;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -40,6 +37,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import net.fortuna.ical4j.data.ParserException;
+
+import static kotlin.io.FilesKt.deleteRecursively;
 
 public class MainController {
 
@@ -589,9 +588,9 @@ public class MainController {
         // Delete currently selected file
         File toDeleteFile = new File(getPathOf(currentTreeItem()));
         if (toDeleteFile.isDirectory()) {
-            FileUtils.deleteDirectory(toDeleteFile);
+            deleteRecursively(toDeleteFile);
         } else {
-            FileUtils.delete(toDeleteFile);
+            toDeleteFile.delete();
         }
     }
 
