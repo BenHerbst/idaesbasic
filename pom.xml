@@ -143,12 +143,6 @@
         </dependency>
         <dependency>
             <groupId>com.calendarfx</groupId>
-            <artifactId>calendar</artifactId>
-            <version>11.10.1</version>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>com.calendarfx</groupId>
             <artifactId>view</artifactId>
             <version>11.10.1</version>
         </dependency>
@@ -177,11 +171,6 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.8.9</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.11.0</version>
         </dependency>
     </dependencies>
 </project>
