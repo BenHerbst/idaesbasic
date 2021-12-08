@@ -25,5 +25,5 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
         cache: maven
-      - name: Build with Maven
-        run: ./mvnw -B clean package
+    - name: Build with Maven
+      run: ./mvnw -B clean package
