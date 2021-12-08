@@ -98,7 +98,6 @@
                         <phase>none</phase>
                     </execution>
                     <!-- Replacing default-testCompile as it is treated specially by maven -->
-                        <id>compile</id>
                     <execution>
                         <id>default-testCompile</id>
                         <phase>none</phase>
@@ -111,7 +110,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>testCompile</id>
+                        <id>java-test-compile</id>
                         <phase>test-compile</phase>
                         <goals>
                             <goal>testCompile</goal>
