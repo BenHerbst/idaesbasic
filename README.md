@@ -78,6 +78,8 @@ _At the moment, todolist, calendar and kanban are implemented, more are coming s
 </br>
 _To update the file browser, click on "Projects" -> "Project list" -> [Project location]_
 
+It is recommended to create a idaes-files folder under your project, as it helps keeping focus, after I tested the both methods: At same place as tasks working folder under project or as, recommended, seperate folder for Idaesbasic.
+
 ## Free and open source 🗽
 
 Idaesbasic is free and open source software.
