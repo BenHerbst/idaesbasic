@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -13,6 +14,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import org.apache.commons.io.*;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -37,8 +40,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import net.fortuna.ical4j.data.ParserException;
-
-import static kotlin.io.FilesKt.deleteRecursively;
 
 public class MainController {
 
@@ -137,6 +138,11 @@ public class MainController {
         menuItemSaveAs.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.SHIFT_DOWN, KeyCombination.CONTROL_DOWN));
         menuItemSaveCurrentFile.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN));
         menuItemCloseTab.setAccelerator(new KeyCodeCombination(KeyCode.W, KeyCombination.CONTROL_DOWN));
+    }
+
+    void reloadFileExplorer(TreeItem<String> item) throws IOException {
+        item.getChildren().clear();
+        addSubdirs(getPathOf(item), item);
     }
 
     void addSubdirs(String directory, TreeItem<String> treeItem) throws IOException {
@@ -387,6 +393,7 @@ public class MainController {
                 File file = new File(fullPath);
                 if (!file.exists()) {
                     file.createNewFile();
+                    reloadFileExplorer(currentTreeItem());
                 }
                 // Load the todolist view in current tab
                 FXMLLoader loader = new FXMLLoader();
@@ -414,6 +421,7 @@ public class MainController {
                 File file = new File(fullPath);
                 if (!file.exists()) {
                     file.createNewFile();
+                    reloadFileExplorer(currentTreeItem());
                 }
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/fxml/views/calendar/CalendarView.fxml"));
@@ -441,6 +449,7 @@ public class MainController {
                 File file = new File(fullPath);
                 if (!file.exists()) {
                     file.createNewFile();
+                    reloadFileExplorer(currentTreeItem());
                 }
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/fxml/views/kanban/KanbanView.fxml"));
@@ -588,9 +597,9 @@ public class MainController {
         // Delete currently selected file
         File toDeleteFile = new File(getPathOf(currentTreeItem()));
         if (toDeleteFile.isDirectory()) {
-            deleteRecursively(toDeleteFile);
+            FileUtils.deleteDirectory(toDeleteFile);
         } else {
-            toDeleteFile.delete();
+            FileUtils.delete(toDeleteFile);
         }
     }
 
