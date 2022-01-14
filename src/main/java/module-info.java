@@ -13,6 +13,7 @@ module idaesbasic {
     requires java.base;
     requires org.mnode.ical4j.core;
     requires kotlin.stdlib;
+    requires org.apache.commons.io;
 
     opens org.idaesbasic to javafx.fxml;
     opens org.idaesbasic.controllers to javafx.fxml;

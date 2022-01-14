@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Added shortcuts">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_11_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/idaesbasic/controllers/MainController.java" afterDir="false" />
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Updates treeview">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +61,6 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/img" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -249,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636835457337</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Updates treeview">
+      <created>1642170842318</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1642170842318</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -331,7 +341,8 @@
     <MESSAGE value="Fixed add tab button" />
     <MESSAGE value="We now use split pane, not border pane anymore" />
     <MESSAGE value="Added an about dialog" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added an about dialog" />
+    <MESSAGE value="Updates treeview" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates treeview" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
