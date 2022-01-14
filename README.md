@@ -55,7 +55,7 @@ _At the moment, todolist, calendar and kanban are implemented, more are coming s
 
 | Feature | *Idaesbasic* | Zenkit | Trello | Todoist |
 | ------- | ------------ | ------ | ------ | ------- |
-| Save into files | ✅ | 😑 ( Only markdowns from Hypernotes )  | 😑 ( Not directly, you must to use import and export ) | ❌ |
+| Save into files | ✅ | 😑 ( Only markdowns from Hypernotes )  | 😑 ( Not directly, you must use import and export ) | ❌ |
 | Kanbans | ✅ | ✅ | ✅ | ✅ |
 | Calendars | ✅ | ✅ | ✅ | ❌ |
 | Todolists | ✅ | ✅ | ❌ | ✅ |
