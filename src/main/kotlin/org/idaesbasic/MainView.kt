@@ -1,5 +1,6 @@
 package org.idaesbasic
 
+import javafx.geometry.Insets
 import javafx.scene.layout.Priority
 import org.fxmisc.richtext.InlineCssTextArea
 import org.kordamp.ikonli.javafx.FontIcon
@@ -25,6 +26,30 @@ class TopView: View() {
         button {
             prefWidth = 30.0
             prefHeight = prefWidth
+            graphic = FontIcon().apply {
+                iconLiteral = "fa-caret-right"
+            }
+        }
+        button {
+            prefWidth = 30.0
+            prefHeight = prefWidth
+            graphic = FontIcon().apply {
+                iconLiteral = "fa-plus"
+            }
+        }
+        button {
+            prefWidth = 30.0
+            prefHeight = prefWidth
+            graphic = FontIcon().apply {
+                iconLiteral = "fa-save"
+            }
+        }
+        button {
+            prefWidth = 30.0
+            prefHeight = prefWidth
+            graphic = FontIcon().apply {
+                iconLiteral = "fa-file"
+            }
         }
         // Space
         pane() {
@@ -57,4 +82,7 @@ class TopView: View() {
 
 class CenterView: View() {
     override val root = InlineCssTextArea()
+    init {
+        root.padding = Insets(20.0, 20.0, 20.0, 20.0)
+    }
 }
