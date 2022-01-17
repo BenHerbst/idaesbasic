@@ -2,6 +2,7 @@ package org.idaesbasic
 
 import javafx.geometry.Insets
 import javafx.scene.layout.Priority
+import javafx.scene.paint.Color
 import org.fxmisc.richtext.InlineCssTextArea
 import org.kordamp.ikonli.javafx.FontIcon
 import tornadofx.*
@@ -21,6 +22,7 @@ class TopView: View() {
             prefHeight = prefWidth
             graphic = FontIcon().apply {
                 iconLiteral = "fa-caret-left"
+                iconColor = Color.web("#f8f8f2")
             }
         }
         button {
@@ -28,6 +30,7 @@ class TopView: View() {
             prefHeight = prefWidth
             graphic = FontIcon().apply {
                 iconLiteral = "fa-caret-right"
+                iconColor = Color.web("#f8f8f2")
             }
         }
         button {
@@ -35,6 +38,7 @@ class TopView: View() {
             prefHeight = prefWidth
             graphic = FontIcon().apply {
                 iconLiteral = "fa-plus"
+                iconColor = Color.web("#f8f8f2")
             }
         }
         button {
@@ -42,6 +46,7 @@ class TopView: View() {
             prefHeight = prefWidth
             graphic = FontIcon().apply {
                 iconLiteral = "fa-save"
+                iconColor = Color.web("#f8f8f2")
             }
         }
         button {
@@ -49,6 +54,7 @@ class TopView: View() {
             prefHeight = prefWidth
             graphic = FontIcon().apply {
                 iconLiteral = "fa-file"
+                iconColor = Color.web("#f8f8f2")
             }
         }
         // Space

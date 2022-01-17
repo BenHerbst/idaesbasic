@@ -1,10 +1,15 @@
 package org.idaesbasic
 
 import javafx.stage.Stage
-import kotlin.jvm.JvmStatic
-import tornadofx.*
+import tornadofx.App
+import tornadofx.launch
+import tornadofx.reloadStylesheetsOnFocus
 
-class IdaesbasicApp: App(MainView::class) {
+class IdaesbasicApp : App(MainView::class, MainStyle::class) {
+    init {
+        reloadStylesheetsOnFocus()
+    }
+
     override fun start(stage: Stage) {
         with(stage) {
             width = 1000.0
