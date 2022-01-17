@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Added some icons">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainStyle.kt" afterDir="false" />
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Added dracula theme style">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainStyle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainStyle.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -310,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642434203765</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added dracula theme style">
+      <created>1642444827583</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1642444827583</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -396,7 +401,8 @@
     <MESSAGE value="Started new tornadofx verison" />
     <MESSAGE value="Basic layout and ikonli" />
     <MESSAGE value="Added some icons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some icons" />
+    <MESSAGE value="Added dracula theme style" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added dracula theme style" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

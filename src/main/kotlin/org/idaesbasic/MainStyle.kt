@@ -29,8 +29,9 @@ class MainStyle: Stylesheet() {
             textFill = draculaTextColor
         }
         styledTextArea {
-            backgroundColor = multi(draculaForegroundColor)
+            backgroundColor = multi(draculaBackgroundColor)
             textFill = draculaTextColor
+            fontSize = 14.px
             text {
                 fill = draculaTextColor
             }
