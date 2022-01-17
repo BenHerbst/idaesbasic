@@ -5,9 +5,6 @@ import kotlin.jvm.JvmStatic
 import tornadofx.*
 
 class IdaesbasicApp: App(MainView::class) {
-    init {
-        reloadViewsOnFocus()
-    }
     override fun start(stage: Stage) {
         with(stage) {
             width = 1000.0

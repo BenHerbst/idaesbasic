@@ -66,5 +66,8 @@
     <orderEntry type="library" name="Maven: org.fxmisc.undo:undofx:2.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.fxmisc.flowless:flowless:0.6.7" level="project" />
     <orderEntry type="library" name="Maven: org.fxmisc.wellbehaved:wellbehavedfx:0.3.3" level="project" />
+    <orderEntry type="library" name="Maven: org.kordamp.ikonli:ikonli-core:12.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.kordamp.ikonli:ikonli-javafx:12.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.kordamp.ikonli:ikonli-fontawesome-pack:12.3.0" level="project" />
   </component>
 </module>
