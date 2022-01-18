@@ -4,9 +4,11 @@ import javafx.stage.Stage
 import tornadofx.App
 import tornadofx.launch
 import tornadofx.reloadStylesheetsOnFocus
+import tornadofx.reloadViewsOnFocus
 
 class IdaesbasicApp : App(MainView::class, MainStyle::class) {
     init {
+        reloadViewsOnFocus()
         reloadStylesheetsOnFocus()
     }
 

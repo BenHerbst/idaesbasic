@@ -4,8 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Use of &quot;find&quot; function">
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Buffers system">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__de_jensd_fontawesomefx_commons_9_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__de_jensd_fontawesomefx_fontawesome_4_7_0_9_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__no_tornado_tornadofx_2_0_0_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_media_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_media_win_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_swing_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_swing_win_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_web_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_web_win_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/buffer/NewBufferView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_json_javax_json_api_1_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_json_javax_json_api_1_1_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__no_tornado_tornadofx_1_7_20.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_javax_json_1_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_javax_json_module_1_1_4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/idaesbasic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/idaesbasic.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,25 +105,50 @@
     </option>
   </component>
   <component name="RunManager" selected="TornadoFX.RunApp">
-    <configuration name="idaesbasic-0.0.1-SNAPSHOT-shaded.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/target/idaesbasic-0.0.1-SNAPSHOT-shaded.jar" />
-      <method v="2" />
-    </configuration>
-    <configuration name="idaesbasic-0.0.1-SNAPSHOT.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/target/idaesbasic-0.0.1-SNAPSHOT.jar" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Main" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.idaesbasic.Main" />
+    <configuration name="NewBufferView (1)" type="TORNADOFX_RUNCONFIGURATION" temporary="true" run-type="View" live-views="false" live-stylesheets="false" dump-stylesheets="false">
+      <option name="MAIN_CLASS_NAME" value="tornadofx.App" />
       <module name="idaesbasic" />
+      <option name="VIEW_CLASS_NAME" value="org.idaesbasic.buffer.NewBufferView" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RunApp" type="TORNADOFX_RUNCONFIGURATION" run-type="App" live-views="false" live-stylesheets="false" dump-stylesheets="false">
+    <configuration name="NewBufferView (2)" type="TORNADOFX_RUNCONFIGURATION" temporary="true" run-type="View" live-views="false" live-stylesheets="false" dump-stylesheets="false">
+      <option name="MAIN_CLASS_NAME" value="tornadofx.App" />
+      <module name="idaesbasic" />
+      <option name="VIEW_CLASS_NAME" value="org.idaesbasic.buffer.NewBufferView" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NewBufferView (3)" type="TORNADOFX_RUNCONFIGURATION" temporary="true" run-type="View" live-views="false" live-stylesheets="false" dump-stylesheets="false">
+      <option name="MAIN_CLASS_NAME" value="tornadofx.App" />
+      <module name="idaesbasic" />
+      <option name="VIEW_CLASS_NAME" value="org.idaesbasic.buffer.NewBufferView" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NewBufferView (4)" type="TORNADOFX_RUNCONFIGURATION" temporary="true" run-type="View" live-views="false" live-stylesheets="false" dump-stylesheets="false">
+      <option name="MAIN_CLASS_NAME" value="tornadofx.App" />
+      <module name="idaesbasic" />
+      <option name="VIEW_CLASS_NAME" value="org.idaesbasic.buffer.NewBufferView" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NewBufferView" type="TORNADOFX_RUNCONFIGURATION" temporary="true" run-type="View" live-views="false" live-stylesheets="false" dump-stylesheets="false">
+      <option name="MAIN_CLASS_NAME" value="tornadofx.App" />
+      <module name="idaesbasic" />
+      <option name="VIEW_CLASS_NAME" value="org.idaesbasic.buffer.NewBufferView" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunApp" type="TORNADOFX_RUNCONFIGURATION" run-type="App" live-views="true" live-stylesheets="false" dump-stylesheets="false">
       <option name="MAIN_CLASS_NAME" value="org.idaesbasic.IdaesbasicApp" />
       <module name="idaesbasic" />
-      <option name="PROGRAM_PARAMETERS" value="--add-opens=javafx.graphics/javafx.scene=ALL-UNNAMED" />
+      <option name="PROGRAM_PARAMETERS" value="--add-opens=javafx.controls/javafx.scene.control=ALL-UNNAMED --add-opens=javafx.controls/javafx.scene.control=ALL-UNNAMED" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -116,17 +161,21 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JAR Application.idaesbasic-0.0.1-SNAPSHOT-shaded.jar" />
-      <item itemvalue="JAR Application.idaesbasic-0.0.1-SNAPSHOT.jar" />
-      <item itemvalue="Kotlin.Main" />
+      <item itemvalue="TornadoFX.NewBufferView (1)" />
+      <item itemvalue="TornadoFX.NewBufferView" />
       <item itemvalue="TornadoFX.RunApp" />
       <item itemvalue="TornadoFX.Unnamed" />
+      <item itemvalue="TornadoFX.NewBufferView (2)" />
+      <item itemvalue="TornadoFX.NewBufferView (3)" />
+      <item itemvalue="TornadoFX.NewBufferView (4)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.Main" />
-        <item itemvalue="JAR Application.idaesbasic-0.0.1-SNAPSHOT.jar" />
-        <item itemvalue="JAR Application.idaesbasic-0.0.1-SNAPSHOT-shaded.jar" />
+        <item itemvalue="TornadoFX.NewBufferView (4)" />
+        <item itemvalue="TornadoFX.NewBufferView (3)" />
+        <item itemvalue="TornadoFX.NewBufferView (2)" />
+        <item itemvalue="TornadoFX.NewBufferView (1)" />
+        <item itemvalue="TornadoFX.NewBufferView" />
       </list>
     </recent_temporary>
   </component>
@@ -328,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642517776058</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Buffers system">
+      <created>1642520881249</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1642520881249</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -392,7 +448,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added jar plugin" />
     <MESSAGE value="New scroll bar design" />
     <MESSAGE value="Save and load kanban" />
     <MESSAGE value="Ready for beta" />
@@ -417,7 +472,8 @@
     <MESSAGE value="Added dracula theme style" />
     <MESSAGE value="Can save plain text files" />
     <MESSAGE value="Use of &quot;find&quot; function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Use of &quot;find&quot; function" />
+    <MESSAGE value="Buffers system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Buffers system" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
