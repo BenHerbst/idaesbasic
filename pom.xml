@@ -120,6 +120,11 @@
         </plugins>
     </build>
     <dependencies>
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-reflect</artifactId>
+                <version>1.5.31</version>
+            </dependency>
         <!-- https://mvnrepository.com/artifact/no.tornado/tornadofx -->
         <dependency>
             <groupId>no.tornado</groupId>
