@@ -6,6 +6,7 @@ import javafx.scene.paint.Color
 import javafx.stage.FileChooser
 import org.fxmisc.richtext.CodeArea
 import org.idaesbasic.buffer.NewBufferView
+import org.idaesbasic.buffer.file.FileModel
 import org.kordamp.ikonli.javafx.FontIcon
 import tornadofx.*
 import java.io.File
@@ -60,7 +61,7 @@ class MainView : View() {
                     prefWidth = 30.0
                     prefHeight = prefWidth
                     action {
-                        val currentEditor: TextEditor = controller.getCurrentBuffer() as TextEditor
+                        val currentEditor: Editor = controller.getCurrentBuffer() as Editor
                         showSaveDialogAndSaveText(
                             arrayOf(FileChooser.ExtensionFilter("Plain text", "*.txt")),
                             currentEditor.root.text
@@ -123,8 +124,8 @@ class MainView : View() {
         }
     }
 
-    fun newEditor(bufferIndex: Int) {
-        val textEditor = find<TextEditor>()
+    fun newEditor(bufferIndex: Int, file: FileModel) {
+        val textEditor = Editor(file)
         controller.buffers[bufferIndex] = textEditor
     }
 
@@ -140,11 +141,12 @@ class MainView : View() {
     }
 }
 
-class TextEditor: Fragment() {
+class Editor(file: FileModel): Fragment() {
     override val root = CodeArea()
 
     init {
         root.padding = Insets(20.0, 20.0, 20.0, 20.0)
+        root.appendText(file.text)
     }
 }
 
