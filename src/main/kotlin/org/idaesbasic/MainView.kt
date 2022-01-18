@@ -1,6 +1,5 @@
 package org.idaesbasic
 
-import javafx.beans.property.SimpleStringProperty
 import javafx.geometry.Insets
 import javafx.scene.layout.Priority
 import javafx.scene.paint.Color
@@ -10,9 +9,8 @@ import org.kordamp.ikonli.javafx.FontIcon
 import tornadofx.*
 import java.io.File
 
-class MainView: View() {
+class MainView : View() {
     val controller: MainController by inject()
-    private val textProperty = SimpleStringProperty()
 
     override val root = borderpane {
         top {
@@ -37,6 +35,11 @@ class MainView: View() {
                 button {
                     prefWidth = 30.0
                     prefHeight = prefWidth
+                    action {
+                        val text = TextEditor()
+                        val centerView = find(CenterView::class)
+
+                    }
                     graphic = FontIcon().apply {
                         iconLiteral = "fa-plus"
                         iconColor = Color.web("#f8f8f2")
@@ -46,7 +49,10 @@ class MainView: View() {
                     prefWidth = 30.0
                     prefHeight = prefWidth
                     action {
-                        showSaveDialogAndSaveText(arrayOf(FileChooser.ExtensionFilter("Plain text", "*.txt")), textProperty.value)
+                        showSaveDialogAndSaveText(
+                            arrayOf(FileChooser.ExtensionFilter("Plain text", "*.txt")),
+                            find(CenterView::class).root.text
+                        )
                     }
                     graphic = FontIcon().apply {
                         iconLiteral = "fa-save"
@@ -62,7 +68,7 @@ class MainView: View() {
                     }
                 }
                 // Space
-                pane() {
+                pane {
                     hboxConstraints {
                         hgrow = Priority.SOMETIMES
                     }
@@ -73,7 +79,7 @@ class MainView: View() {
                     prefHeight = 30.0
                 }
                 // Space
-                pane() {
+                pane {
                     hboxConstraints {
                         hgrow = Priority.SOMETIMES
                     }
@@ -89,12 +95,7 @@ class MainView: View() {
                 }
             }
         }
-        center {
-            val textEdit = CodeArea()
-            textProperty.bind(textEdit.textProperty())
-            textEdit.padding = Insets(20.0, 20.0, 20.0, 20.0)
-            add(textEdit)
-        }
+        center<CenterView>()
     }
 
     private fun showSaveDialogAndSaveText(extensions: Array<FileChooser.ExtensionFilter>, text: String) {
@@ -104,15 +105,31 @@ class MainView: View() {
             null,
             FileChooserMode.Save
         )
-        if(fileArray.isNotEmpty()) {
+        if (fileArray.isNotEmpty()) {
             val file = fileArray[0]
-            file.writeText(text)
+            controller.saveTextToFile(text, file)
         }
     }
 
 }
 
-class MainController: Controller() {
+class CenterView : View() {
+    override val root = CodeArea()
+
+    init {
+        root.padding = Insets(20.0, 20.0, 20.0, 20.0)
+    }
+}
+
+class TextEditor: View() {
+    override val root = CodeArea()
+
+    init {
+        root.padding = Insets(20.0, 20.0, 20.0, 20.0)
+    }
+}
+
+class MainController : Controller() {
 
     fun saveTextToFile(text: String, file: File) {
         file.writeText(text)

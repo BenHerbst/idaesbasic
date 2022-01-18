@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Added dracula theme style">
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Can save plain text files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainStyle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainStyle.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -315,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642444827583</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Can save plain text files">
+      <created>1642456932381</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1642456932381</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -402,7 +408,8 @@
     <MESSAGE value="Basic layout and ikonli" />
     <MESSAGE value="Added some icons" />
     <MESSAGE value="Added dracula theme style" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added dracula theme style" />
+    <MESSAGE value="Can save plain text files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Can save plain text files" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
