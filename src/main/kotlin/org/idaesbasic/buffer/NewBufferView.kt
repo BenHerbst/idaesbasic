@@ -57,8 +57,9 @@ class NewBufferView : Fragment () {
 
 class NewBufferController : Controller () {
     fun loadFileInEditor(location: String) {
-        val mainView = find(MainView::classM
+        val mainView = find(MainView::class)
         val openedFile = Paths.get(location)
+        val file = FileModel(openedFile.fileName.toString()
         mainView.newEditor(mainView.controller.currentBufferIndex, file)
         mainView.controller.openCurrentBufferIndexBuffer()
     }
