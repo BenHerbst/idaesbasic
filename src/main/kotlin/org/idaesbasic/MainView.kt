@@ -3,6 +3,7 @@ package org.idaesbasic
 import javafx.geometry.Insets
 import javafx.scene.layout.Priority
 import javafx.scene.paint.Color
+import javafx.scene.text.Text
 import javafx.stage.FileChooser
 import org.fxmisc.richtext.CodeArea
 import org.kordamp.ikonli.javafx.FontIcon
@@ -23,6 +24,12 @@ class MainView : View() {
                         iconLiteral = "fa-caret-left"
                         iconColor = Color.web("#f8f8f2")
                     }
+                    action {
+                        if (controller.currentBufferIndex > 0) {
+                            controller.currentBufferIndex -= 1
+                            controller.openCurrentBuffer()
+                        }
+                    }
                 }
                 button {
                     prefWidth = 30.0
@@ -31,14 +38,18 @@ class MainView : View() {
                         iconLiteral = "fa-caret-right"
                         iconColor = Color.web("#f8f8f2")
                     }
+                    action {
+                        if (controller.currentBufferIndex +1 < controller.buffers.size) {
+                            controller.currentBufferIndex += 1
+                            controller.openCurrentBuffer()
+                        }
+                    }
                 }
                 button {
                     prefWidth = 30.0
                     prefHeight = prefWidth
                     action {
-                        val text = TextEditor()
-                        val centerView = find(CenterView::class)
-
+                        newEditor()
                     }
                     graphic = FontIcon().apply {
                         iconLiteral = "fa-plus"
@@ -51,7 +62,7 @@ class MainView : View() {
                     action {
                         showSaveDialogAndSaveText(
                             arrayOf(FileChooser.ExtensionFilter("Plain text", "*.txt")),
-                            find(CenterView::class).root.text
+                            controller.getCurrentBuffer().root.text
                         )
                     }
                     graphic = FontIcon().apply {
@@ -95,7 +106,6 @@ class MainView : View() {
                 }
             }
         }
-        center<CenterView>()
     }
 
     private fun showSaveDialogAndSaveText(extensions: Array<FileChooser.ExtensionFilter>, text: String) {
@@ -107,21 +117,23 @@ class MainView : View() {
         )
         if (fileArray.isNotEmpty()) {
             val file = fileArray[0]
-            controller.saveTextToFile(text, file)
+            file.writeText(text)
         }
     }
 
-}
+    private fun newEditor() {
+        val textEditor = find<TextEditor>()
+        controller.buffers = controller.buffers.plus(textEditor)
+        controller.currentBufferIndex += 1
+        controller.openCurrentBuffer()
+    }
 
-class CenterView : View() {
-    override val root = CodeArea()
-
-    init {
-        root.padding = Insets(20.0, 20.0, 20.0, 20.0)
+    fun switchToEditor(textEditor: TextEditor) {
+        root.center = textEditor.root
     }
 }
 
-class TextEditor: View() {
+class TextEditor: Fragment() {
     override val root = CodeArea()
 
     init {
@@ -130,6 +142,16 @@ class TextEditor: View() {
 }
 
 class MainController : Controller() {
+
+    var buffers = emptyArray<TextEditor>()
+    var currentBufferIndex = -1
+
+    fun getCurrentBuffer(): TextEditor {
+        return buffers[currentBufferIndex]
+    }
+    fun openCurrentBuffer() {
+        find(MainView::class).switchToEditor(getCurrentBuffer())
+    }
 
     fun saveTextToFile(text: String, file: File) {
         file.writeText(text)
