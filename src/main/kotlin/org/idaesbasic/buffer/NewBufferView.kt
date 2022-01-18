@@ -9,6 +9,7 @@ import java.nio.file.Paths
 
 class NewBufferView : Fragment () {
     val loadDirectory = SimpleStringProperty()
+    val controller = find(NewBufferController::class)
 
     override val root = squeezebox {
         fold("New file", expanded = true) {
@@ -46,14 +47,19 @@ class NewBufferView : Fragment () {
                 }
                 button("Load file") {
                     action {
-                        val mainView = find(MainView::class)
-                        val openedFile = Paths.get(loadDirectory.value)
-                        val file = FileModel(openedFile.fileName.toString(), openedFile, Files.readString(openedFile))
-                        mainView.newEditor(mainView.controller.currentBufferIndex, file)
-                        mainView.controller.openCurrentBufferIndexBuffer()
+                        controller.loadFileInEditor(loadDirectory.value)
                     }
                 }
             }
         }
+    }
+}
+
+class NewBufferController : Controller () {
+    fun loadFileInEditor(location: String) {
+        val mainView = find(MainView::classM
+        val openedFile = Paths.get(location)
+        mainView.newEditor(mainView.controller.currentBufferIndex, file)
+        mainView.controller.openCurrentBufferIndexBuffer()
     }
 }
