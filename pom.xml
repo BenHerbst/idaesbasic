@@ -169,5 +169,10 @@
             <artifactId>ikonli-fontawesome-pack</artifactId>
             <version>12.3.0</version>
         </dependency>
+        <dependency>
+            <groupId>no.tornado</groupId>
+            <artifactId>tornadofx-controlsfx</artifactId>
+            <version>0.1</version>
+        </dependency>
     </dependencies>
 </project>
