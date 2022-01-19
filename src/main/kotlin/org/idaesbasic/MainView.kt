@@ -7,6 +7,7 @@ import javafx.stage.FileChooser
 import org.fxmisc.richtext.CodeArea
 import org.idaesbasic.buffer.NewBufferView
 import org.idaesbasic.buffer.file.FileModel
+import org.idaesbasic.intelline.IntellineView
 import org.kordamp.ikonli.javafx.FontIcon
 import tornadofx.*
 import java.io.File
@@ -100,10 +101,7 @@ class MainView : View() {
                     }
                 }
                 // Center
-                textfield {
-                    prefWidth = 600.0
-                    prefHeight = 30.0
-                }
+                add(IntellineView().root)
                 // Space
                 pane {
                     hboxConstraints {
@@ -144,7 +142,13 @@ class MainView : View() {
 
     fun newEditor(bufferIndex: Int, file: FileModel) {
         val textEditor = Editor(file)
-        controller.buffers[bufferIndex] = textEditor
+        if (controller.buffers.size >= bufferIndex) {
+            // Replace the given buffer index
+            controller.buffers[bufferIndex] = textEditor
+        } else {
+            // Add as new buffer
+            controller.buffers = controller.buffers.plus(textEditor)
+        }
     }
 
     fun newBuffer() {
