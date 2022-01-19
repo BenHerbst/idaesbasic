@@ -11,6 +11,7 @@ module idaesbasic.org.idaesbasic {
     requires tornadofx.controlsfx;
 
     opens org.idaesbasic to tornadofx;
+    opens org.idaesbasic.buffer to tornadofx;
 
     exports org.idaesbasic;
 }

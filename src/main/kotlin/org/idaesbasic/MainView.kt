@@ -61,6 +61,17 @@ class MainView : View() {
                     prefWidth = 30.0
                     prefHeight = prefWidth
                     action {
+                        controller.removeBuffer(controller.currentBufferIndex)
+                    }
+                    graphic = FontIcon().apply {
+                        iconLiteral = "fa-minus"
+                        iconColor = Color.web("#f8f8f2")
+                    }
+                }
+                button {
+                    prefWidth = 30.0
+                    prefHeight = prefWidth
+                    action {
                         val currentEditor: Editor = controller.getCurrentBuffer() as Editor
                         showSaveDialogAndSaveText(
                             arrayOf(FileChooser.ExtensionFilter("Plain text", "*.txt")),
@@ -69,14 +80,6 @@ class MainView : View() {
                     }
                     graphic = FontIcon().apply {
                         iconLiteral = "fa-save"
-                        iconColor = Color.web("#f8f8f2")
-                    }
-                }
-                button {
-                    prefWidth = 30.0
-                    prefHeight = prefWidth
-                    graphic = FontIcon().apply {
-                        iconLiteral = "fa-file"
                         iconColor = Color.web("#f8f8f2")
                     }
                 }
@@ -162,7 +165,18 @@ class MainController : Controller() {
         find(MainView::class).switchCenterToBufferView(getCurrentBuffer())
     }
 
+    fun removeBuffer(index: Int) {
+        val mutableBuffers = buffers.toMutableList()
+        mutableBuffers.removeAt(index)
+        buffers = mutableBuffers.toTypedArray()
+        if (currentBufferIndex >= index) {
+            currentBufferIndex -= 1
+            openCurrentBufferIndexBuffer()
+        }
+    }
+
     fun saveTextToFile(text: String, file: File) {
         file.writeText(text)
     }
+
 }

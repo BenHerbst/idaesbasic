@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="File model">
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Can load files now">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/buffer/NewBufferView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/buffer/NewBufferView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -385,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642543692208</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Can load files now">
+      <created>1642544749892</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1642544749892</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -449,7 +457,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed welcome screen isnt styled" />
     <MESSAGE value="Fixed can't delete project" />
     <MESSAGE value="Delete file option for todolist" />
     <MESSAGE value="New date regex" />
@@ -474,7 +481,8 @@
     <MESSAGE value="Buffer create wizard and tornadofx 2.0" />
     <MESSAGE value="Update kotlin" />
     <MESSAGE value="File model" />
-    <option name="LAST_COMMIT_MESSAGE" value="File model" />
+    <MESSAGE value="Can load files now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Can load files now" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
