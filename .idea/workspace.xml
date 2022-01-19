@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Can load files now">
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Remember save location">
+      <change afterPath="$PROJECT_DIR$/run.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/buffer/NewBufferView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/buffer/NewBufferView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/buffer/file/FileModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/buffer/file/FileModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -393,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642544749892</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Can remove buffers now">
+      <created>1642615871313</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1642615871313</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -457,8 +466,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed can't delete project" />
-    <MESSAGE value="Delete file option for todolist" />
     <MESSAGE value="New date regex" />
     <MESSAGE value="Fixed corner style issue" />
     <MESSAGE value="Delete calendar file" />
@@ -482,7 +489,9 @@
     <MESSAGE value="Update kotlin" />
     <MESSAGE value="File model" />
     <MESSAGE value="Can load files now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Can load files now" />
+    <MESSAGE value="Can remove buffers now" />
+    <MESSAGE value="Remember save location" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remember save location" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

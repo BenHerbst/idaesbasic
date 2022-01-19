@@ -10,6 +10,9 @@ import org.idaesbasic.buffer.file.FileModel
 import org.kordamp.ikonli.javafx.FontIcon
 import tornadofx.*
 import java.io.File
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
 
 class MainView : View() {
     val controller: MainController by inject()
@@ -74,8 +77,15 @@ class MainView : View() {
                     action {
                         val currentEditor: Editor = controller.getCurrentBuffer() as Editor
                         showSaveDialogAndSaveText(
-                            arrayOf(FileChooser.ExtensionFilter("Plain text", "*.txt")),
-                            currentEditor.root.text
+                            arrayOf(
+                                FileChooser.ExtensionFilter("All", "*"),
+                                FileChooser.ExtensionFilter("Plain text", "*.txt"),
+                                FileChooser.ExtensionFilter("Java class", "*.java"),
+                                FileChooser.ExtensionFilter("Python", "*.py"),
+                                FileChooser.ExtensionFilter("Kotlin class", "*.kt"),
+                                ),
+                            currentEditor.root.text,
+                            currentEditor.fileObject
                         )
                     }
                     graphic = FontIcon().apply {
@@ -113,17 +123,22 @@ class MainView : View() {
         }
     }
 
-    private fun showSaveDialogAndSaveText(extensions: Array<FileChooser.ExtensionFilter>, text: String) {
-        val fileArray = chooseFile(
-            "Save file",
-            extensions,
-            null,
-            null,
-            FileChooserMode.Save
-        )
-        if (fileArray.isNotEmpty()) {
-            val file = fileArray[0]
-            controller.saveTextToFile(text, file)
+    private fun showSaveDialogAndSaveText(extensions: Array<FileChooser.ExtensionFilter>, text: String, file: FileModel) {
+        if (file.directory == null) {
+            val fileArray = chooseFile(
+                "Save file",
+                extensions,
+                null,
+                null,
+                FileChooserMode.Save
+            )
+            if (fileArray.isNotEmpty()) {
+                val newDirectory = fileArray[0]
+                file.directory = Paths.get(newDirectory.path)
+            }
+        }
+        if (file.directory != null) {
+            controller.saveTextToFile(text, file.directory!!)
         }
     }
 
@@ -146,8 +161,10 @@ class MainView : View() {
 
 class Editor(file: FileModel): Fragment() {
     override val root = CodeArea()
+    lateinit var fileObject: FileModel
 
     init {
+        fileObject = file
         root.padding = Insets(20.0, 20.0, 20.0, 20.0)
         root.appendText(file.text)
     }
@@ -169,14 +186,14 @@ class MainController : Controller() {
         val mutableBuffers = buffers.toMutableList()
         mutableBuffers.removeAt(index)
         buffers = mutableBuffers.toTypedArray()
-        if (currentBufferIndex >= index) {
+        if (currentBufferIndex >= index && currentBufferIndex != 0) {
             currentBufferIndex -= 1
-            openCurrentBufferIndexBuffer()
         }
+        openCurrentBufferIndexBuffer()
     }
 
-    fun saveTextToFile(text: String, file: File) {
-        file.writeText(text)
+    fun saveTextToFile(text: String, file: Path) {
+        Files.writeString(file, text)
     }
 
 }

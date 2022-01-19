@@ -2,6 +2,7 @@ package org.idaesbasic.buffer
 
 import javafx.beans.property.SimpleStringProperty
 import org.idaesbasic.MainView
+import javafx.stage.FileChooser
 import org.idaesbasic.buffer.file.FileModel
 import tornadofx.*
 import java.nio.file.Files
@@ -9,6 +10,7 @@ import java.nio.file.Paths
 
 class NewBufferView : Fragment () {
     val loadDirectory = SimpleStringProperty()
+    val loadFile = SimpleStringProperty()
     val controller = find(NewBufferController::class)
 
     override val root = squeezebox {
@@ -41,13 +43,39 @@ class NewBufferView : Fragment () {
                     field ("Directory") {
                         hbox {
                             textfield (loadDirectory)
-                            button {  }
+                        }
+                    }
+                    field ("File name") {
+                        hbox {
+                            textfield (loadFile)
+                        }
+                    }
+                    button ("Auto pick") {
+                        action {
+                            val extentions = arrayOf(
+                                FileChooser.ExtensionFilter("All", "*"),
+                                FileChooser.ExtensionFilter("Plain text", "*.txt"),
+                                FileChooser.ExtensionFilter("Java class", "*.java"),
+                                FileChooser.ExtensionFilter("Python", "*.py"),
+                                FileChooser.ExtensionFilter("Kotlin class", "*.kt"),
+                            )
+                            val fileArray = chooseFile(
+                                "Save file",
+                                extentions,
+                                null,
+                                null,
+                                FileChooserMode.Single
+                            )
+                            if (fileArray.isNotEmpty()) {
+                                loadDirectory.set(fileArray[0].path.replace(fileArray[0].name, ""))
+                                loadFile.set(fileArray[0].name)
+                            }
                         }
                     }
                 }
                 button("Load file") {
                     action {
-                        controller.loadFileInEditor(loadDirectory.value)
+                        controller.loadFileInEditor(loadDirectory.value + loadFile.value)
                     }
                 }
             }
