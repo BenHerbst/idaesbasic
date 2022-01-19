@@ -59,7 +59,7 @@ class NewBufferController : Controller () {
     fun loadFileInEditor(location: String) {
         val mainView = find(MainView::class)
         val openedFile = Paths.get(location)
-        val file = FileModel(openedFile.fileName.toString(), openedFile, file.readString(openedFile))
+        val file = FileModel(openedFile.fileName.toString(), openedFile, Files.readString(openedFile))
         mainView.newEditor(mainView.controller.currentBufferIndex, file)
         mainView.controller.openCurrentBufferIndexBuffer()
     }
