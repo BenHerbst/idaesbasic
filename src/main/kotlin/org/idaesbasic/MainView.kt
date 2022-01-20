@@ -1,19 +1,25 @@
 package org.idaesbasic
 
+import javafx.collections.ListChangeListener
 import javafx.geometry.Insets
+import javafx.scene.input.MouseEvent
 import javafx.scene.layout.Priority
 import javafx.scene.paint.Color
 import javafx.stage.FileChooser
 import org.fxmisc.richtext.CodeArea
 import org.idaesbasic.buffer.NewBufferView
 import org.idaesbasic.buffer.file.FileModel
+import org.idaesbasic.buffer.run.ExecutationSetupView
+import org.idaesbasic.buffer.run.RunConfigController
+import org.idaesbasic.buffer.run.RunConfigModel
+import org.idaesbasic.buffer.run.RunConfigProperty
 import org.idaesbasic.intelline.IntellineView
 import org.kordamp.ikonli.javafx.FontIcon
 import tornadofx.*
-import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
+
 
 class MainView : View() {
     val controller: MainController by inject()
@@ -112,6 +118,32 @@ class MainView : View() {
                 button {
                     prefWidth = 30.0
                     prefHeight = prefWidth
+                    val configsController = find(RunConfigController::class)
+                    val contextMenu = contextmenu {
+                        item ("Change config"){
+                            action {
+                                ExecutationSetupView().openWindow()
+                            }
+                        }
+                    }
+                    val runContextToggleGroup = togglegroup {  }
+                    configsController.configs.onChange() {
+                        // Update context menu to the changed config
+                        it.next()
+                        if (it.wasAdded()) {
+                            val config = configsController.configs[it.to - 1]
+                            contextMenu.radiomenuitem(config.nameProperty.value, runContextToggleGroup) {
+                                action {
+                                    check(true)
+                                    configsController.currentConfig = config
+                                    configsController.runCurrentConfig()
+                                }
+                            }
+                        }
+                    }
+                    action {
+                        configsController.runCurrentConfig()
+                    }
                 }
                 button {
                     prefWidth = 30.0
@@ -162,6 +194,11 @@ class MainView : View() {
         root.center = bufferView.root
     }
 }
+
+class MainViewModel : ItemViewModel<MainView>() {
+    val root = bind(MainView::root)
+}
+
 
 class Editor(file: FileModel): Fragment() {
     override val root = CodeArea()
