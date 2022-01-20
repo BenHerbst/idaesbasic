@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Create file command for intelline">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/buffer/run/ExecutationSetupView.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/buffer/run/RunConfigController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/buffer/run/RunConfigFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/buffer/run/RunConfigModel.kt" afterDir="false" />
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Added sidebar">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/sidepanel/SidepanelView.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" afterDir="false" />
@@ -71,7 +68,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Livit" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -418,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642628768374</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Run basic commands">
+      <created>1642697705850</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1642697705850</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -482,8 +486,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Delete calendar file" />
-    <MESSAGE value="Create new file is now located under current file tree dir" />
     <MESSAGE value="Fixed null pointer if root tree item is selected" />
     <MESSAGE value="Fixed calendar save" />
     <MESSAGE value="Better tabbar style" />
@@ -507,7 +509,9 @@
     <MESSAGE value="Remember save location" />
     <MESSAGE value="New file picker" />
     <MESSAGE value="Create file command for intelline" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create file command for intelline" />
+    <MESSAGE value="Run basic commands" />
+    <MESSAGE value="Added sidebar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sidebar" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

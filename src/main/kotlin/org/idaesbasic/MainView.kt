@@ -6,6 +6,7 @@ import javafx.scene.input.MouseEvent
 import javafx.scene.layout.Priority
 import javafx.scene.paint.Color
 import javafx.stage.FileChooser
+import javafx.stage.StageStyle
 import org.fxmisc.richtext.CodeArea
 import org.idaesbasic.buffer.NewBufferView
 import org.idaesbasic.buffer.file.FileModel
@@ -14,6 +15,7 @@ import org.idaesbasic.buffer.run.RunConfigController
 import org.idaesbasic.buffer.run.RunConfigModel
 import org.idaesbasic.buffer.run.RunConfigProperty
 import org.idaesbasic.intelline.IntellineView
+import org.idaesbasic.sidepanel.SidepanelView
 import org.kordamp.ikonli.javafx.FontIcon
 import tornadofx.*
 import java.nio.file.Files
@@ -145,9 +147,25 @@ class MainView : View() {
                         configsController.runCurrentConfig()
                     }
                 }
-                button {
+                checkbox {
+                    val sidepanelView = SidepanelView()
                     prefWidth = 30.0
                     prefHeight = prefWidth
+                    action {
+                        if (isSelected) {
+                            // Show sidepanel
+                            sidepanelView.openWindow()?.apply {
+                                this.width = 400.0
+                                this.height = 700.0
+                                this.x = currentStage?.x!! + (currentStage?.width!! - this.width - 50.0)
+                                this.y = currentStage?.y!! + (currentStage?.height!! - this.height) / 2
+                                this.isAlwaysOnTop = true
+                            }
+                        } else {
+                            // Hide sidepanel
+                            sidepanelView.currentWindow?.hide()
+                        }
+                    }
                 }
             }
         }
