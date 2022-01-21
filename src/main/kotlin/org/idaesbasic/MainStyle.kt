@@ -9,6 +9,7 @@ class MainStyle: Stylesheet() {
        val caret by cssclass()
        val squeezebox by cssclass()
        val form by cssclass()
+       val lineno by cssclass()
 
        private val draculaBackgroundColor = c("#282a36")
        private val draculaForegroundColor = c("#44475a")
@@ -64,6 +65,9 @@ class MainStyle: Stylesheet() {
         }
         label {
             textFill = draculaTextColor
+        }
+        lineno {
+            backgroundColor = multi(draculaBackgroundColor)
         }
     }
 }

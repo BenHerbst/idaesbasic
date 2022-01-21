@@ -10,6 +10,7 @@ import javafx.scene.paint.Color
 import javafx.stage.FileChooser
 import javafx.stage.StageStyle
 import org.fxmisc.richtext.CodeArea
+import org.fxmisc.richtext.LineNumberFactory
 import org.idaesbasic.buffer.NewBufferView
 import org.idaesbasic.buffer.file.FileModel
 import org.idaesbasic.buffer.run.ExecutationSetupView
@@ -225,6 +226,7 @@ class Editor(file: FileModel): Fragment() {
     lateinit var fileObject: FileModel
 
     init {
+        root.setParagraphGraphicFactory(LineNumberFactory.get(root))
         fileObject = file
         root.padding = Insets(20.0, 20.0, 20.0, 20.0)
         root.appendText(file.text)

@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Squezbox dracula theme">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/powerline/PowerLineController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/powerline/PowerLineView.kt" afterDir="false" />
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Powerline with file name">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainStyle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainStyle.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/buffer/NewBufferView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/buffer/NewBufferView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/intelline/IntellineView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/intelline/IntellineView.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -439,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642763763781</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Powerline with file name">
+      <created>1642791251598</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1642791251598</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -503,7 +506,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed calendar save" />
     <MESSAGE value="Better tabbar style" />
     <MESSAGE value="New tab that adds tabs when selected" />
     <MESSAGE value="Fixed add tab button" />
@@ -528,7 +530,8 @@
     <MESSAGE value="Run basic commands" />
     <MESSAGE value="Added sidebar" />
     <MESSAGE value="Squezbox dracula theme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Squezbox dracula theme" />
+    <MESSAGE value="Powerline with file name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Powerline with file name" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
