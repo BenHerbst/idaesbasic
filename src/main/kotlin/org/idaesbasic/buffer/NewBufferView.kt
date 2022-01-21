@@ -15,10 +15,11 @@ class NewBufferView : Fragment () {
 
     override val root = squeezebox {
         fold("New file", expanded = true) {
+            val newFileName = SimpleStringProperty()
             form {
                 fieldset ("Basic file configuration"){
                     field("Filename") {
-                        textfield()
+                        textfield(newFileName)
                     }
                     field("Language") {
                         label("Plain text")
@@ -30,8 +31,8 @@ class NewBufferView : Fragment () {
                 button("Create") {
                     action {
                         val mainView = find(MainView::class)
-                        val file = FileModel(null, null, null)
-                        mainView.newEditor(mainView.controller.currentBufferIndex, file)
+                        val file = FileModel(newFileName.get(), null, null)
+                        mainView.newEditor(mainView.controller.currentBufferIndexProperty.get(), file)
                         mainView.controller.openCurrentBufferIndexBuffer()
                     }
                 }
@@ -88,7 +89,7 @@ class NewBufferController : Controller () {
         val mainView = find(MainView::class)
         val openedFile = Paths.get(location)
         val file = FileModel(openedFile.fileName.toString(), openedFile, Files.readString(openedFile))
-        mainView.newEditor(mainView.controller.currentBufferIndex, file)
+        mainView.newEditor(mainView.controller.currentBufferIndexProperty.get(), file)
         mainView.controller.openCurrentBufferIndexBuffer()
     }
 }

@@ -1,5 +1,7 @@
 package org.idaesbasic
 
+import javafx.beans.property.SimpleIntegerProperty
+import javafx.beans.property.SimpleListProperty
 import javafx.collections.ListChangeListener
 import javafx.geometry.Insets
 import javafx.scene.input.MouseEvent
@@ -15,13 +17,13 @@ import org.idaesbasic.buffer.run.RunConfigController
 import org.idaesbasic.buffer.run.RunConfigModel
 import org.idaesbasic.buffer.run.RunConfigProperty
 import org.idaesbasic.intelline.IntellineView
+import org.idaesbasic.powerline.PowerLineView
 import org.idaesbasic.sidepanel.SidepanelView
 import org.kordamp.ikonli.javafx.FontIcon
 import tornadofx.*
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
-
 
 class MainView : View() {
     val controller: MainController by inject()
@@ -38,8 +40,8 @@ class MainView : View() {
                         iconColor = Color.web("#f8f8f2")
                     }
                     action {
-                        if (controller.currentBufferIndex > 0) {
-                            controller.currentBufferIndex -= 1
+                        if (controller.currentBufferIndexProperty.get() > 0) {
+                            controller.currentBufferIndexProperty.value -= 1
                             controller.openCurrentBufferIndexBuffer()
                         }
                     }
@@ -52,8 +54,8 @@ class MainView : View() {
                         iconColor = Color.web("#f8f8f2")
                     }
                     action {
-                        if (controller.currentBufferIndex +1 < controller.buffers.size) {
-                            controller.currentBufferIndex += 1
+                        if (controller.currentBufferIndexProperty.value +1 < controller.buffers.size) {
+                            controller.currentBufferIndexProperty.value += 1
                             controller.openCurrentBufferIndexBuffer()
                         }
                     }
@@ -73,7 +75,7 @@ class MainView : View() {
                     prefWidth = 30.0
                     prefHeight = prefWidth
                     action {
-                        controller.removeBuffer(controller.currentBufferIndex)
+                        controller.removeBuffer(controller.currentBufferIndexProperty.get())
                     }
                     graphic = FontIcon().apply {
                         iconLiteral = "fa-minus"
@@ -169,6 +171,7 @@ class MainView : View() {
                 }
             }
         }
+        bottom<PowerLineView>()
     }
 
     private fun showSaveDialogAndSaveText(extensions: Array<FileChooser.ExtensionFilter>, text: String, file: FileModel) {
@@ -197,14 +200,14 @@ class MainView : View() {
             controller.buffers[bufferIndex] = textEditor
         } else {
             // Add as new buffer
-            controller.buffers = controller.buffers.plus(textEditor)
+            controller.buffers.add(textEditor)
         }
     }
 
     fun newBuffer() {
-        val textEditor = NewBufferView()
-        controller.buffers = controller.buffers.plus(textEditor)
-        controller.currentBufferIndex = controller.buffers.size -1
+        val newBuffer = NewBufferView()
+        controller.buffers.add(newBuffer)
+        controller.currentBufferIndexProperty.set(controller.buffers.size -1)
         controller.openCurrentBufferIndexBuffer()
     }
 
@@ -216,7 +219,6 @@ class MainView : View() {
 class MainViewModel : ItemViewModel<MainView>() {
     val root = bind(MainView::root)
 }
-
 
 class Editor(file: FileModel): Fragment() {
     override val root = CodeArea()
@@ -231,22 +233,20 @@ class Editor(file: FileModel): Fragment() {
 
 class MainController : Controller() {
 
-    var buffers = emptyArray<Fragment>()
-    var currentBufferIndex = -1
+    var buffers = SortedFilteredList<Fragment>()
+    var currentBufferIndexProperty = SimpleIntegerProperty(-1)
 
     fun getCurrentBuffer(): Fragment {
-        return buffers[currentBufferIndex]
+        return buffers[currentBufferIndexProperty.get()]
     }
     fun openCurrentBufferIndexBuffer() {
         find(MainView::class).switchCenterToBufferView(getCurrentBuffer())
     }
 
     fun removeBuffer(index: Int) {
-        val mutableBuffers = buffers.toMutableList()
-        mutableBuffers.removeAt(index)
-        buffers = mutableBuffers.toTypedArray()
-        if (currentBufferIndex >= index && currentBufferIndex != 0) {
-            currentBufferIndex -= 1
+        buffers.removeAt(index)
+        if (currentBufferIndexProperty.get() >= index && currentBufferIndexProperty.get() != 0) {
+            currentBufferIndexProperty.value -= 1
         }
         openCurrentBufferIndexBuffer()
     }

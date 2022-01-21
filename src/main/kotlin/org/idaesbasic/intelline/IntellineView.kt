@@ -25,7 +25,7 @@ class IntellineView : View() {
                                 val mainView = find(MainView::class)
                                 val currentBuffersSize = mainView.controller.buffers.size
                                 mainView.newEditor(currentBuffersSize + 1, FileModel(null, null, null))
-                                mainView.controller.currentBufferIndex = currentBuffersSize
+                                mainView.controller.currentBufferIndexProperty.value = currentBuffersSize
                                 mainView.controller.openCurrentBufferIndexBuffer()
                             }
                         }

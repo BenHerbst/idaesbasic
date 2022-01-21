@@ -14,6 +14,7 @@ module idaesbasic.org.idaesbasic {
     opens org.idaesbasic.buffer to tornadofx;
     opens org.idaesbasic.buffer.run to tornadofx;
     opens org.idaesbasic.sidepanel to tornadofx;
+    opens org.idaesbasic.powerline to tornadofx;
 
     exports org.idaesbasic;
 }
