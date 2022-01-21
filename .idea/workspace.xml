@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Added sidebar">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/sidepanel/SidepanelView.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainStyle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainStyle.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,11 +151,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TornadoFX.NewBufferView" />
         <item itemvalue="TornadoFX.NewBufferView (4)" />
         <item itemvalue="TornadoFX.NewBufferView (3)" />
         <item itemvalue="TornadoFX.NewBufferView (2)" />
         <item itemvalue="TornadoFX.NewBufferView (1)" />
-        <item itemvalue="TornadoFX.NewBufferView" />
       </list>
     </recent_temporary>
   </component>
@@ -422,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642697705850</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Added sidebar">
+      <created>1642719854747</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1642719854747</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />

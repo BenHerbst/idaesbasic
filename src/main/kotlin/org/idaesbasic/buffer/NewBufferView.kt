@@ -21,7 +21,7 @@ class NewBufferView : Fragment () {
                         textfield()
                     }
                     field("Language") {
-                        text("Plain text")
+                        label("Plain text")
                     }
                 }
                 fieldset ("Advanced file configuration") {

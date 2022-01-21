@@ -7,6 +7,8 @@ class MainStyle: Stylesheet() {
    companion object {
        val styledTextArea by cssclass()
        val caret by cssclass()
+       val squeezebox by cssclass()
+       val form by cssclass()
 
        private val draculaBackgroundColor = c("#282a36")
        private val draculaForegroundColor = c("#44475a")
@@ -17,6 +19,7 @@ class MainStyle: Stylesheet() {
     init {
         button {
             backgroundColor = multi(draculaForegroundColor)
+            textFill = draculaTextColor
             and (hover) {
                 backgroundColor = multi(draculaSelectColor)
             }
@@ -38,6 +41,29 @@ class MainStyle: Stylesheet() {
         }
         caret {
             stroke = draculaTextColor
+        }
+        squeezebox {
+            backgroundColor = multi(draculaBackgroundColor)
+        }
+        titledPane {
+            textFill = draculaTextColor
+            title {
+                backgroundColor = multi(draculaBackgroundColor)
+            }
+            content {
+                borderColor = multi(box(draculaBackgroundColor))
+                backgroundColor = multi(draculaBackgroundColor)
+            }
+        }
+        root {
+            backgroundColor = multi(draculaBackgroundColor)
+        }
+        form {
+            backgroundColor = multi(draculaBackgroundColor)
+            textFill = draculaTextColor
+        }
+        label {
+            textFill = draculaTextColor
         }
     }
 }
