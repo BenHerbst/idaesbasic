@@ -238,13 +238,27 @@ class Editor(file: FileModel): Fragment() {
         val preventTab: InputMap<Event> = InputMap.consume(
             anyOf(
                 // Prevent tab to replace with 4 spaces indention
-                keyPressed(KeyCode.TAB),
-                keyPressed(KeyCode.H)
+                keyPressed(KeyCode.TAB)
             )
         )
         Nodes.addInputMap(root, preventTab)
         val whiteSpace: Pattern = Pattern.compile("^\\s+")
         root.addEventHandler(KeyEvent.KEY_PRESSED) { KE ->
+            // Vim movement
+            if (KE.getCode() === KeyCode.H) {
+                Platform.runLater {
+                    val caretPosition: Int = root.getCaretPosition()
+                    root.deleteText(caretPosition-1, caretPosition)
+                    root.moveTo(caretPosition - 2)
+                }
+            }
+            if (KE.getCode() === KeyCode.L) {
+                Platform.runLater {
+                    val caretPosition: Int = root.getCaretPosition()
+                    root.deleteText(caretPosition-1, caretPosition)
+                    root.moveTo(caretPosition)
+                }
+            }
             // Four spaces for tab
             if (KE.getCode() === KeyCode.TAB) {
                 val caretPosition: Int = root.getCaretPosition()
