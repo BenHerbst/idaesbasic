@@ -9,6 +9,7 @@ module idaesbasic.org.idaesbasic {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.fontawesome;
     requires tornadofx.controlsfx;
+    requires wellbehavedfx;
 
     opens org.idaesbasic to tornadofx;
     opens org.idaesbasic.buffer to tornadofx;

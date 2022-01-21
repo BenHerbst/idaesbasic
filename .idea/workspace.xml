@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Powerline with file name">
+    <list default="true" id="c77a1aab-3de9-4dc7-af8d-1b3b9f0d0a6a" name="Changes" comment="Added LineNumbers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainStyle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainStyle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/idaesbasic/MainView.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -442,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642791251598</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Added LineNumbers">
+      <created>1642799410711</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1642799410711</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="BenHerbst" />
@@ -506,7 +513,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Better tabbar style" />
     <MESSAGE value="New tab that adds tabs when selected" />
     <MESSAGE value="Fixed add tab button" />
     <MESSAGE value="We now use split pane, not border pane anymore" />
@@ -531,7 +537,8 @@
     <MESSAGE value="Added sidebar" />
     <MESSAGE value="Squezbox dracula theme" />
     <MESSAGE value="Powerline with file name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Powerline with file name" />
+    <MESSAGE value="Added LineNumbers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added LineNumbers" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -542,8 +549,8 @@
       <map>
         <entry key="flags" value="0" />
         <entry key="mode" value="0" />
-        <entry key="regex" value="\d{4}-(0[1-9]||1[0-2])-(0[1-9]||[12][0-9]||3[0-1])" />
-        <entry key="text" value="2021-12-31" />
+        <entry key="regex" value="^\\s+" />
+        <entry key="text" value="               printf" />
       </map>
     </option>
   </component>

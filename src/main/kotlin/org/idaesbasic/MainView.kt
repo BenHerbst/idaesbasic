@@ -1,22 +1,24 @@
 package org.idaesbasic
 
+import javafx.application.Platform
 import javafx.beans.property.SimpleIntegerProperty
-import javafx.beans.property.SimpleListProperty
-import javafx.collections.ListChangeListener
+import javafx.event.Event
 import javafx.geometry.Insets
-import javafx.scene.input.MouseEvent
+import javafx.scene.input.KeyCode
+import javafx.scene.input.KeyCombination.*
+import javafx.scene.input.KeyEvent
 import javafx.scene.layout.Priority
 import javafx.scene.paint.Color
 import javafx.stage.FileChooser
-import javafx.stage.StageStyle
 import org.fxmisc.richtext.CodeArea
 import org.fxmisc.richtext.LineNumberFactory
+import org.fxmisc.wellbehaved.event.EventPattern.*
+import org.fxmisc.wellbehaved.event.InputMap
+import org.fxmisc.wellbehaved.event.Nodes
 import org.idaesbasic.buffer.NewBufferView
 import org.idaesbasic.buffer.file.FileModel
 import org.idaesbasic.buffer.run.ExecutationSetupView
 import org.idaesbasic.buffer.run.RunConfigController
-import org.idaesbasic.buffer.run.RunConfigModel
-import org.idaesbasic.buffer.run.RunConfigProperty
 import org.idaesbasic.intelline.IntellineView
 import org.idaesbasic.powerline.PowerLineView
 import org.idaesbasic.sidepanel.SidepanelView
@@ -25,6 +27,9 @@ import tornadofx.*
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 
 class MainView : View() {
     val controller: MainController by inject()
@@ -230,6 +235,31 @@ class Editor(file: FileModel): Fragment() {
         fileObject = file
         root.padding = Insets(20.0, 20.0, 20.0, 20.0)
         root.appendText(file.text)
+        val preventTab: InputMap<Event> = InputMap.consume(
+            anyOf(
+                // Prevent tab to replace with 4 spaces indention
+                keyPressed(KeyCode.TAB),
+                keyPressed(KeyCode.H)
+            )
+        )
+        Nodes.addInputMap(root, preventTab)
+        val whiteSpace: Pattern = Pattern.compile("^\\s+")
+        root.addEventHandler(KeyEvent.KEY_PRESSED) { KE ->
+            // Four spaces for tab
+            if (KE.getCode() === KeyCode.TAB) {
+                val caretPosition: Int = root.getCaretPosition()
+                val currentParagraph: Int = root.getCurrentParagraph()
+                root.insertText(caretPosition, "    ")
+            }
+            // Auto-indent after pressing enter from last line
+            if (KE.getCode() === KeyCode.ENTER) {
+                val caretPosition: Int = root.getCaretPosition()
+                val currentParagraph: Int = root.getCurrentParagraph()
+                val m0: Matcher = whiteSpace.matcher(root.getParagraph(currentParagraph - 1).getSegments().get(0))
+                if (m0.find()) Platform.runLater { root.insertText(caretPosition, m0.group()) }
+            }
+            //TODO: Implement backpaces that removes 4 space intendations
+        }
     }
 }
 
