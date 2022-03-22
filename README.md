@@ -6,8 +6,6 @@
 !["with_love"](	http://ForTheBadge.com/images/badges/built-with-love.svg)
 # Idaesbasic - Project-Managment redefined
 
-I now CONTUINE the development, with a complete rewrite in tornadofx. Thank you all for the support.
-
 <br>
 <p align="center">
   <img src="https://github.com/BenHerbst/ainm/blob/master/icon.png" width=250>
