@@ -99,7 +99,7 @@ If you want to contribute to Idaesbasic, see CONTRIBUTING.md first!
 
 ## Build with javafx 💪
 The software is build with javafx 17:
-- Faster then web app
+- Faster than web app
 - Small, doesnt have a browser inside
 - Less ram
 - Can access your files
