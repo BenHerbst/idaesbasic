@@ -63,7 +63,21 @@ _At the moment, todolist, calendar and kanban are implemented, more are coming s
 
 
 ## Get started 🛫
-(1) Downloaad and install the app for windows or linux. 
+(1) Downloaad and install the app for windows or linux.
+
+_How do I do that?_
+
+**For Windows:**
+Download the .exe file at https://github.com/BenHerbst/idaesbasic/releases/tag/0.9.1.
+
+You maybe have to expand the "Assets" menu.
+
+Then Open the Explorer and go to "Downloads". There you should find the .exe if it got downloaded. If not, download the .exe again!
+
+Then, if downloaded and found in the Explorer, double click on it and an installer pops up.
+
+There you just have to follow the steps and Idaesbasic is ready to use!
+
 </br>
 (2) Click on "Projects" -> "Add project" and select a folder
 </br>
@@ -108,10 +122,6 @@ The software is build with javafx 17:
 The website of the project is avaible under https://benherbst.github.io/idaesbasic
 
 ## Future
-### Version 0.9.1:
-- Clean up
-- More stable
-- Bug fixes
 
 ### Version 1.0.0 Stable:
 - Todolists with time and tags
@@ -120,3 +130,5 @@ The website of the project is avaible under https://benherbst.github.io/idaesbas
 - Faster, Optimized
 - Bug fixes
 - ...
+
+This is my first real Github project I started as a side project, I still maintain some times and do things here and there and I hope you like it!
