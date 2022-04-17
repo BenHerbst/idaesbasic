@@ -68,6 +68,7 @@ _At the moment, todolist, calendar and kanban are implemented, more are coming s
 _How do I do that?_
 
 **For Windows:**
+
 Download the .exe file at https://github.com/BenHerbst/idaesbasic/releases/tag/0.9.1.
 
 You maybe have to expand the "Assets" menu.
@@ -77,6 +78,34 @@ Then Open the Explorer and go to "Downloads". There you should find the .exe if 
 Then, if downloaded and found in the Explorer, double click on it and an installer pops up.
 
 There you just have to follow the steps and Idaesbasic is ready to use!
+
+**For Linux:**
+
+Download the .deb ( currently unavaible ) or .jar file at https://github.com/BenHerbst/idaesbasic/releases/tag/0.9.1. ( .deb is only for Debian or Debian based Linux like Ubuntu, Linux Mint or Pop!_OS )
+
+Then open your file explorer. Go to "Downloads" and find the .deb or .jar file
+
+If you downloaded the .deb for Debian or Debian based Linux, just double click the .deb and follow the install instructions.
+
+If you got the .jar, which also runs on Arch, Manjaro or VOID Linux, you also have to get Java 17.
+The best way to install it is to go to https://jdk.java.net/17/ and read the install instructions there or go to Google and check how to install Java 17 or Openjdk 17 on your system.
+
+There is also jdk-openjdk on Arch and Manjaro: pacman -S jdk-openjdk.
+
+After the installation of Java 17, go to the file explorer, find the .jar and double click it. If that not work, open a Terminal window and execute:
+
+1. cd Downloads
+2. java -jar (" The file name of the .jar file ")
+3. if Idaesbasic doesn't start, copy the text of the Terminal window of take a screenshot and report it at https://github.com/BenHerbst/idaesbasic/issues. You have to get a Github account.
+
+_I would love it when anyone could help me creating a flatpak of this project!_
+
+**Macos:**
+There is currently **no** Macos version. You have to self compile it with Maven and Java 17 from https://github.com/BenHerbst/idaesbasic/tree/0.9.1.
+
+I don't own a Macos device. Apple restricts you to own a Macos device to create a package for Macos.
+
+Maybe someone with a Mac device could help me?
 
 </br>
 (2) Click on "Projects" -> "Add project" and select a folder
