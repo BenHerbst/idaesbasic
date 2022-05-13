@@ -43,6 +43,9 @@ There will be lot of tools in Idaesbasic:
 
 _At the moment, todolist, calendar and kanban are implemented, more are coming soon!_
 
+## Support me ( BTC )
+![grafik](https://user-images.githubusercontent.com/83538916/168398230-667890ac-a947-4f3d-a39e-491612477870.png)
+
 ## Compare with other tools
 
 | Has feature | ✅ |
