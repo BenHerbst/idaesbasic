@@ -6,6 +6,8 @@
 !["with_love"](	http://ForTheBadge.com/images/badges/built-with-love.svg)
 # Idaesbasic - Project-Managment redefined
 
+Use the 0.9.1 branch if you want to see the code before Kotlin rewrite!
+
 <br>
 <p align="center">
   <img src="https://github.com/BenHerbst/ainm/blob/master/icon.png" width=250>
