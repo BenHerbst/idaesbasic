@@ -24,10 +24,6 @@ You can store everything local on you computer and directly in your project. For
   <img src="https://user-images.githubusercontent.com/83538916/138612887-69677d2b-ff62-4836-9b37-9949ace6c960.png" width=200>
 </p>
 
-## Support me ( BTC ):
-![grafik](https://user-images.githubusercontent.com/83538916/168398316-83b9b40e-c178-490d-be65-a5fa193baf3f.png)
-
-
 ## Big tool set ⚒️
 
 There will be lot of tools in Idaesbasic:
