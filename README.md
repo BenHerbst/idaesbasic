@@ -42,8 +42,11 @@ There will be lot of tools in Idaesbasic:
 ![image](https://user-images.githubusercontent.com/83538916/141648926-f56fbbc7-86cb-411f-bea9-8d12f29999a5.png)
 ![image](https://user-images.githubusercontent.com/83538916/141648957-d23a2f85-e2bd-4fe1-bac4-89d59274e39f.png)
 
-
 _At the moment, todolist, calendar and kanban are implemented, more are coming soon!_
+
+## Support me ( PayPal )
+|[Donate](https://www.paypal.com/donate/?hosted_button_id=C5X9LBEM7XZ64)|
+|---|
 
 ## Compare with other tools
 
