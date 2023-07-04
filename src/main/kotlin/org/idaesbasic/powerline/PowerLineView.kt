@@ -9,32 +9,31 @@ import tornadofx.onChange
 import tornadofx.toolbar
 
 class PowerLineView : View() {
-    val fileNameProperty = SimpleStringProperty()
-    val mainController = find(MainController::class)
+    private val fileNameProperty = SimpleStringProperty()
+    private val mainController: MainController by inject()
 
-    override val root = toolbar() {
-        // Listen changes
+    override val root = toolbar {
+        // Listen to changes
         // On current buffer got replaced
-        mainController.buffers.onChange {
-            it.next()
-            if(it.wasReplaced()) {
+        mainController.buffers.onChange { change ->
+            change.next()
+            if (change.wasReplaced()) {
                 setFileName()
             }
         }
         // On buffer switched
-        mainController.currentBufferIndexProperty.onChange {
+        mainController.currentBufferIndexProperty.onChange { _ ->
             setFileName()
         }
         label(fileNameProperty)
     }
 
-    fun setFileName() {
-        if (mainController.getCurrentBuffer() is Editor) {
-            fileNameProperty.value = (mainController.getCurrentBuffer() as Editor).fileObject.name
-        }
-        else {
-            fileNameProperty.value = "No file opened"
+    private fun setFileName() {
+        val currentBuffer = mainController.getCurrentBuffer()
+        fileNameProperty.value = if (currentBuffer is Editor) {
+            currentBuffer.fileObject.name
+        } else {
+            "No file opened"
         }
     }
-
 }

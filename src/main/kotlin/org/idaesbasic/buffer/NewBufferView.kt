@@ -8,16 +8,16 @@ import tornadofx.*
 import java.nio.file.Files
 import java.nio.file.Paths
 
-class NewBufferView : Fragment () {
-    val loadDirectory = SimpleStringProperty()
-    val loadFile = SimpleStringProperty()
-    val controller = find(NewBufferController::class)
+class NewBufferView : Fragment() {
+    private val loadDirectory = SimpleStringProperty()
+    private val loadFile = SimpleStringProperty()
+    private val controller: NewBufferController by inject()
 
     override val root = squeezebox {
         fold("New file", expanded = true) {
             val newFileName = SimpleStringProperty()
             form {
-                fieldset ("Basic file configuration"){
+                fieldset("Basic file configuration") {
                     field("Filename") {
                         textfield(newFileName)
                     }
@@ -25,7 +25,7 @@ class NewBufferView : Fragment () {
                         label("Plain text")
                     }
                 }
-                fieldset ("Advanced file configuration") {
+                fieldset("Advanced file configuration") {
 
                 }
                 button("Create") {
@@ -40,29 +40,29 @@ class NewBufferView : Fragment () {
         }
         fold("Load file", expanded = true) {
             form {
-                fieldset ("Location") {
-                    field ("Directory") {
+                fieldset("Location") {
+                    field("Directory") {
                         hbox {
-                            textfield (loadDirectory)
+                            textfield(loadDirectory)
                         }
                     }
-                    field ("File name") {
+                    field("File name") {
                         hbox {
-                            textfield (loadFile)
+                            textfield(loadFile)
                         }
                     }
-                    button ("Auto pick") {
+                    button("Auto pick") {
                         action {
-                            val extentions = arrayOf(
+                            val extensions = arrayOf(
                                 FileChooser.ExtensionFilter("All", "*"),
                                 FileChooser.ExtensionFilter("Plain text", "*.txt"),
                                 FileChooser.ExtensionFilter("Java class", "*.java"),
                                 FileChooser.ExtensionFilter("Python", "*.py"),
-                                FileChooser.ExtensionFilter("Kotlin class", "*.kt"),
+                                FileChooser.ExtensionFilter("Kotlin class", "*.kt")
                             )
                             val fileArray = chooseFile(
                                 "Save file",
-                                extentions,
+                                extensions,
                                 null,
                                 null,
                                 FileChooserMode.Single
@@ -76,7 +76,7 @@ class NewBufferView : Fragment () {
                 }
                 button("Load file") {
                     action {
-                        controller.loadFileInEditor(loadDirectory.value + loadFile.value)
+                        controller.loadFileInEditor("${loadDirectory.value}${loadFile.value}")
                     }
                 }
             }
@@ -84,7 +84,7 @@ class NewBufferView : Fragment () {
     }
 }
 
-class NewBufferController : Controller () {
+class NewBufferController : Controller() {
     fun loadFileInEditor(location: String) {
         val mainView = find(MainView::class)
         val openedFile = Paths.get(location)
