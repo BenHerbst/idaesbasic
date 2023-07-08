@@ -5,19 +5,19 @@ import javafx.beans.property.SimpleIntegerProperty
 import javafx.event.Event
 import javafx.geometry.Insets
 import javafx.scene.input.KeyCode
-import javafx.scene.input.KeyCombination.*
 import javafx.scene.input.KeyEvent
 import javafx.scene.layout.Priority
 import javafx.scene.paint.Color
 import javafx.stage.FileChooser
 import org.fxmisc.richtext.CodeArea
 import org.fxmisc.richtext.LineNumberFactory
-import org.fxmisc.wellbehaved.event.EventPattern.*
+import org.fxmisc.wellbehaved.event.EventPattern.anyOf
+import org.fxmisc.wellbehaved.event.EventPattern.keyPressed
 import org.fxmisc.wellbehaved.event.InputMap
 import org.fxmisc.wellbehaved.event.Nodes
 import org.idaesbasic.buffer.NewBufferView
 import org.idaesbasic.buffer.file.FileModel
-import org.idaesbasic.buffer.run.ExecutationSetupView
+import org.idaesbasic.buffer.run.ExecutionSetupView
 import org.idaesbasic.buffer.run.RunConfigController
 import org.idaesbasic.intelline.IntellineView
 import org.idaesbasic.powerline.PowerLineView
@@ -29,7 +29,6 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.regex.Matcher
 import java.util.regex.Pattern
-
 
 class MainView : View() {
     val controller: MainController by inject()
@@ -60,7 +59,7 @@ class MainView : View() {
                         iconColor = Color.web("#f8f8f2")
                     }
                     action {
-                        if (controller.currentBufferIndexProperty.value +1 < controller.buffers.size) {
+                        if (controller.currentBufferIndexProperty.value + 1 < controller.buffers.size) {
                             controller.currentBufferIndexProperty.value += 1
                             controller.openCurrentBufferIndexBuffer()
                         }
@@ -94,15 +93,15 @@ class MainView : View() {
                     action {
                         val currentEditor: Editor = controller.getCurrentBuffer() as Editor
                         showSaveDialogAndSaveText(
-                            arrayOf(
+                            extensions = arrayOf(
                                 FileChooser.ExtensionFilter("All", "*"),
                                 FileChooser.ExtensionFilter("Plain text", "*.txt"),
                                 FileChooser.ExtensionFilter("Java class", "*.java"),
                                 FileChooser.ExtensionFilter("Python", "*.py"),
-                                FileChooser.ExtensionFilter("Kotlin class", "*.kt"),
-                                ),
-                            currentEditor.root.text,
-                            currentEditor.fileObject
+                                FileChooser.ExtensionFilter("Kotlin class", "*.kt")
+                            ),
+                            text = currentEditor.root.text,
+                            file = currentEditor.fileObject
                         )
                     }
                     graphic = FontIcon().apply {
@@ -130,13 +129,13 @@ class MainView : View() {
                     prefHeight = prefWidth
                     val configsController = find(RunConfigController::class)
                     val contextMenu = contextmenu {
-                        item ("Change config"){
+                        item("Change config") {
                             action {
-                                ExecutationSetupView().openWindow()
+                                ExecutionSetupView().openWindow()
                             }
                         }
                     }
-                    val runContextToggleGroup = togglegroup {  }
+                    val runContextToggleGroup = togglegroup { }
                     configsController.configs.onChange() {
                         // Update context menu to the changed config
                         it.next()
@@ -183,11 +182,9 @@ class MainView : View() {
     private fun showSaveDialogAndSaveText(extensions: Array<FileChooser.ExtensionFilter>, text: String, file: FileModel) {
         if (file.directory == null) {
             val fileArray = chooseFile(
-                "Save file",
-                extensions,
-                null,
-                null,
-                FileChooserMode.Save
+                title = "Save file",
+                filters = extensions,
+                mode = FileChooserMode.Save
             )
             if (fileArray.isNotEmpty()) {
                 val newDirectory = fileArray[0]
@@ -213,7 +210,7 @@ class MainView : View() {
     fun newBuffer() {
         val newBuffer = NewBufferView()
         controller.buffers.add(newBuffer)
-        controller.currentBufferIndexProperty.set(controller.buffers.size -1)
+        controller.currentBufferIndexProperty.set(controller.buffers.size - 1)
         controller.openCurrentBufferIndexBuffer()
     }
 
@@ -226,7 +223,7 @@ class MainViewModel : ItemViewModel<MainView>() {
     val root = bind(MainView::root)
 }
 
-class Editor(file: FileModel): Fragment() {
+class Editor(file: FileModel) : Fragment() {
     override val root = CodeArea()
     lateinit var fileObject: FileModel
 
@@ -237,7 +234,7 @@ class Editor(file: FileModel): Fragment() {
         root.appendText(file.text)
         val preventTab: InputMap<Event> = InputMap.consume(
             anyOf(
-                // Prevent tab to replace with 4 spaces indention
+                // Prevent tab to replace with 4 spaces indentation
                 keyPressed(KeyCode.TAB)
             )
         )
@@ -245,34 +242,33 @@ class Editor(file: FileModel): Fragment() {
         val whiteSpace: Pattern = Pattern.compile("^\\s+")
         root.addEventHandler(KeyEvent.KEY_PRESSED) { KE ->
             // Vim movement
-            if (KE.getCode() === KeyCode.H) {
+            if (KE.code === KeyCode.H) {
                 Platform.runLater {
-                    val caretPosition: Int = root.getCaretPosition()
-                    root.deleteText(caretPosition-1, caretPosition)
+                    val caretPosition: Int = root.caretPosition
+                    root.deleteText(caretPosition - 1, caretPosition)
                     root.moveTo(caretPosition - 2)
                 }
             }
-            if (KE.getCode() === KeyCode.L) {
+            if (KE.code === KeyCode.L) {
                 Platform.runLater {
-                    val caretPosition: Int = root.getCaretPosition()
-                    root.deleteText(caretPosition-1, caretPosition)
+                    val caretPosition: Int = root.caretPosition
+                    root.deleteText(caretPosition - 1, caretPosition)
                     root.moveTo(caretPosition)
                 }
             }
             // Four spaces for tab
-            if (KE.getCode() === KeyCode.TAB) {
-                val caretPosition: Int = root.getCaretPosition()
-                val currentParagraph: Int = root.getCurrentParagraph()
+            if (KE.code === KeyCode.TAB) {
+                val caretPosition: Int = root.caretPosition
                 root.insertText(caretPosition, "    ")
             }
-            // Auto-indent after pressing enter from last line
-            if (KE.getCode() === KeyCode.ENTER) {
-                val caretPosition: Int = root.getCaretPosition()
-                val currentParagraph: Int = root.getCurrentParagraph()
-                val m0: Matcher = whiteSpace.matcher(root.getParagraph(currentParagraph - 1).getSegments().get(0))
+            // Auto-indent after pressing enter from the last line
+            if (KE.code === KeyCode.ENTER) {
+                val caretPosition: Int = root.caretPosition
+                val currentParagraph: Int = root.currentParagraph
+                val m0: Matcher = whiteSpace.matcher(root.getParagraph(currentParagraph - 1).getSegments()[0])
                 if (m0.find()) Platform.runLater { root.insertText(caretPosition, m0.group()) }
             }
-            //TODO: Implement backpaces that removes 4 space intendations
+            //TODO: Implement backspaces that remove 4 space indentations
         }
     }
 }
@@ -285,6 +281,7 @@ class MainController : Controller() {
     fun getCurrentBuffer(): Fragment {
         return buffers[currentBufferIndexProperty.get()]
     }
+
     fun openCurrentBufferIndexBuffer() {
         find(MainView::class).switchCenterToBufferView(getCurrentBuffer())
     }
@@ -300,5 +297,4 @@ class MainController : Controller() {
     fun saveTextToFile(text: String, file: Path) {
         Files.writeString(file, text)
     }
-
 }
